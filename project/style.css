@@ -1,0 +1,118 @@
+h1 {
+    color: navy;
+    text-align: center;
+    font-family: Alata;
+    /*background-color: lightgrey;
+    background-size: 30% 10%;*/
+    margin: 0;
+}
+
+body {
+    font: sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    text-align: center;
+    clear: both;
+}
+
+#covid19 {
+    width: 25em;
+}
+#map {
+    width: 30em;
+}
+/*
+.map {
+    background-image: url("map.jpeg");
+    height : 1000px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+*/
+header {
+    padding: 1em;
+    background-color: #ffae42;
+    height: 2em;
+}
+
+footer {
+    padding: 1em;
+    /*position: fixed;*/
+    bottom: 0;
+    height: 5em;
+    width: 100%;
+    background-color: slateblue;
+    box-sizing: border-box;
+}
+
+hr {
+  border: 5px solid Moccasin;
+}
+
+a {
+    font-size: 17px;
+    padding: 1em;
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+input[type="text"][name="search"]{
+    padding: 0.5em 2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    width: 25em;
+    border: 1px solid lightgrey;
+    border-radius: 1em;
+
+}
+
+
+
+/*button style*/
+button {
+    background-color : navy;
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 0.5em;
+    margin: 5px;
+}
+
+button.click {
+    background-color : #ffae42;
+}
+
+button.show_main {
+    background-color : grey;
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 0.5em;
+    margin: 5px;
+}
+.log_in {
+    float : right;
+}
+
+.sign_up {
+    float: right;
+}
+
+.show_main {
+    float: right;
+}
+
+
+.info{
+    float: right;
+}

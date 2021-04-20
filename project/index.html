@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <title>COVID-19 contact tracing system</title>
+      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alata">
+      <script src="project.js"></script>
+
+</head>
+<body>
+    <!-- main page -->
+    <div id="main">
+        <header>
+        <button class="log_in" onclick= "log_in()">Log In</button>
+        <button class="sign_up" onclick= "sign_up()">Sign Up</button>
+        </header>
+        <hr>
+        <main>
+            <img id="covid19" src="COVID19.png" alt="covid">
+            <h1>contact tracing system</h1>
+            <form>
+                <input type="text" name="search" />
+                <button class="click">CLICK</button>
+            </form>
+            <div class="map">
+                <img id="map" src=map.jpeg alt="map">
+            </div>
+        </main>
+    </div>
+
+
+    <!-- go to the log-in page -->
+    <div id="log_in" style="display:none;">
+        <button class="show_main" onclick="showMain()">BACK</button>
+        <p>log-in page</p>
+    </div>
+
+    <!-- go to the sign-up page -->
+    <div id="sign_up" style="display:none;">
+        <button class="show_main" onclick="showMain()">BACK</button>
+        <button class="log_in" onclick="log_in()">Log In</button>
+        <br>
+        <p>sign-up page</p>
+    </div>
+
+    <footer>
+        <div class="info">
+            <a href="https://ide-021dae7150fa4cc59d08dabcff3335f0-8081.cs50.ws/index.html">Home</a>
+            <a href="/About us">About us</a>
+            <a href="/Contact us">Contact us</a>
+        </div>
+        <div>
+            <p>Copyright 2021</p>
+        </div>
+    </footer>
+</body>
+
+</html>
