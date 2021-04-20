@@ -36,8 +36,8 @@ main {
 */
 header {
     padding: 1em;
-    background-color: #ffae42;
-    height: 2em;
+    background-color: plum;
+    height: 3em;
 }
 
 footer {
@@ -48,6 +48,7 @@ footer {
     width: 100%;
     background-color: slateblue;
     box-sizing: border-box;
+    font-family: arial;
 }
 
 hr {
@@ -80,12 +81,22 @@ input[type="text"][name="search"]{
 
 /*button style*/
 button {
-    background-color : navy;
-    color: white;
-    padding: 0.5em 1em;
+    background-color : white;
+    color: rebeccapurple;
+    padding: 0.8em 1.3em;
     border: none;
+    font-weight: 900;
+    font-size: 15px;
     border-radius: 0.5em;
     margin: 5px;
+}
+
+#logo {
+    float: left;
+    width: 7em;
+    padding: 0;
+    position: center;
+
 }
 
 button.click {
@@ -95,12 +106,13 @@ button.click {
 button.show_main {
     background-color : grey;
     color: white;
-    padding: 0.5em 1em;
+    padding: 0.8em 1.3em;
     border: none;
     border-radius: 0.5em;
     margin: 5px;
 }
-.log_in {
+button.log_in {
+    background-color: sandybrown;
     float : right;
 }
 
