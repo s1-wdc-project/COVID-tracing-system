@@ -15,7 +15,6 @@ sudo code of website. [Kay]
 
 checkpoint for milestone 1:
 
-research:
 design:
 features:
 review:
