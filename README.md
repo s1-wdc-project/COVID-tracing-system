@@ -12,3 +12,13 @@ feature design part. [Kay]
 
 sudo code of website. [Kay]
  file : project.zip 
+
+checkpoint for milestone 1:
+
+research:
+design:
+features:
+review:
+data plan:
+database schema:
+implementation:
