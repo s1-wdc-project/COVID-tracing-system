@@ -3,7 +3,9 @@
 database design.[waiton]
  file : https://app.diagrams.net/?title=Copy%20of%20schema.drawio&client=1#Hs1-wdc-project%2FCOVID-tracing-system%2Fmain%2Fschema.drawio
 
-
+review part. [Hao]
+ file : review.docx
+ 
 research part. [jocelyn]
  file : research.docx
  
@@ -21,6 +23,8 @@ research:
 
 design:
 features:
+   added back button
+   
 review:
 data plan:
 database schema:
