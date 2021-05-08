@@ -14,6 +14,10 @@ sudo code of website. [Kay]
  file : project.zip 
 
 checkpoint for milestone 1:
+research: 
+    add example in account manage page(change password, change phone number  etc...)
+    
+
 
 design:
 features:
