@@ -23,7 +23,8 @@ research:
 
 design:
 features:
-   added back button
+   have to add 7.venue(check-in history), 8.venue(manage account), 9.official in feature plan
+   have to update 6.user page, 7.user my account page, 8.venue(check in history)page, 9.venue(manage account page), 10.official page in site design
    
 review:
 data plan:
