@@ -30,6 +30,8 @@ site design:
    have to update 6.user page, 7.user my account page, 8.venue(check in history)page, 9.venue(manage account page), 10.official page in site design
    
 review:
+   Need to add official page
+   
 data plan:
 database schema:
 implementation:
