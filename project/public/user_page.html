@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+        <title>COVID-19 contact tracing system</title>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alata">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <script src="javascripts/project.js" defer ></script>
+</head>
+<body>
+<div id="user_page">
+    <!--——————————————————————————————————————header——————————————————————————————————————————————————————-->
+    <header>
+        <image src="logo.png" id="logo" alt="logo"></image>
+
+        <div class = "header_button" >
+            <a  id="log_out" class="back_btn" onclick="double_check_log_out()">Log out</a>
+            <a onclick= "user_log_in.user_type = 0 ; warning()">individual</a>
+            <a onclick= "user_log_in.user_type = 1; warning()">manager</a>
+            <a onclick="user_log_in.user_type = 2; warning()">official</a>
+        </div>
+
+    </header>
+    <!--——————————————————————————————————————individual ——————————————————————————————————————————————————-->
+    <!--—————————————————————head —————————————————————————————————-->
+    <div class="individual_user" v-if="user_type == 0">
+        <div class="main_header">
+            <h1>Welcome</h1>
+            <h2>individual user</h2>
+        </div>
+        <div class="bar" style="z-index: 2;">
+          <a onclick="user_log_in.i_user_bar = '0';"> check-in </a>
+          <!--addition comment: user eddit information = false each time open accout-->
+          <a onclick="user_log_in.i_user_bar = '1';user_log_in.change_information = false">Account</a>
+        </div>
+   <!--—————————————————————content —————————————————————————————————-->
+   <!--——————————————check_in ———————————————————————-->
+        <div class="individual_check_in" v-if="i_user_bar ==0">
+            <br>
+            <div class ="check_in_box">
+                <h2>Check in now to save your spot</h2>
+                <button class="checkin_button">Check In</button>
+            </div>
+            <br>
+            <br>
+    <!-------------------- check in history ---------------------------->
+                <div class="history">
+                    <h2>My history</h2>
+                  <div class="history_box">
+                    <h3 style="color:slateblue">10 May 2021 10:53 AM</h3>
+                    <p>The University of Adelaide, Adelaide South Australia
+                5005 Australia</p>
+                  </div>
+                  <div class="history_box">
+                    <h3 style="color:slateblue">11 May 2021 12:34 PM</h3>
+                    <p>KFC, 100 Hindley St Adelaide South Australia 5003</p>
+                  </div>
+                </div>
+        </div>
+   <!--——————————————account———————————————————————-->
+   <!--page show information-->
+       <div class="individual_account" v-else-if="i_user_bar ==1">
+            <h1> your information: </h1>
+            <!--personal information-->
+            <div class="information_block">
+                <p>User ID: </p>
+            </div>
+            <div class="information_block" v-if="!change_information">
+                <p style="font-size:150%;">your personal information:
+                <a class="change_user_info" @click="change_information = true">change information</a>
+                </p>
+                <p>&#128100 Name: </p>
+
+                <p>&#9743 Phone Number:</p>
+                <p>&#128231 Email: </p>
+            </div>
+            <div class="information_block" v-else >
+                <!--column for text explain the intext-->
+                <table class="info_table_layout">
+                    <tr>
+                        <th><p>First Name:</p></th>
+                        <th> <input class="change_info_input" type="text" name="first_name" placeholder="first name" ></th>
+                    </tr>
+                    <tr>
+                        <th><p>Last Name:</p></th>
+                        <th> <input class="change_info_input" type="text" name="last_name" placeholder="last name" ></th>
+                    </tr>
+                    <tr>
+                        <th><p>Phone Number:</p></th>
+                        <th> <input class="change_info_input" type="tel" name="phone_NO" placeholder="number" ></th>
+                    </tr>
+                    <tr>
+                        <th><p>Email Address:</p></th>
+                        <th> <input class="change_info_input" type="email" name="email" placeholder="email" ></th>
+                    </tr>
+                    <tr>
+                        <th><p>Password:</p></th>
+                        <th> <input class="change_info_input" type="password" name="password" placeholder="**************" ></th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th>                <button @click="change_information = false" style="background-color:skyblue;">submit change</button></th>
+                    </tr>
+                </table>
+              </div>
+        </div>
+    </div><!-- end of individual user-->
+    <!--——————————————————————————————————————manager —————————————————————————————————————————————----—————-->
+    <!--—————————————————————head —————————————————————————————————-->
+    <div class="manager" v-else-if="user_type == 1">
+        <div class="main_header">
+            <h1>Welcome</h1>
+            <h2>manager</h2>
+        </div>
+        <div class="bar">
+          <a onclick="user_log_in.v_user_bar = '0';"> check-in-search </a>
+          <a onclick="user_log_in.v_user_bar = '1';">Account</a>
+        </div>
+   <!--——————————————check_in_history  ———————————————————————-->
+        <div class="venue_check_in" v-if="v_user_bar == 0">
+            <div class="search">
+                <h1>venue check in page </h1>
+                <br>
+                <br>
+                <label for="search_user">user_id:</label>
+                <input type="text" id="search_user" name="enter the user id">
+                <input type="submit" value="Search">
+                <br>
+                <br>
+            </div>
+            <div class="search_result_table">
+                <table>
+                <tr style="background-color:#CDCDCD">
+                    <th>User_id</th>
+                    <th>User_name</th>
+                    <th>Venue</th>
+                    <th>Date</th>
+                </tr>
+                    <th>a11111</th>
+                    <th>someone</th>
+                    <th>Atlantis</th>
+                    <th>2021-5-14 19:22:14</th>
+                <tr>
+                </tr>
+                <tr>
+
+                </tr>
+            </table>
+            </div>
+
+        </div>
+   <!--——————————————account———————————————————————-->
+       <div class="venue_account" v-else-if="v_user_bar == 1">
+            <h1> venue information: </h1>
+            <!--vnue information-->
+            <div class="information_block">
+                <p>Venue ID: </p>
+            </div>
+            <div class="information_block" v-if="!change_information">
+                <p style="font-size:150%;">your personal information:
+                <a class="change_user_info" @click="change_information = true">change information</a>
+                </p>
+                <p>&#8962 Name: </p>
+
+                <p>&#9743 Phone Number:</p>
+                <p>&#9873 location: </p>
+                <p>health situation: &#128994</p>
+            </div>
+            <div class="information_block" v-else >
+                <!--column for text explain the intext-->
+                <table class="info_table_layout">
+                    <tr>
+                        <th><p>Venue name:</p></th>
+                        <th> <input class="change_info_input" type="text" name="venue_name" placeholder="venue name" ></th>
+                    </tr>
+                    <tr>
+                        <th><p>Phone Number:</p></th>
+                        <th> <input class="change_info_input" type="tel" name="phone_NO" placeholder="number" ></th>
+                    </tr>
+                    <tr>
+                        <th><p>Location:</p></th>
+                        <th> <input class="change_info_input" type="text" name="address" placeholder="location" ></th>
+                    </tr>
+                    <tr>
+                        <th><p>Password:</p></th>
+                        <th> <input class="change_info_input" type="password" name="password" placeholder="**************" ></th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th>                <button @click="change_information = false" style="background-color:skyblue;">submit change</button></th>
+                    </tr>
+                </table>
+              </div>
+        </div>
+    </div><!-- end of venue user-->
+    <!--——————————————————————————————————————health official —————————————————————————————————————————————----—————-->
+    <!--—————————————————————head —————————————————————————————————-->
+    <div class="health_official" v-else-if="user_type == 2">
+        <div class="main_header">
+            <h1>Welcome</h1>
+            <h2>Official</h2>
+        </div>
+        <div class="bar">
+          <a onclick="user_log_in.o_user_bar = '0';"> user check in history </a>
+          <a onclick="user_log_in.o_user_bar = '1';">venue check in history </a>
+          <a onclick="user_log_in.o_user_bar = '2';">set hotspot </a>
+          <a onclick="user_log_in.o_user_bar = '3';">Account </a>
+          <a onclick="user_log_in.o_user_bar = '5';">health official sign up</a>
+        </div>
+   <!--——————————————user check in———————————————————————-->
+       <div class="official_account" v-if="o_user_bar == 0">
+           <div class="search">
+                <h1>search check-in history by user: </h1>
+                <br>
+                <br>
+                <label for="search_user">user_id:</label>
+                <input type="text" id="search_user" name="enter the user id">
+                <input type="submit" value="Search">
+                <br>
+                <br>
+            </div>
+            <div class="search_result_table">
+                <table>
+                <tr style="background-color:#CDCDCD">
+                    <th>User_id</th>
+                    <th>User_name</th>
+                    <th>Venue</th>
+                    <th>Date</th>
+                </tr>
+                    <th>a11111</th>
+                    <th>someone</th>
+                    <th>Atlantis</th>
+                    <th>2021-5-14 19:22:14</th>
+                <tr>
+                </tr>
+                <tr>
+
+                </tr>
+            </table>
+            </div>
+
+        </div>
+   <!--——————————————venue check in———————————————————————-->
+       <div class="official_account" v-else-if="o_user_bar == 1">
+                       <div class="search">
+                <h1>search check-in history by venue: </h1>
+                <br>
+                <br>
+                <label for="search_venue">venue_id:</label>
+                <input type="text" id="search_venue" name="enter the venue id">
+                <input type="submit" value="Search">
+                <br>
+                <br>
+            </div>
+            <div class="search_result_table">
+                <table>
+                <tr style="background-color:#CDCDCD">
+                    <th>Venue</th>
+                    <th>User_id</th>
+                    <th>User_name</th>
+                    <th>Date</th>
+                </tr>
+                    <th>Atlantis</th>
+                    <th>a11111</th>
+                    <th>someone</th>
+                    <th>2021-5-14 19:22:14</th>
+                <tr>
+                </tr>
+                <tr>
+
+                </tr>
+            </table>
+            </div>
+
+
+        </div>
+   <!--——————————————set hotspot———————————————————————-->
+       <div class="official_account" v-else-if="o_user_bar == 2">
+            <h1>official set hotspot </h1>
+
+        </div>
+   <!--——————————————account———————————————————————-->
+       <div class="official_account" v-else-if="o_user_bar == 3">
+            <h1>official information: </h1>
+            <!--vnue information-->
+            <div class="information_block">
+                <p>official ID: </p>
+            </div>
+            <div class="information_block" v-if="!change_information">
+                <p style="font-size:150%;">your personal information:
+                <a class="change_user_info" @click="change_information = true">change information</a>
+                </p>
+                <p>&#8962 Name: </p>
+                <p>&#9743 Phone Number:</p>
+                <p>&#128231 Email: </p>
+            </div>
+            <div class="information_block" v-else >
+                <!--column for text explain the intext-->
+                <table class="info_table_layout">
+                    <tr>
+                        <th><p>name:</p></th>
+                        <th> <input class="change_info_input" type="text" name="official_name" placeholder="official name" ></th>
+                    </tr>
+                    <tr>
+                        <th><p>Phone Number:</p></th>
+                        <th> <input class="change_info_input" type="tel" name="phone_NO" placeholder="number" ></th>
+                    </tr>
+                    <tr>
+                        <th><p>Email Address:</p></th>
+                        <th> <input class="change_info_input" type="email" name="email" placeholder="email" ></th>
+                    </tr>
+                    <tr>
+                        <th><p>Password:</p></th>
+                        <th> <input class="change_info_input" type="password" name="password" placeholder="**************" ></th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th>                <button @click="change_information = false" style="background-color:skyblue;">submit change</button></th>
+                    </tr>
+                </table>
+              </div>
+        </div>
+
+   <!--——————————————sign-up ———————————————————————-->
+       <div class="official_account" v-else-if="o_user_bar == '5'">
+            <h1>official sign up </h1>
+            <div class="signup_page">
+                <form>
+                    <div class="row signup_row">
+
+                        <h2 style="text-align:center">Create an Official account</h2>
+                          <label for="Name">Name</label>
+                          <input type="text" id="official_Name" class="signup_input">
+                        <br>
+                          <label for="password">Password</label>
+                          <input type="password" id="password" class="signup_input">
+                        <br>
+                          <label for="email">Your Email</label>
+                          <input type="text" id="email" class="signup_input">
+                        <br>
+                          <label for="phone">Phone Num</label>
+                          <input type="text" id="phone" class="signup_input" >
+                        <br>
+
+                        <button class="sign_up_button">Sign-up</button>
+                        <button class="cancel" onclick="showMain()"> Cancel </button>
+
+
+
+                    </div>
+                    <br>
+                </form>
+            </div>
+
+        </div>
+
+    </div><!-- end of official user-->
+    <!--——————————————————————————————————————page error——————————————————————————————————————————————————— -->
+    <div v-else>
+        <p>page error</p>
+    </div>
+
+
+    <!--——————————————————————————————————————————————--footer——————————————————————————————————————--->
+    <footer>
+        <div class="footer_info">
+          <br/>
+            <a href="AboutUs.html">About us</a>
+            <a href="ContactUs.html">Contact us</a>
+        </div>
+        <p>Copyright © 2021 CS Group</p>
+    </footer>
+</div>
+</body>
+
+</html>

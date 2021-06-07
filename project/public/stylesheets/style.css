@@ -1,0 +1,552 @@
+html{
+  height: 100%;
+}
+/* main header (COVID-19)*/
+.main_header {
+  /*padding: 70px;*/
+  /*background: slateblue;*/
+  text-align: center;
+  color: white;
+  height: 400px;
+  background-attachment: fixed;
+  background-image: url("../binary.jpeg");
+  background-size: 100%;
+
+}
+
+#title {
+  margin-top: 80px;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 90px;
+  margin-bottom: 0;
+
+}
+h2 {
+  font-size: 60px;
+  margin-top: 0;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+
+/* general style */
+
+a:hover{
+  opacity: 0.7;
+}
+
+button:hover{
+  opacity: 0.7;
+}
+
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+  /*background-color:#001133;*/
+
+}
+
+#map {
+  margin: 10px 150px 50px;
+  max-width: 100%;
+  height:55vh;
+}
+
+.search {
+  text-align: center;
+  clear: both;
+}
+section{
+  display: none;
+}
+/*——————————————————————————————————bar——————————————————————————*/
+/* bar */
+.bar {
+  overflow: hidden;
+  background-color: black;
+  position: sticky;
+
+  top: 0;
+}
+
+/* Style the navigation bar links */
+.bar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+.bar a:hover {
+  background-color: white;
+  color: black;
+}
+
+.bar a.home {
+  background-color: grey;
+  color: white;
+}
+/*————————————————————————————————————————footer——————————————————————————————————————————————————*/
+footer {
+  padding: 1.0%;
+  bottom: auto;
+  width: 100%;
+  background-color: 	#2b2b3b;
+  box-sizing: border-box;
+  font-family: arial;
+  font-size: 20px;
+}
+/* footer a */
+
+.footer_info a {
+  font-size: 20px;
+  padding: 1em;
+  color: white;
+  text-decoration: none;
+}
+
+.footer_info a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.footer_info{
+  float: right;
+}
+/*-------------------------------- search box ----------------------------------------*/
+input[type="text"][name="search"]{
+  padding: 0.5em 2em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  width: 50vw;
+  border: 1px solid lightgrey;
+  border-radius: 1em;
+
+}
+
+/*---------------------------------------button style----------------------------------------*/
+button {
+  background-color : #ffae42;
+  color: rebeccapurple;
+  padding: 0.8em 1.5em;
+  border: none;
+  font-weight: 900;
+  font-size: 16px;
+  border-radius: 0.5em;
+  margin: 5px;
+}
+
+.header_button a{
+  background-color: white;
+  float : right;
+  color: rebeccapurple;
+  padding: 0.8em 1.5em;
+  border: none;
+  font-weight: 900;
+  font-size: 16px;
+  border-radius: 0.5em;
+  margin: 5px;
+}
+
+.header_button a.signup_btn {
+  background-color: sandybrown;
+}
+
+.header_button a.back_btn {
+  background-color : PeachPuff;
+}
+
+#logo {
+  float: left;
+  width: 8vw;
+  height: 3.5vw;
+  padding: 0;
+  position: center;
+
+}
+
+/*---------------------about us page-------------------------*/
+.subtitle {
+  color:grey;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.row {
+  height:70%;
+}
+.column {
+  float: left;
+  width: 33.3%;
+  height:100%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.box {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+  height: 80%;
+}
+
+.box2 {
+  padding: 0 16px;
+  height:100%;
+}
+
+.box2::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+
+/* ----------------------contact_us----------------------- */
+.contact_us1 {
+  font-size: 130%;
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 1em;
+}
+
+.column1 {
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+  padding: 20px;
+  justify-content: center;
+  left: 10%;
+  position: relative;
+}
+
+.row1 {
+  content: "";
+  display: table;
+  clear: both;
+
+}
+
+
+/* ---------------sign up----------------*/
+.signup_page {
+  position: relative;
+  height: 500px;
+  text-align: center;
+  border: 2px solid grey;
+  border-radius: 4px;
+  max-width : 70%;
+  padding: 70px;
+  justify-content: center;
+  left: 15%;
+}
+
+button.cancel {
+  position: absolute;
+  background-color : grey;
+  color: white;
+  padding: 0.8em 1.3em;
+  border: none;
+  border-radius: 0.5em;
+  margin: 5px;
+}
+button.sign_up_button {
+
+  background-color : sandybrown;
+  color: white;
+  padding: 0.8em 1.3em;
+  border: none;
+  border-radius: 0.5em;
+  margin: 5px;
+}
+
+input.signup_input {
+  width: 50%;
+  padding: 6px;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  text-decoration: none;
+}
+
+
+/*---------------------login page-------------------------*/
+.facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.login_page {
+  position: relative;
+  height: 500px;
+  text-align: center;
+  border: 2px solid grey;
+  border-radius: 4px;
+  max-width : 70%;
+  padding: 70px;
+  justify-content: center;
+  left: 15%;
+}
+
+input.login_input{
+  width: 80%;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  text-decoration: none;
+}
+
+.login_button {
+  width: 80%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  display: inline-block;
+  font-size: 17px;
+  text-decoration: none;
+}
+
+.fb {
+  background-color: #3B5998;
+  color: white;
+}
+
+.twitter {
+  background-color: #55ACEE;
+  color: white;
+}
+
+.google {
+  background-color: #dd4b39;
+  color: white;
+}
+
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.col {
+  float: left;
+  width: 50%;
+  margin: auto;
+  padding: 0 50px;
+  margin-top: 6px;
+}
+
+.v_line {
+  position: absolute;
+  left: 50%;
+  height: 200px;
+  border-left: 3px solid grey;
+}
+
+/*——————————————————————————————————————user page————————————————————————————————————————————*/
+ /*div style for user information block*/
+.info_table_layout th{
+  width:35%;
+}
+.information_block{
+  border: 1px solid grey;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  border-radius: 5px;
+  background-color: #e1dfdd;
+  margin: 5%;
+}
+.change_user_info{
+  float: right;
+  font-size:small;
+}
+
+.change_user_info:hover
+{
+  text-decoration: underline;
+}
+/*-----------------------check in box-----------------------------*/
+.check_in_box{
+  position: relative;
+  border: 3px solid grey;
+  height: 20%;
+  text-align: center;
+  border-radius: 4px;
+  max-width : 70%;
+  padding: 30px;
+  justify-content: center;
+  left: 15%;
+  background-color: OldLace;
+  box-sizing: border-box
+}
+.checkin_button {
+  width: 50%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  display: inline-block;
+  font-size: 17px;
+  text-decoration: none;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+/*------------------------check in history ------------------------*/
+.history {
+  position: relative;
+  height: 40%;
+  text-align: center;
+  border-radius: 4px;
+  max-width : 70%;
+  padding: 30px;
+  justify-content: center;
+  left: 15%;
+}
+
+div.history_box {
+  padding: 10px 20px;
+  background-color: mistyrose;
+  position: relative;
+  border-radius: 5px;
+  margin-bottom: 13px;
+}
+
+div.history_box::before {
+  content: '';
+  border: 4px solid #ffae42;
+  border-radius: 50%;
+  position: absolute;
+  top: 20%;
+  left: -50px;
+  width: 16px;
+  height: 16px;
+}
+
+element.style{
+  z-index: 99;
+}
+
+.search_result_table table{
+  width:80%;
+  margin:10%;
+  margin-top:5%;
+  border-spacing: 0;
+
+}
+ .search_result_table th {
+  border: 1px solid black;
+
+}
+/*——————individual——————————*/
+
+
+/*account*/
+.individual_account h1{
+  text-align: left;
+}
+
+/*------------------------------------------mobile-----------version----------------------------------*/
+@media screen and (max-width: 420px){ /*iphone 6/7/8 plus*/
+/* main header (COVID-19)*/
+.main_header {
+  height: 230px;
+}
+
+/*#title {*/
+/*  margin-top: 3vmax;*/
+/*}*/
+
+h1 {
+  font-size: 8vw;
+
+}
+h2 {
+  font-size: 4.5vw;
+}
+/*--------------map-------*/
+#map {
+  margin: 4px 30px 50px;
+}
+/* ----------------bar---------- */
+.bar a {
+  padding: 10px 10px;
+  font-size: 12px;
+}
+
+}
+
+@media screen and (max-width: 1024px){ /*ipad*/
+/* main header (COVID-19)*/
+/*.main_header {*/
+/*  height: 40vmax;*/
+/*}*/
+
+/*#title {*/
+/*  margin-top: 7vmax;*/
+/*}*/
+
+h1 {
+  font-size: 8vw;
+
+}
+h2 {
+  font-size: 4.5vw;
+}
+/*--------------map-------*/
+#map {
+  height:55vmax;
+}
+/*--------------button-------*/
+button {
+  font-size: 1.2vw;
+}
+
+.header_button a{
+  font-size: 1.2vw;
+}
+
+#logo {
+  width: 9.4vw;
+  height: 4vw;
+}
+}

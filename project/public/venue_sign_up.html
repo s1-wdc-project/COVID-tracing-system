@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+        <title>COVID-19 contact tracing system</title>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alata">
+        <script src="javascripts/project.js" defer></script>
+</head>
+<body>
+  <div id = "the_sign_up">
+    <header>
+      <image src="logo.png" id="logo" alt="logo"></image>
+      <div class = "header_button" >
+            <a class="back_btn" href="index.html">BACK</a>
+      </div>
+    </header>
+    <div id="venue_sign_up" >
+        <div class="main_header">
+            <h1 style="color:white">venue sign Up</h1>
+        </div>
+
+        <div class="bar">
+          <a class="home" href="index.html">Home</a>
+          <a href="AboutUs.html">About Us</a>
+          <a href="ContactUs.html">Contact Us</a>
+        </div>
+    </div>
+
+
+<br/>
+<br/>
+<br/>
+
+      <div class="signup_page">
+        <form>
+            <div class="row signup_row">
+
+                <h2 style="text-align:center">Sign up for you venue!</h2>
+                  <label for="venue_name">Venue name</label>
+                  <input type="text" id="venue_name" class="signup_input" v-model="venueData.venue_name">
+                <br>
+                  <label for="password">Password</label>
+                  <input type="password" id="password" class="signup_input" v-model="venueData.password">
+                <br>
+
+                  <label for="phone">Phone Number</label>
+                  <input type="text" id="phone" class="signup_input" v-model="venueData.phone">
+                <br>
+                <!--have to think about the location type-->
+                  <label for="location">Location</label>
+                  <input type="text" id="location" class="signup_input" v-model="venueData.venue_location">
+                <br>
+
+                <button class="sign_up_button" @click.prevent="submitted">Sign-up</button>
+                <button class="cancel" onclick="showMain()"> Cancel </button>
+
+
+
+            </div> <!--end of row for sign up -->
+            <br>
+        </form>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <footer>
+        <div class="footer_info">
+          <br>
+            <a href="index.html">Home</a>
+            <a href="AboutUs.html">About us</a>
+            <a href="ContactUs.html">Contact us</a>
+        </div>
+            <p>Copyright © 2021 CS Group</p>
+    </footer>
+  </div>
+</body>
+
+</html>

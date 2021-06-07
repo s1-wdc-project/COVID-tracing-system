@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+        <title>COVID-19 contact tracing system</title>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alata">
+
+        <!-- map link -->
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <script src="javascripts/project.js" defer></script>
+
+        <!--google login-->
+        <script src="javascripts/login.js"></script>
+         <meta name="google-signin-client_id" content="970591307564-dv9rdgaiu3nt0dqhde3lvj92s7s3jscs.apps.googleusercontent.com">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
+</head>
+<body>
+
+  <!--<div id="app">-->
+    <main id="main" v-if="show_main">
+      <header>
+        <image src="logo.png" id="logo" alt="logo"></image>
+        <div class = "header_button" >
+            <a class="login_btn" onclick="log_in()">Log In</a>
+            <a class="signup_btn" onclick="sign_up()">Sign Up</a>
+        </div>
+      </header>
+
+    <!-- main page -->
+    <div id="mainpage">
+        <div class="main_header">
+          <Br>
+            <div id="title">
+            <h1>COVID-19</h1>
+            <h2 style="color:#ffae42">contact tracing system</h2>
+            </div>
+        </div>
+
+        <div class="bar" style="z-index: 2;">
+          <a class="home" href="index.html">Home</a>
+          <a href="AboutUs.html">About Us</a>
+          <a href="ContactUs.html">Contact Us</a>
+        </div>
+
+        <div class="search">
+                <form>
+                    <input type="text" name="search" />
+                    <button class="click">CLICK</button>
+                </form>
+        </div>
+
+
+        <!-- ----------------------------------------------map ----------------------------------------------------->
+        <div id='map'>
+          <script>
+            // TO MAKE THE MAP APPEAR YOU MUST
+            // ADD YOUR ACCESS TOKEN FROM
+            // https://account.mapbox.com
+            mapboxgl.accessToken = 'pk.eyJ1Ijoiam9jZWx5bjY2NiIsImEiOiJja29mZ2RwOWkwNTFvMnVwNzI3eXgxdngwIn0.IoVn3pEiBAmMgflGWs8eTw';
+            var map = new mapboxgl.Map({
+
+        container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v8',
+      center: [138.611, -34.923],
+      zoom: 9,
+      minZoom: 5,
+      maxZoom: 15
+    });
+
+    var geolocate = new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true
+      },
+      trackUserLocation: true
+    });
+    // Add geolocate control to the map.
+    map.addControl(geolocate);
+var x;
+var y;
+    geolocate.on('geolocate',function(myLocation) {
+      x = myLocation.coords.longitude;
+      y = myLocation.coords.latitude;
+      var position = [x, y];
+      console.log(position);
+    });
+
+    //hotspot
+    map.on('load', function() {
+
+      map.addSource("source_circle_500", {
+        "type": "geojson",
+        "data": {
+          "type": "FeatureCollection",
+          "features": [{
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [138.611, -34.923]
+            }
+          }]
+        }
+      });
+
+      map.addLayer({
+        "id": "circle500",
+        "type": "circle",
+        "source": "source_circle_500",
+        "paint": {
+          "circle-radius": {
+            stops: [
+              [5, 1],
+              [15, 1024]
+            ],
+            base: 2
+          },
+          "circle-color": "red",
+          "circle-opacity": 0.3
+        }
+      });
+
+      map.addSource("source_circle_501", {
+        "type": "geojson",
+        "data": {
+          "type": "FeatureCollection",
+          "features": [{
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [138.5, -34.923]
+            }
+          }]
+        }
+      });
+
+      map.addLayer({
+        "id": "circle501",
+        "type": "circle",
+        "source": "source_circle_501",
+        "paint": {
+          "circle-radius": {
+            stops: [
+              [5, 1],
+              [15, 1024]
+            ],
+            base: 2.5
+          },
+          "circle-color": "red",
+          "circle-opacity": 0.3
+        }
+      });
+
+      // map.addSource("source_circle_502", {
+      //   "type": "geojson",
+      //   "data": {
+      //     "type": "FeatureCollection",
+      //     "features": [{
+      //       "type": "Feature",
+      //       "geometry": {
+      //         "type": "Point",
+      //         "coordinates": [x, y]
+      //       }
+      //     }]
+      //   }
+      // });
+
+      // map.addLayer({
+      //   "id": "circle502",
+      //   "type": "circle",
+      //   "source": "source_circle_501",
+      //   "paint": {
+      //     "circle-radius": {
+      //       stops: [
+      //         [5, 1],
+      //         [15, 1024]
+      //       ],
+      //       base: 2.5
+      //     },
+      //     "circle-color": "red",
+      //     "circle-opacity": 0.3
+      //   }
+      // });
+    });
+          </script>
+        </div>
+        <!--<div></div>-->
+    </div>
+
+    </main>
+
+    <!----------------------------------log in page-------------------------------->
+
+    <section id="log_in" v-else-if="show_log_in">
+        <header>
+      <image src="logo.png" id="logo" alt="logo"></image>
+      <div class = "header_button" >
+            <a class="back_btn" href="index.html">BACK</a>
+      </div>
+    </header>
+
+    <div id="mainpage">
+        <div class="main_header">
+          <br>
+            <div id="title">
+            <h1>Log In</h1>
+            </div>
+        </div>
+
+        <div class="bar">
+          <a class="home" href="index.html">Home</a>
+          <a href="AboutUs.html">About Us</a>
+          <a href="ContactUs.html">Contact Us</a>
+        </div>
+    </div>
+
+      <br>
+      <br>
+    <!--------------------------------log in block ------------------------------->
+          <div class="login_page">
+            <form>
+              <div class="row">
+                <h3 style="text-align:center">Login into your account</h3>
+                <div class="v_line"></div>
+
+                <div class="col">
+                    <input class="login_input" type="text" name="username" placeholder="ID" required>
+                    <input class="login_input" type="password" name="password" placeholder="Password" required>
+                    <input style="border:none; background-color:#ffae42" class="login_input" type="submit" value="Login">
+                    <a  href="user_page.html"> check login page (only for milestone1)</a>
+                </div>
+
+                <div class="col">
+                    <!--<a href="#" class="facebook login_button " > facebook </a>-->
+                    <!--<a href="#" class="twitter login_button">-->
+                    <!--  Login with Twitter-->
+                    <!--</a>-->
+                    <div id="my-signin2" data-onsuccess="onSignIn">Sign Up</div>
+                    <div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
+                </div>
+
+              </div>
+              <br/>
+              <br/>
+              <p style="text-align:center">Are you a shop owner?<a href="venue_sign_up.html">Register now</a ></p >
+            </form>
+            <br>
+            <br>
+        </div>
+
+        </section>
+
+        <!--------------------------------------sign up page------------------------------------>
+      <section id="sign_up" v-else>
+      <header>
+      <image src="logo.png" id="logo" alt="logo"></image>
+      <div class = "header_button" >
+            <a class="back_btn" href="index.html">BACK</a>
+      </div>
+    </header>
+
+    <div id="sign_up" >
+        <div class="main_header">
+          <Br>
+          <div id="title">
+            <h1>Sign Up</h1>
+          </div>
+        </div>
+
+        <div class="bar">
+          <a class="home" href="index.html">Home</a>
+          <a href="AboutUs.html">About Us</a>
+          <a href="ContactUs.html">Contact Us</a>
+        </div>
+
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <!---------------------------------- sign up block ---------------------------->
+
+    <div class="signup_page">
+        <form>
+            <div class="row signup_row">
+
+                <h3 style="text-align:center">Create your account!</h2>
+                  <label for="firstName">First Name</label>
+                  <input type="text" id="firstName" class="signup_input" v-model="userData.firstName">
+                <br>
+                  <label for="lastName">Last Name</label>
+                  <input type="text" id="lastName" class="signup_input" v-model="userData.lastName">
+                <br>
+                  <label for="password">Password</label>
+                  <input type="password" id="password" class="signup_input" v-model="userData.password">
+                <br>
+                  <label for="email">Your Email</label>
+                  <input type="text" id="email" class="signup_input" v-model="userData.email">
+                <br>
+                  <label for="phone">Phone Num</label>
+                  <input type="text" id="phone" class="signup_input" v-model="userData.phone">
+                <br>
+
+                <button class="sign_up_button" @click.prevent="submitted">Sign-up</button>
+                <button class="cancel" onclick="showMain()"> Cancel </button>
+
+
+
+            </div> <!--end of row for sign up -->
+            <br>
+        </form>
+    </div>
+        </section>
+
+    <!--</div>-->
+
+
+
+
+
+    <footer>
+        <div class="footer_info">
+          <br>
+            <a href="index.html">Home</a>
+            <a href="AboutUs.html">About us</a>
+            <a href="ContactUs.html">Contact us</a>
+        </div>
+            <p>Copyright © 2021 CS Group</p>
+    </footer>
+</body>
+
+</html>
