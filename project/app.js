@@ -8,6 +8,18 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+var mysql = require('mysql');
+var dbConnectionPool = mysql.createPool({
+    host: 'localhost',
+    database: 'COVID_19',
+});
+
+app.use(function(req, res, next){
+    req.pool = dbConnectionPool;
+    next();
+});
+
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

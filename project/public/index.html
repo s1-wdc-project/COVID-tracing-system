@@ -306,7 +306,7 @@ var y;
                   <input type="text" id="phone" class="signup_input" v-model="userData.phone">
                 <br>
 
-                <button class="sign_up_button" @click.prevent="submitted">Sign-up</button>
+                <button class="sign_up_button" @click="user_sign_up()" @click.prevent="submitted">Sign-up</button>
                 <button class="cancel" onclick="showMain()"> Cancel </button>
 
 
