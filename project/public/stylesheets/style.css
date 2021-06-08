@@ -50,7 +50,6 @@ button:hover{
 
 
 body {
-
   padding: 0;
   margin: 0;
   /*background-color:#001133;*/
@@ -202,21 +201,21 @@ html {
 }
 
 .row {
-  height:70%;
+  height:65vh;
 }
 .column {
   font-family: arial;
   float: left;
   width: 33.3%;
   height:100%;
-  margin-bottom: 16px;
+  margin-bottom: 1px;
   padding: 0 8px;
 }
 
 .box {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 8px;
-  height: 80%;
+  height: 90%;
 }
 
 .box2 {
@@ -516,7 +515,7 @@ element.style{
 @media screen and (max-width: 420px){ /*iphone 6/7/8 plus*/
 /* main header (COVID-19)*/
 .main_header {
-  height: 230px;
+  height: 200px;
 }
 
 /*#title {*/
@@ -539,18 +538,33 @@ h2 {
   padding: 10px 10px;
   font-size: 12px;
 }
+/* ----------footer------------ */
+footer {
+  font-size: 1vh;
+}
+
+.footer_info a {
+  font-size: 1vh;
+}
+
 
 }
 
-@media screen and (max-width: 1024px){ /*ipad*/
-/* main header (COVID-19)*/
-/*.main_header {*/
-/*  height: 40vmax;*/
-/*}*/
+@media screen and (max-width: 600px){
+  /*~~~~~~~~~~~~~~about us~~~~~~~~~~~~~~*/
+html {
+  box-sizing: inherit;
+}
+.column {
+  width: 95%;
+}
+.row {
+  height:210%;
+}
+}
 
-/*#title {*/
-/*  margin-top: 7vmax;*/
-/*}*/
+@media screen and (max-width: 1024px){ /*ipad*/
+
 
 h1 {
   font-size: 8vw;
@@ -576,4 +590,13 @@ button {
   width: 9.4vw;
   height: 4vw;
 }
+
+/* ----------footer------------ */
+/*footer {*/
+/*  font-size: 20px;*/
+/*}*/
+
+/*.footer_info a {*/
+/*  font-size: 20px;*/
+/*}*/
 }
