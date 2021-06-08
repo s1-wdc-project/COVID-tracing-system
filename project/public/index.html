@@ -5,7 +5,8 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
         <title>COVID-19 contact tracing system</title>
         <link rel="stylesheet" href="/stylesheets/style.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alata">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@600&display=swap" rel="stylesheet">
 
         <!-- map link -->
         <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
@@ -26,7 +27,7 @@
   <!--<div id="app">-->
     <main id="main" v-if="show_main">
       <header>
-        <image src="logo.png" id="logo" alt="logo"></image>
+        <image src="stylesheets/Images/logo.png" id="logo" alt="logo"></image>
         <div class = "header_button" >
             <a class="login_btn" onclick="log_in()">Log In</a>
             <a class="signup_btn" onclick="sign_up()">Sign Up</a>
@@ -38,8 +39,8 @@
         <div class="main_header">
           <Br>
             <div id="title">
-            <h1>COVID-19</h1>
-            <h2 style="color:#ffae42">contact tracing system</h2>
+            <h1 style="font-weight:bold">COVID-19</h1>
+            <h2 style="color:white">contact tracing system</h2>
             </div>
         </div>
 
@@ -198,128 +199,124 @@ var y;
 
     <section id="log_in" v-else-if="show_log_in">
         <header>
-      <image src="logo.png" id="logo" alt="logo"></image>
-      <div class = "header_button" >
-            <a class="back_btn" href="index.html">BACK</a>
-      </div>
-    </header>
+            <image src="stylesheets/Images/logo.png" id="logo" alt="logo"></image>
+            <div class = "header_button" >
+                  <a class="back_btn" href="index.html">BACK</a>
+            </div>
+        </header>
 
-    <div id="mainpage">
-        <div class="main_header">
-          <br>
-            <div id="title">
-            <h1>Log In</h1>
+        <div id="mainpage">
+            <div class="main_header">
+              <br>
+                <div id="title">
+                <h1>Log In</h1>
+                </div>
+            </div>
+
+            <div class="bar">
+              <a class="home" href="index.html">Home</a>
+              <a href="AboutUs.html">About Us</a>
+              <a href="ContactUs.html">Contact Us</a>
             </div>
         </div>
 
-        <div class="bar">
-          <a class="home" href="index.html">Home</a>
-          <a href="AboutUs.html">About Us</a>
-          <a href="ContactUs.html">Contact Us</a>
-        </div>
-    </div>
-
-      <br>
-      <br>
+        <br>
+        <br>
     <!--------------------------------log in block ------------------------------->
           <div class="login_page">
-            <form>
-              <div class="row">
-                <h3 style="text-align:center">Login into your account</h3>
-                <div class="v_line"></div>
+           <div class="row1">
+                  <div class="login_image">
+                    <img src="stylesheets/Images/login-page.jpg" style="width:100%">
+                  </div>
 
-                <div class="col">
-                    <input class="login_input" type="text" name="username" placeholder="ID" required>
-                    <input class="login_input" type="password" name="password" placeholder="Password" required>
-                    <input style="border:none; background-color:#ffae42" class="login_input" type="submit" value="Login">
-                    <a  href="user_page.html"> check login page (only for milestone1)</a>
-                </div>
+                  <div class="login-box">
+                      <form>
+                        <h3 style="text-align:center">Login into your account</h3>
+                        <div class="form-group">
+                          <input type="login_input" name="username" placeholder="Enter your ID">
+                        </div>
+                        <div class="form-group">
+                          <input type="password" name="psw" placeholder="Password">
+                        </div>
+                        <button class="login-btn">Login</button>
+                        <div class="seperator"><b>or</b></div>
+                        <!-- Social login buttons -->
 
-                <div class="col">
-                    <!--<a href="#" class="facebook login_button " > facebook </a>-->
-                    <!--<a href="#" class="twitter login_button">-->
-                    <!--  Login with Twitter-->
-                    <!--</a>-->
-                    <div id="my-signin2" data-onsuccess="onSignIn">Sign Up</div>
-                    <div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
-                </div>
+                        <div id="my-signin2" data-onsuccess="onSignIn"></div>
+                        <a  href="user_page.html"> check login page (only for milestone1)</a>
 
+                      </form>
+                    </div>
+                    </div>
+                  <br>
+                  <br>
               </div>
-              <br/>
-              <br/>
-              <p style="text-align:center">Are you a shop owner?<a href="venue_sign_up.html">Register now</a ></p >
-            </form>
-            <br>
-            <br>
-        </div>
 
-        </section>
+    </section>
 
         <!--------------------------------------sign up page------------------------------------>
       <section id="sign_up" v-else>
-      <header>
-      <image src="logo.png" id="logo" alt="logo"></image>
-      <div class = "header_button" >
-            <a class="back_btn" href="index.html">BACK</a>
-      </div>
-    </header>
+          <header>
+            <image src="stylesheets/Images/logo.png" id="logo" alt="logo"></image>
+            <div class = "header_button" >
+                  <a class="back_btn" href="index.html">BACK</a>
+            </div>
+          </header>
 
-    <div id="sign_up" >
-        <div class="main_header">
-          <Br>
-          <div id="title">
-            <h1>Sign Up</h1>
+          <div id="sign_up" >
+              <div class="main_header">
+                <Br>
+                <div id="title">
+                  <h1>Sign Up</h1>
+                </div>
+              </div>
+
+              <div class="bar">
+                <a class="home" href="index.html">Home</a>
+                <a href="AboutUs.html">About Us</a>
+                <a href="ContactUs.html">Contact Us</a>
+              </div>
+
           </div>
-        </div>
 
-        <div class="bar">
-          <a class="home" href="index.html">Home</a>
-          <a href="AboutUs.html">About Us</a>
-          <a href="ContactUs.html">Contact Us</a>
-        </div>
-
-    </div>
-
-    <br>
-    <br>
-    <br>
+          <br>
+          <br>
+          <br>
     <!---------------------------------- sign up block ---------------------------->
 
-    <div class="signup_page">
-        <form>
-            <div class="row signup_row">
+          <div class="signup_page">
+              <form>
+                  <div class="row signup_row">
 
-                <h3 style="text-align:center">Create your account!</h2>
-                  <label for="firstName">First Name</label>
-                  <input type="text" id="firstName" class="signup_input" v-model="userData.firstName">
-                <br>
-                  <label for="lastName">Last Name</label>
-                  <input type="text" id="lastName" class="signup_input" v-model="userData.lastName">
-                <br>
-                  <label for="password">Password</label>
-                  <input type="password" id="password" class="signup_input" v-model="userData.password">
-                <br>
-                  <label for="email">Your Email</label>
-                  <input type="text" id="email" class="signup_input" v-model="userData.email">
-                <br>
-                  <label for="phone">Phone Num</label>
-                  <input type="text" id="phone" class="signup_input" v-model="userData.phone">
-                <br>
+                      <h3 style="text-align:center">Create your account!</h2>
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" class="signup_input" v-model="userData.firstName">
+                      <br>
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" class="signup_input" v-model="userData.lastName">
+                      <br>
+                        <label for="password">Password</label>
+                        <input type="password" id="password" class="signup_input" v-model="userData.password">
+                      <br>
+                        <label for="email">Your Email</label>
+                        <input type="text" id="email" class="signup_input" v-model="userData.email">
+                      <br>
+                        <label for="phone">Phone Num</label>
+                        <input type="text" id="phone" class="signup_input" v-model="userData.phone">
+                      <br>
 
-                <button class="sign_up_button" @click="user_sign_up()" @click.prevent="submitted">Sign-up</button>
-                <button class="cancel" onclick="showMain()"> Cancel </button>
+                      <button class="sign_up_button" @click="user_sign_up()" @click.prevent="submitted">Sign-up</button>
+                      <button class="cancel" onclick="showMain()"> Cancel </button>
 
 
 
-            </div> <!--end of row for sign up -->
-            <br>
-        </form>
-    </div>
-        </section>
+                  </div> <!--end of row for sign up -->
+                  <br>
+              </form>
+          </div>
+    </section>
 
     <!--</div>-->
-
-
 
 
 

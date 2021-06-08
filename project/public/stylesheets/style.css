@@ -1,5 +1,8 @@
 html{
   height: 100%;
+
+  font-family: 'Enriqueta', serif;
+
 }
 /* main header (COVID-19)*/
 .main_header {
@@ -7,9 +10,9 @@ html{
   /*background: slateblue;*/
   text-align: center;
   color: white;
-  height: 400px;
+  height: 450px;
   background-attachment: fixed;
-  background-image: url("../binary.jpeg");
+  background-image: url("../stylesheets/Images/header.jpg");
   background-size: 100%;
 
 }
@@ -21,7 +24,7 @@ html{
 
 h1 {
   margin-top: 0;
-  font-size: 90px;
+  font-size: 100px;
   margin-bottom: 0;
 
 }
@@ -47,7 +50,7 @@ button:hover{
 
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+
   padding: 0;
   margin: 0;
   /*background-color:#001133;*/
@@ -71,7 +74,7 @@ section{
 /* bar */
 .bar {
   overflow: hidden;
-  background-color: black;
+  background-color: #303030;
   position: sticky;
 
   top: 0;
@@ -137,33 +140,43 @@ input[type="text"][name="search"]{
 /*---------------------------------------button style----------------------------------------*/
 button {
   background-color : #ffae42;
-  color: rebeccapurple;
+  color: #303030;
   padding: 0.8em 1.5em;
   border: none;
   font-weight: 900;
   font-size: 16px;
   border-radius: 0.5em;
   margin: 5px;
+  font-weight: bold;
+}
+
+.click {
+  background-color: #6A5ACD;
+  color: white;
+  padding: 0.5em 1.2em;
 }
 
 .header_button a{
   background-color: white;
   float : right;
-  color: rebeccapurple;
+  color: #303030;
   padding: 0.8em 1.5em;
   border: none;
   font-weight: 900;
   font-size: 16px;
   border-radius: 0.5em;
   margin: 5px;
+  font-weight: bold;
 }
 
 .header_button a.signup_btn {
   background-color: sandybrown;
+  font-weight: bold;
 }
 
 .header_button a.back_btn {
   background-color : PeachPuff;
+  font-weight: bold;
 }
 
 #logo {
@@ -192,6 +205,7 @@ html {
   height:70%;
 }
 .column {
+  font-family: arial;
   float: left;
   width: 33.3%;
   height:100%;
@@ -228,12 +242,16 @@ html {
   width: 100%;
 }
 
+
 .button:hover {
   background-color: #555;
 }
 
 
 /* ----------------------contact_us----------------------- */
+.container{
+  font-family: arial;
+}
 .contact_us1 {
   font-size: 130%;
   font-weight: 300;
@@ -244,10 +262,10 @@ html {
 .column1 {
   float: left;
   width: 50%;
-  margin-top: 6px;
+  margin-top: 10px;
   padding: 20px;
   justify-content: center;
-  left: 10%;
+  /*left: 30%;*/
   position: relative;
 }
 
@@ -255,7 +273,24 @@ html {
   content: "";
   display: table;
   clear: both;
+  /*left: 30%;*/
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 100px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
+
+}
+
+.login_image{
+  float: left;
+  width: 50%;
+  margin-top: 50px;
+  margin-left: 30px;
+  padding: 20px;
+  justify-content: center;
+  /*left: 30%;*/
+  position: relative;
 }
 
 
@@ -270,6 +305,8 @@ html {
   padding: 70px;
   justify-content: center;
   left: 15%;
+  margin-bottom: 100px;
+
 }
 
 button.cancel {
@@ -305,81 +342,71 @@ input.signup_input {
 
 
 /*---------------------login page-------------------------*/
-.facebook {
-  background: #3B5998;
-  color: white;
+
+.login-box {
+    width: 450px;
+    margin: 0 auto;
+    display: table;
+    padding: 15px 30px 30px;
+    box-sizing: border-box;
 }
-
-.login_page {
-  position: relative;
-  height: 500px;
-  text-align: center;
-  border: 2px solid grey;
-  border-radius: 4px;
-  max-width : 70%;
-  padding: 70px;
-  justify-content: center;
-  left: 15%;
-}
-
-input.login_input{
-  width: 80%;
-  padding: 10px;
-  border: 1px solid black;
-  border-radius: 4px;
-  margin: 5px 0;
-  opacity: 0.85;
-  display: inline-block;
-  font-size: 17px;
-  text-decoration: none;
-}
-
-.login_button {
-  width: 80%;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  margin: 5px 0;
-  display: inline-block;
-  font-size: 17px;
-  text-decoration: none;
-}
-
-.fb {
-  background-color: #3B5998;
-  color: white;
-}
-
-.twitter {
-  background-color: #55ACEE;
-  color: white;
-}
-
-.google {
-  background-color: #dd4b39;
-  color: white;
-}
-
-
-input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
-}
-
-.col {
+.form-group {
   float: left;
-  width: 50%;
-  margin: auto;
-  padding: 0 50px;
-  margin-top: 6px;
+  width: 100%;
+  margin: 0 0 15px;
+  position: relative;
+}
+.login-box input {
+    width: 100%;
+    padding: 5px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 15px;
+    padding-left: 75px;
 }
 
-.v_line {
-  position: absolute;
-  left: 50%;
-  height: 200px;
-  border-left: 3px solid grey;
+.login-box .login-btn {
+  background: #ffae42;
+  padding: 11px 50px;
+  color: #fff;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 20px;
+  border-radius: 30px;
+  width: 100%;
+  height: 50px;
 }
+
+
+.login-box button:hover{
+  opacity: 0.5;
+}
+
+.login-box .seperator {
+  float: left;
+  width: 100%;
+  border-top: 1px solid #ccc;
+  text-align: center;
+  margin: 50px 0 0;
+}
+.login-box .seperator b {
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+  text-align: center;
+  line-height: 40px;
+  background: #fff;
+  display: inline-block;
+  border: 1px solid #e0e0e0;
+  border-radius: 50%;
+  position: relative;
+  top: -22px;
+  z-index: 1;
+}
+
+
 
 /*——————————————————————————————————————user page————————————————————————————————————————————*/
  /*div style for user information block*/
