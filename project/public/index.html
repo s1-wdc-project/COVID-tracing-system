@@ -21,6 +21,13 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 
+        <!--github login-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://cdn.rawgit.com/oauth-io/oauth-js/c5af4519/dist/oauth.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.12.0/bootstrap-social.min.css">
+
 </head>
 <body>
 
@@ -243,6 +250,15 @@ var y;
                         <!-- Social login buttons -->
 
                         <div id="my-signin2" data-onsuccess="onSignIn"></div>
+
+                        <div class="form-group">
+                          <button id="github-button" onclick="window.open('/githubsignin');">
+                          <i class="fa fa-github"></i> Sign in with Github</button>
+                        </div>
+
+
+                        <br>
+
                         <a  href="user_page.html"> check login page (only for milestone1)</a>
 
                       </form>

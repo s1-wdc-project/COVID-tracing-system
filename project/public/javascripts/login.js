@@ -26,3 +26,18 @@ function onSignIn(googleUser) {
   console.log('Image URL: ' + profile.getImageUrl());
   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 }
+
+
+
+
+//github log in
+$('#github-button').on('click', function() {
+// Initialize with your OAuth.io app public key
+    OAuth.initialize('YOUR_OAUTH_KEY');
+    // Use popup for OAuth
+    OAuth.popup('github').then(github => {
+      console.log(github);
+      // Retrieves user data from oauth provider
+      console.log(github.me());
+});
+})
