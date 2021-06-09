@@ -230,7 +230,7 @@ html {
   float: left;
   width: 33.3%;
   height:100%;
-  margin-bottom: 1px;
+  margin-bottom: 16px;
   padding: 0 8px;
 }
 
@@ -251,28 +251,27 @@ html {
   display: table;
 }
 
-/*.button {*/
-/*  border: none;*/
-/*  outline: 0;*/
-/*  display: inline-block;*/
-/*  padding: 8px;*/
-/*  color: white;*/
-/*  background-color: #000;*/
-/*  text-align: center;*/
-/*  cursor: pointer;*/
-/*  width: 100%;*/
-/*}*/
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
 
 
-/*.button:hover {*/
-/*  background-color: #555;*/
-/*}*/
+.button:hover {
+  background-color: #555;
+}
 
 
 /* ----------------------contact_us----------------------- */
 .container{
   font-family: arial;
-  height:55vh;
 }
 .contact_us1 {
   font-size: 130%;
@@ -296,7 +295,7 @@ html {
   display: table;
   clear: both;
   /*left: 30%;*/
-  /*justify-content: center;*/
+  justify-content: center;
   margin: auto;
   margin-bottom: 100px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -562,34 +561,18 @@ h2 {
   padding: 10px 10px;
   font-size: 12px;
 }
-/* ----------footer------------ */
-footer {
-  font-size: 1vh;
-}
 
-.footer_info a {
-  font-size: 1vh;
-}
-}
-
-@media screen and (max-width: 600px){
-  /*~~~~~~~~~~~~~~about us~~~~~~~~~~~~~~*/
-html {
-  box-sizing: inherit;
-}
-.column {
-  width: 95%;
-}
-.row {
-  height:210%;
-}
-/*~~~~~~~~~~~~~~countect us~~~~~~~~~~~~~~*/
-.container{
-  height:210%;
-}
 }
 
 @media screen and (max-width: 1024px){ /*ipad*/
+/* main header (COVID-19)*/
+/*.main_header {*/
+/*  height: 40vmax;*/
+/*}*/
+
+/*#title {*/
+/*  margin-top: 7vmax;*/
+/*}*/
 
 h1 {
   font-size: 8vw;
@@ -615,16 +598,4 @@ button {
   width: 9.4vw;
   height: 4vw;
 }
-/*~~~~~~~~~~~~~~about us~~~~~~~~~~~~~~*/
-.row {
-  height:740px;
-}
-/* ----------footer------------ */
-/*footer {*/
-/*  font-size: 20px;*/
-/*}*/
-
-/*.footer_info a {*/
-/*  font-size: 20px;*/
-/*}*/
 }
