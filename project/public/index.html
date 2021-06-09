@@ -5,8 +5,9 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
         <title>COVID-19 contact tracing system</title>
         <link rel="stylesheet" href="/stylesheets/style.css">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@600&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@600&display=swap" rel="stylesheet">
+        <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
 
         <!-- map link -->
         <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
@@ -22,7 +23,6 @@
         <!--<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>-->
 
         <!--github login-->
-        <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"></script>-->
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script src="https://cdn.rawgit.com/oauth-io/oauth-js/c5af4519/dist/oauth.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -31,8 +31,8 @@
 </head>
 <body>
 
-  <!--<div id="app">-->
-    <main id="main" v-if="show_main">
+
+    <main id="main">
       <header>
         <image src="stylesheets/Images/logo.png" id="logo" alt="logo"></image>
         <div class = "header_button" >
@@ -204,7 +204,7 @@ var y;
 
     <!----------------------------------log in page-------------------------------->
 
-    <section id="log_in" v-else-if="show_log_in">
+    <section id="log_in">
         <header>
             <image src="stylesheets/Images/logo.png" id="logo" alt="logo"></image>
             <div class = "header_button" >
@@ -230,7 +230,7 @@ var y;
         <br>
         <br>
     <!--------------------------------log in block ------------------------------->
-          <div class="login_page">
+
            <div class="row1">
                   <div class="login_image">
                     <img src="stylesheets/Images/login-page.jpg" style="width:100%">
@@ -262,16 +262,16 @@ var y;
                         <a  href="user_page.html"> check login page (only for milestone1)</a>
 
                       </div>
-                    </div>
-                    </div>
+                   </div>
+            </div>
                   <br>
                   <br>
-              </div>
+
 
     </section>
 
         <!--------------------------------------sign up page------------------------------------>
-      <section id="sign_up" v-else>
+      <section id="sign_up">
           <header>
             <image src="stylesheets/Images/logo.png" id="logo" alt="logo"></image>
             <div class = "header_button" >
@@ -279,7 +279,7 @@ var y;
             </div>
           </header>
 
-          <div id="sign_up" >
+          <div id="mainpage" >
               <div class="main_header">
                 <Br>
                 <div id="title">
@@ -297,39 +297,47 @@ var y;
 
           <br>
           <br>
-          <br>
+
     <!---------------------------------- sign up block ---------------------------->
 
-          <div class="signup_page">
-              <form>
-                  <div class="row signup_row">
+          <div class="row1">
+                  <div class="login_image">
+                    <img src="stylesheets/Images/signup.png" style="width:80%">
+                  </div>
+
+            <div class="login-box">
 
                       <h3 style="text-align:center">Create your account!</h2>
-                        <label for="firstName">First Name</label>
-                        <input type="text" id="firstName" class="signup_input" v-model="userData.firstName">
-                      <br>
+
+                      <div class="form-group">
+                        <label for="firstName"><b>First Name</b></label>
+                        <input type="text" id="firstName" name="firstName" placeholder="First Name">
+                      </div>
+                      <div class="form-group">
                         <label for="lastName">Last Name</label>
-                        <input type="text" id="lastName" class="signup_input" v-model="userData.lastName">
-                      <br>
+                        <input type="text" id="lastName" name= "lastName" placeholder="Last Name">
+                      </div>
+                      <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" id="password" class="signup_input" v-model="userData.password">
-                      <br>
+                        <input type="password" id="password" name= "password" placeholder="password">
+                      </div>
+                      <div class="form-group">
                         <label for="email">Your Email</label>
-                        <input type="text" id="email" class="signup_input" v-model="userData.email">
-                      <br>
+                        <input type="text" id="email" name= "email" placeholder="Email">
+                      </div>
+                      <div class="form-group">
                         <label for="phone">Phone Num</label>
-                        <input type="text" id="phone" class="signup_input" v-model="userData.phone">
-                      <br>
+                        <input type="text" id="phone" name= "phone" placeholder="Phone Number">
+                      </div>
+                      <div class="form-group">
+                          <button class="sign_up_button" onclick="user_sign_up()">Sign-up</button>
+                          <button class="cancel" onclick="showMain()"> Cancel </button>
+                      </div>
 
-                      <button class="sign_up_button" @click="user_sign_up()" @click.prevent="submitted">Sign-up</button>
-                      <button class="cancel" onclick="showMain()"> Cancel </button>
-
-
-
-                  </div> <!--end of row for sign up -->
                   <br>
-              </form>
           </div>
+
+      </div>
     </section>
 
     <!--</div>-->

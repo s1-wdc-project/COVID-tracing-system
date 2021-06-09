@@ -37,55 +37,25 @@ function sign_up(){
 // });
 
 
-var app = new Vue({
-  el: '#sign_up',
-  data:function() {
-    return {
-      userData: {
-        firstName: '',
-        lastName: '',
-        email: '',
-        password: '',
-        phone: ''
-      },
-      storeData: 'Yes',
-      isSubmitted: false
+function user_sign_up(){
+    let data = {
+        first_name:document.getElementById("firstName").value,
+        last_name: document.getElementById("lastName").value,
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value,
+        phone: document.getElementById("phone").value
     };
-  },
-  methods: {
-
-    // this is the signup database post function
-    submitted() {
-      this.isSubmitted = true;
-    },
-    user_sign_up : function(){
-            // let data = {
-            //     first_name: firstName,
-            //     last_name: lastName,
-            //     email: email,
-            //     password: password,
-            //     phone: phone
-            // };
-            let data = {
-                first_name:document.getElementById("firstName").value,
-                last_name: document.getElementById("lastName").value,
-                email: document.getElementById("email").value,
-                password: document.getElementById("password").value,
-                phone: document.getElementById("phone").value
-            };
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    // app.get_post();
-                }
-            };
-            xhttp.open("POST","/user_sign_up", true);
-            xhttp.setRequestHeader("Content-type", "application/json");
-            xhttp.send(JSON.stringify(data));
-            console.log(data);
-        },
-  }
-});
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            // app.get_post();
+        }
+    };
+    xhttp.open("POST","/user_sign_up", true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send(JSON.stringify(data));
+    console.log(data);
+}
 
 
   //----------------------change the button color
