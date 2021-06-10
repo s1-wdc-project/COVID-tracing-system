@@ -54,7 +54,7 @@ router.post('/login', function(req, res, next) {
             if(rows.length > 0){
                 req.session.loggedin = true;
                 req.session.user_id = user_id;
-                // res.send()
+                res.send(user_id);
             }else{
                 res.send("Incorrect");
             }
