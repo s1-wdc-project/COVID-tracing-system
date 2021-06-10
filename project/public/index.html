@@ -67,7 +67,135 @@
 
         <!-- ----------------------------------------------map ----------------------------------------------------->
         <div id='map'>
-          <script src="javascripts/map.js"></script>
+          <script>
+            // TO MAKE THE MAP APPEAR YOU MUST
+            // ADD YOUR ACCESS TOKEN FROM
+            // https://account.mapbox.com
+            mapboxgl.accessToken = 'pk.eyJ1Ijoiam9jZWx5bjY2NiIsImEiOiJja29mZ2RwOWkwNTFvMnVwNzI3eXgxdngwIn0.IoVn3pEiBAmMgflGWs8eTw';
+            var map = new mapboxgl.Map({
+
+        container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v8',
+      center: [138.611, -34.923],
+      zoom: 9,
+      minZoom: 5,
+      maxZoom: 15
+    });
+
+    var geolocate = new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true
+      },
+      trackUserLocation: true
+    });
+    // Add geolocate control to the map.
+    map.addControl(geolocate);
+var x;
+var y;
+    geolocate.on('geolocate',function(myLocation) {
+      x = myLocation.coords.longitude;
+      y = myLocation.coords.latitude;
+      var position = [x, y];
+      console.log(position);
+    });
+
+    //hotspot
+    map.on('load', function() {
+
+      map.addSource("source_circle_500", {
+        "type": "geojson",
+        "data": {
+          "type": "FeatureCollection",
+          "features": [{
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [138.611, -34.923]
+            }
+          }]
+        }
+      });
+
+      map.addLayer({
+        "id": "circle500",
+        "type": "circle",
+        "source": "source_circle_500",
+        "paint": {
+          "circle-radius": {
+            stops: [
+              [5, 1],
+              [15, 1024]
+            ],
+            base: 2
+          },
+          "circle-color": "red",
+          "circle-opacity": 0.3
+        }
+      });
+
+      map.addSource("source_circle_501", {
+        "type": "geojson",
+        "data": {
+          "type": "FeatureCollection",
+          "features": [{
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [138.5, -34.923]
+            }
+          }]
+        }
+      });
+
+      map.addLayer({
+        "id": "circle501",
+        "type": "circle",
+        "source": "source_circle_501",
+        "paint": {
+          "circle-radius": {
+            stops: [
+              [5, 1],
+              [15, 1024]
+            ],
+            base: 2.5
+          },
+          "circle-color": "red",
+          "circle-opacity": 0.3
+        }
+      });
+
+      // map.addSource("source_circle_502", {
+      //   "type": "geojson",
+      //   "data": {
+      //     "type": "FeatureCollection",
+      //     "features": [{
+      //       "type": "Feature",
+      //       "geometry": {
+      //         "type": "Point",
+      //         "coordinates": [x, y]
+      //       }
+      //     }]
+      //   }
+      // });
+
+      // map.addLayer({
+      //   "id": "circle502",
+      //   "type": "circle",
+      //   "source": "source_circle_501",
+      //   "paint": {
+      //     "circle-radius": {
+      //       stops: [
+      //         [5, 1],
+      //         [15, 1024]
+      //       ],
+      //       base: 2.5
+      //     },
+      //     "circle-color": "red",
+      //     "circle-opacity": 0.3
+      //   }
+      // });
+    });
+          </script>
         </div>
         <!--<div></div>-->
     </div>
@@ -112,12 +240,12 @@
                       <div>
                         <h3 style="text-align:center">Login into your account</h3>
                         <div class="form-group">
-                          <input type="login_input" name="username" placeholder="Enter your ID">
+                          <input type="login_input" id="user_enter_id" name="username" placeholder="Enter your ID">
                         </div>
                         <div class="form-group">
-                          <input type="password" name="psw" placeholder="Password">
+                          <input type="password" name="psw" id="user_enter_password" placeholder="Password">
                         </div>
-                        <button class="login-btn">Login</button>
+                        <button class="login-btn" onclick="log_in_check()">Login</button>
                         <div class="seperator"><b>or</b></div>
                         <!-- Social login buttons -->
 

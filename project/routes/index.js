@@ -42,6 +42,38 @@ router.get('/', function(req, res, next) {
 });
 
 
+//user log in check
+router.post('/log_in_check', function(req, res, next) { //Connect to the database
+    req.pool.getConnection(
+        function(err,connection) {
+            if (err) {
+                res.sendStatus(500);
+                return;
+            }
+            const user_input = {
+              id : req.body.id,
+              password : req.body.password
+            };
+            console.log(user_input);
+            var query = "SELECT user_id FROM user WHERE user.user_id = ? AND user.password = ? ;";
+            connection.query(query,[user_input.id, user_input.password] ,function(err, rows, fields) {
+            if (rows.length > 0){
+                req.session.loggedin =true;
+                req.session.id = id;
+            }else{
+                req.send('invalid log in');
+            }
+            connection.release(); // release connection
+            if (err) {
+                res.sendStatus(500);
+                return;
+            }
+            res.json(rows); //send response
+        });
+    });
+});
+
+
 
 
 // ---------------------- user-sign-up
