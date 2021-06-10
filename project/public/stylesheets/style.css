@@ -17,6 +17,11 @@ html{
 
 }
 
+div.mapboxgl-ctrl.mapboxgl-ctrl-geocoder {
+margin: auto;
+}
+
+
 #title {
   margin-top: 80px;
   text-align: center;
