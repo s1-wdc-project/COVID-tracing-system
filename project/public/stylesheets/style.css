@@ -30,6 +30,10 @@ html{
 
 }
 
+div.mapboxgl-ctrl.mapboxgl-ctrl-geocoder {
+margin: auto;
+}
+
 #title {
   margin-top: 80px;
   text-align: center;
@@ -557,7 +561,9 @@ element.style{
 .main_header {
   height: 230px;
 }
-
+.main_header2 {
+  height: 230px;
+}
 /*#title {*/
 /*  margin-top: 3vmax;*/
 /*}*/
@@ -596,14 +602,27 @@ html {
 .column {
   width: 95%;
 }
+.column1 {
+  width:90%;
+  justify-content: center;
+}
 .row {
   height:210%;
+}
+.row1 {
+  width:100%;
 }
 /*~~~~~~~~~~~~~~countect us~~~~~~~~~~~~~~*/
 .container{
   height:210%;
 }
+/*~~~~~~~~~~~~~~log in~~~~~~~~~~~~~~*/
+.login-box {
+    width: 90%;
 }
+
+}
+
 
 @media screen and (max-width: 1024px){ /*ipad*/
 
@@ -632,15 +651,8 @@ button {
   height: 4vw;
 }
 /*~~~~~~~~~~~~~~about us~~~~~~~~~~~~~~*/
-.row {
-  height:740px;
-}
-/* ----------footer------------ */
-/*footer {*/
-/*  font-size: 20px;*/
+/*.row {*/
+/*  height:55vh;*/
 /*}*/
 
-/*.footer_info a {*/
-/*  font-size: 20px;*/
-/*}*/
 }

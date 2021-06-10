@@ -57,145 +57,19 @@
           <a href="ContactUs.html">Contact Us</a>
         </div>
 
-        <div class="search">
-                <form>
-                    <input type="text" name="search" />
-                    <button class="click">CLICK</button>
-                </form>
-        </div>
+        <!--------- map search---------------->
+        <div id="geocoder" class="geocoder"></div>
+        <!--------- map search link---------------->
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
+        <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css" type="text/css">
+        <!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
 
 
         <!-- ----------------------------------------------map ----------------------------------------------------->
         <div id='map'>
-          <script>
-            // TO MAKE THE MAP APPEAR YOU MUST
-            // ADD YOUR ACCESS TOKEN FROM
-            // https://account.mapbox.com
-            mapboxgl.accessToken = 'pk.eyJ1Ijoiam9jZWx5bjY2NiIsImEiOiJja29mZ2RwOWkwNTFvMnVwNzI3eXgxdngwIn0.IoVn3pEiBAmMgflGWs8eTw';
-            var map = new mapboxgl.Map({
-
-        container: 'map',
-            style: 'mapbox://styles/mapbox/streets-v8',
-      center: [138.611, -34.923],
-      zoom: 9,
-      minZoom: 5,
-      maxZoom: 15
-    });
-
-    var geolocate = new mapboxgl.GeolocateControl({
-      positionOptions: {
-        enableHighAccuracy: true
-      },
-      trackUserLocation: true
-    });
-    // Add geolocate control to the map.
-    map.addControl(geolocate);
-var x;
-var y;
-    geolocate.on('geolocate',function(myLocation) {
-      x = myLocation.coords.longitude;
-      y = myLocation.coords.latitude;
-      var position = [x, y];
-      console.log(position);
-    });
-
-    //hotspot
-    map.on('load', function() {
-
-      map.addSource("source_circle_500", {
-        "type": "geojson",
-        "data": {
-          "type": "FeatureCollection",
-          "features": [{
-            "type": "Feature",
-            "geometry": {
-              "type": "Point",
-              "coordinates": [138.611, -34.923]
-            }
-          }]
-        }
-      });
-
-      map.addLayer({
-        "id": "circle500",
-        "type": "circle",
-        "source": "source_circle_500",
-        "paint": {
-          "circle-radius": {
-            stops: [
-              [5, 1],
-              [15, 1024]
-            ],
-            base: 2
-          },
-          "circle-color": "red",
-          "circle-opacity": 0.3
-        }
-      });
-
-      map.addSource("source_circle_501", {
-        "type": "geojson",
-        "data": {
-          "type": "FeatureCollection",
-          "features": [{
-            "type": "Feature",
-            "geometry": {
-              "type": "Point",
-              "coordinates": [138.5, -34.923]
-            }
-          }]
-        }
-      });
-
-      map.addLayer({
-        "id": "circle501",
-        "type": "circle",
-        "source": "source_circle_501",
-        "paint": {
-          "circle-radius": {
-            stops: [
-              [5, 1],
-              [15, 1024]
-            ],
-            base: 2.5
-          },
-          "circle-color": "red",
-          "circle-opacity": 0.3
-        }
-      });
-
-      // map.addSource("source_circle_502", {
-      //   "type": "geojson",
-      //   "data": {
-      //     "type": "FeatureCollection",
-      //     "features": [{
-      //       "type": "Feature",
-      //       "geometry": {
-      //         "type": "Point",
-      //         "coordinates": [x, y]
-      //       }
-      //     }]
-      //   }
-      // });
-
-      // map.addLayer({
-      //   "id": "circle502",
-      //   "type": "circle",
-      //   "source": "source_circle_501",
-      //   "paint": {
-      //     "circle-radius": {
-      //       stops: [
-      //         [5, 1],
-      //         [15, 1024]
-      //       ],
-      //       base: 2.5
-      //     },
-      //     "circle-color": "red",
-      //     "circle-opacity": 0.3
-      //   }
-      // });
-    });
-          </script>
+          <script src="javascripts/map.js"></script>
         </div>
         <!--<div></div>-->
     </div>
@@ -232,7 +106,7 @@ var y;
     <!--------------------------------log in block ------------------------------->
 
            <div class="row1">
-                  <div class="login_image">
+                  <div class="column1">
                     <img src="stylesheets/Images/login-page.jpg" style="width:100%">
                   </div>
 
