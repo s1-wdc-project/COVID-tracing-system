@@ -17,10 +17,18 @@ html{
 
 }
 
-div.mapboxgl-ctrl.mapboxgl-ctrl-geocoder {
-margin: auto;
-}
+/*aboutus, contactus header*/
+.main_header2 {
+  /*padding: 70px;*/
+  /*background: slateblue;*/
+  text-align: center;
+  color: white;
+  height: 450px;
+  background-attachment: fixed;
+  background-image: url("../stylesheets/Images/header1.jpg");
+  background-size: 100%;
 
+}
 
 #title {
   margin-top: 80px;
@@ -297,13 +305,14 @@ html {
 }
 
 .row1 {
+  width: 1000px;
   content: "";
   display: table;
   clear: both;
   /*left: 30%;*/
   /*justify-content: center;*/
   margin: auto;
-  margin-bottom: 100px;
+  margin-bottom: 200px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
 
@@ -312,7 +321,7 @@ html {
 .login_image{
   float: left;
   width: 50%;
-  margin-top: 50px;
+  margin-top: 100px;
   margin-left: 30px;
   padding: 20px;
   justify-content: center;
@@ -373,6 +382,8 @@ input.signup_input {
 .login-box {
     width: 450px;
     margin: 0 auto;
+    margin-left: 10px;
+    margin-right: 10px;
     display: table;
     padding: 15px 30px 30px;
     box-sizing: border-box;

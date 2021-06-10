@@ -4,20 +4,25 @@
       <meta charset="UTF-8">
         <title>COVID-19 contact tracing system</title>
         <link rel="stylesheet" href="/stylesheets/style.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alata">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@600&display=swap" rel="stylesheet">
         <script src="javascripts/project.js" defer></script>
 </head>
 <body>
-  <div id = "the_sign_up">
-    <header>
-      <image src="logo.png" id="logo" alt="logo"></image>
+
+   <header>
+      <image src="stylesheets/Images/logo.png" id="logo" alt="logo"></image>
       <div class = "header_button" >
             <a class="back_btn" href="index.html">BACK</a>
       </div>
     </header>
-    <div id="venue_sign_up" >
+
+    <div id="main">
         <div class="main_header">
-            <h1 style="color:white">venue sign Up</h1>
+          <br>
+          <div id="title">
+            <h1 style="color:white">VENUE Sign Up</h1>
+          </div>
         </div>
 
         <div class="bar">
@@ -28,43 +33,48 @@
     </div>
 
 
-<br/>
-<br/>
-<br/>
 
-      <div class="signup_page">
-        <form>
-            <div class="row signup_row">
+      <br/>
+      <br/>
+      <br/>
+         <div class="row1">
+                  <div class="login_image">
+                    <img src="stylesheets/Images/signup2.jpg" style="width:100%">
+                  </div>
 
-                <h2 style="text-align:center">Sign up for you venue!</h2>
-                  <label for="venue_name">Venue name</label>
-                  <input type="text" id="venue_name" class="signup_input" v-model="venueData.venue_name">
-                <br>
-                  <label for="password">Password</label>
-                  <input type="password" id="password" class="signup_input" v-model="venueData.password">
-                <br>
+            <div class="login-box">
 
-                  <label for="phone">Phone Number</label>
-                  <input type="text" id="phone" class="signup_input" v-model="venueData.phone">
-                <br>
-                <!--have to think about the location type-->
-                  <label for="location">Location</label>
-                  <input type="text" id="location" class="signup_input" v-model="venueData.venue_location">
-                <br>
+                      <h3 style="text-align:center">Sign up for your venue!</h2>
 
-                <button class="sign_up_button" @click.prevent="submitted">Sign-up</button>
-                <button class="cancel" onclick="showMain()"> Cancel </button>
+                      <div class="form-group">
+                        <label for="venue_name"><b>Venue name</b></label>
+                        <input type="text" id="venue_name" name="venue_name" placeholder="Venue Name">
+                      </div>
+                      <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name= "password" placeholder="password">
+                      </div>
+                      <div class="form-group">
+                        <label for="email">Phone Number</label>
+                        <input type="text" id="email" name= "email" placeholder="Email">
+                      </div>
+                      <div class="form-group">
+                        <label for="phone">Phone Num</label>
+                        <input type="text" id="phone" name= "phone" placeholder="Phone Number">
+                      </div>
+                      <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" name= "location" placeholder="Location">
+                      </div>
+                      <div class="form-group">
+                          <button class="sign_up_button" onclick="user_sign_up()">Sign-up</button>
+                          <button class="cancel" onclick="showMain()"> Cancel </button>
+                      </div>
 
+                  <br>
+              </div>
+          </div>
 
-
-            </div> <!--end of row for sign up -->
-            <br>
-        </form>
-    </div>
-
-    <br>
-    <br>
-    <br>
     <footer>
         <div class="footer_info">
           <br>
