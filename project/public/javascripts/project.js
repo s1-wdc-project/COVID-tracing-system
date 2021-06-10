@@ -27,14 +27,64 @@ function sign_up(){
     main.style.display = "none";
     log_in.style.display = "none";
 }
-// var vueinst = new Vue({
-//   el: '#app',
-//   data:{
-//     show_main: true,
-//     show_log_in: false,
-//     show_sign_up: false,
-//   }
-// });
+
+
+// ------------------------------------ log in ----------------------------------------
+function LogIn(){
+
+    // let user = {
+    //     user: document.getElementById('user_enter_id').value,
+    //     pass: document.getElementById('user_enter_password').value,
+    // };
+    var id = document.getElementById('user_enter_id').value;
+    var pass = document.getElementById('user_enter_password').value;
+
+    var user = {'user_id' : id, 'password' : pass};
+
+    // Create AJAX Request
+    var xmlhttp = new XMLHttpRequest();
+
+    // Define function to run on response
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            alert("Welcome! " + this.responseText);
+        }else if(this.readyState == 4 && this.status >= 400){
+             alert("Login failed");
+        }
+    };
+
+    // Open connection to server & send the post data using a POST request
+    // We will cover POST requests in more detail in week 8
+    xmlhttp.open("POST", "/users/login", true);
+    xmlhttp.setRequestHeader("Content-type", "application/json");
+    xmlhttp.send(JSON.stringify(user));
+
+}
+
+// ----------------------------------- log out -----------------------------------------
+function LogOut(){
+
+    // Create AJAX Request
+    var xmlhttp = new XMLHttpRequest();
+
+    // Define function to run on response
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            alert("Log Out successfully! " + this.responseText);
+        }else if(this.readyState == 4 && this.status >= 400){
+             alert("LogOut failed");
+        }
+    };
+
+    // Open connection to server & send the post data using a POST request
+    // We will cover POST requests in more detail in week 8
+    xmlhttp.open("POST", "/users/logout", true);
+    xmlhttp.send();
+
+}
+
+
+/*
 var user_id;
 
 function log_in_check(){
@@ -54,7 +104,9 @@ function log_in_check(){
       xhttp.send(JSON.stringify(user_enter));
        console.log(user_enter);
 }
+*/
 
+//---------------------------------------sign up----------------------------------
 function user_sign_up(){
     let data = {
         first_name:document.getElementById("firstName").value,
@@ -74,22 +126,3 @@ function user_sign_up(){
     xhttp.send(JSON.stringify(data));
     console.log(data);
 }
-
-
-  //----------------------change the button color
-  /*
-var count = 1;
-function setColor(btn, color) {
-  var property = document.getElementById(btn);
-  if (count == 0) {
-      property.style.backgroundColor = "grey";
-      count = 1;
-  }
-  else {
-      property.style.backgroundColor = "black";
-      count = 0;
-  }
-
-}
-*/
-
