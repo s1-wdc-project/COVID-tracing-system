@@ -105,6 +105,35 @@ router.post('/user_sign_up', function(req, res, next) { //Connect to the databas
     });
 });
 
+// ---------------------- venue-sign-up
+router.post('/venue_sign_up', function(req, res, next) { //Connect to the database
+    req.pool.getConnection(
+        function(err,connection) {
+            if (err) {
+                res.sendStatus(500);
+                return;
+            }
+
+            const add_venue = {
+                name: req.body.venue_name,
+                Locations: req.body.Location,
+                password: req.body.password,
+                phone:  req.body.phone
+            };
+            console.log(req.body);
+            var query = "INSERT INTO venue (venue_name,venue_location,contact_num,password) VALUES(?,?,?,?) ;";
+            params = [add_venue.name,add_venue.Locations,add_venue.phone,add_venue.password];
+            connection.query(query, params,function(err, rows, fields) {
+            connection.release(); // release connection
+            if (err) {
+                res.sendStatus(500);
+                return;
+            }
+            res.send();
+        });
+    });
+});
+
 
 //---------------------------------github login
 router.get('/githubsignin', passport.initialize(), passport.authenticate('github', { scope: [ 'user:email' ], session: false }), function(req, res){ /* Leave empty */ });

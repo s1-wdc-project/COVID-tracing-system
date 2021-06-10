@@ -106,7 +106,7 @@ function log_in_check(){
 }
 */
 
-//---------------------------------------sign up----------------------------------
+//---------------------------------------user sign up----------------------------------
 function user_sign_up(){
     let data = {
         first_name:document.getElementById("firstName").value,
@@ -125,4 +125,25 @@ function user_sign_up(){
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send(JSON.stringify(data));
     console.log(data);
+}
+
+
+//---------------------------venue-sign-up
+function venue_sign_up(){
+    let venue_data = {
+        venue_name:document.getElementById("venue_name").value,
+        password: document.getElementById("password").value,
+        phone: document.getElementById("phone").value,
+        location: document.getElementById("location").value
+    };
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            // app.get_post();
+        }
+    };
+    xhttp.open("POST","/venue_sign_up", true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send(JSON.stringify(venue_data));
+    console.log(venue_data);
 }
