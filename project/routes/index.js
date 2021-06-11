@@ -136,8 +136,8 @@ router.post('/venue_sign_up', function(req, res, next) { //Connect to the databa
 
 
 //---------------------------------github login
-
 router.get('/githubsignin', passport.initialize(), passport.authenticate('github', { scope: [ 'user:email' ], session: false }), function(req, res){ /* Leave empty */ });
+
 router.get('/githubsignin/callback', passport.initialize(), passport.authenticate('github', { failureRedirect: '/loginfailed.html', session: false }), function(req, res, next) {
 
   // successful login

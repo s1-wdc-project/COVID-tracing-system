@@ -12,7 +12,7 @@ html{
   color: white;
   height: 450px;
   background-attachment: fixed;
-  background-image: url("../stylesheets/Images/header.jpg");
+  background-image: url("../stylesheets/Images/header20.jpg");
   background-size: 100%;
 
 }
@@ -26,6 +26,39 @@ html{
   height: 450px;
   background-attachment: fixed;
   background-image: url("../stylesheets/Images/header1.jpg");
+  background-size: 100%;
+
+}
+.main_header3 {
+  /*padding: 70px;*/
+  /*background: slateblue;*/
+  text-align: center;
+  color: white;
+  height: 450px;
+  background-attachment: fixed;
+  background-image: url("../stylesheets/Images/user.png");
+  background-size: 100%;
+
+}
+.main_header4 {
+  /*padding: 70px;*/
+  /*background: slateblue;*/
+  text-align: center;
+  color: white;
+  height: 450px;
+  background-attachment: fixed;
+  background-image: url("../stylesheets/Images/venue.png");
+  background-size: 100%;
+
+}
+.main_header5 {
+  /*padding: 70px;*/
+  /*background: slateblue;*/
+  text-align: center;
+  color: white;
+  height: 450px;
+  background-attachment: fixed;
+  background-image: url("../stylesheets/Images/official.png");
   background-size: 100%;
 
 }

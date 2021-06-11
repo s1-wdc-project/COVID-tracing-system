@@ -4,7 +4,9 @@
       <meta charset="UTF-8">
         <title>COVID-19 contact tracing system</title>
         <link rel="stylesheet" href="/stylesheets/style.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alata">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@600&display=swap" rel="stylesheet">
+
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
         <script src="javascripts/user_page.js" defer ></script>
 </head>
@@ -12,7 +14,7 @@
 <div id="user_page">
     <!--——————————————————————————————————————header——————————————————————————————————————————————————————-->
     <header>
-        <image src="logo.png" id="logo" alt="logo"></image>
+        <image src="stylesheets/Images/logo.png" id="logo" alt="logo"></image>
 
         <div class = "header_button" >
             <a  id="log_out" class="back_btn" onclick="double_check_log_out()">Log out</a>
@@ -24,10 +26,13 @@
     </header>
     <!--——————————————————————————————————————individual ——————————————————————————————————————————————————-->
     <!--—————————————————————head —————————————————————————————————-->
-    <div id="individual_user" class="individual_user" v-if="user_type == 0">
-        <div class="main_header">
-            <h1>Welcome</h1>
-            <h2>individual user</h2>
+    <div class="individual_user" v-if="user_type == 0">
+        <div class="main_header3">
+            <br>
+            <div id="title">
+            <h1 style="font-weight:bold">Welcome</h1>
+            <h1 style="color:#ffae42">User</h1>
+            </div>
         </div>
         <div class="bar" style="z-index: 2;">
           <a onclick="user_log_in.i_user_bar = '0';"> check-in </a>
@@ -39,14 +44,14 @@
         <div class="individual_check_in" v-if="i_user_bar ==0">
             <br>
             <div class ="check_in_box">
-                <h2>Check in now to save your spot</h2>
+                <h3>Check in now to save your spot</h3>
                 <button class="checkin_button">Check In</button>
             </div>
             <br>
             <br>
     <!-------------------- check in history ---------------------------->
                 <div class="history">
-                    <h2>My history</h2>
+                    <h3>My history</h3>
                   <div class="history_box">
                     <h3 style="color:slateblue">10 May 2021 10:53 AM</h3>
                     <p>The University of Adelaide, Adelaide South Australia
@@ -109,9 +114,12 @@
     <!--——————————————————————————————————————manager —————————————————————————————————————————————----—————-->
     <!--—————————————————————head —————————————————————————————————-->
     <div class="manager" v-else-if="user_type == 1">
-        <div class="main_header">
-            <h1>Welcome</h1>
-            <h2>manager</h2>
+        <div class="main_header4">
+            <br>
+            <div id="title">
+            <h1 style="font-weight:bold">Welcome</h1>
+            <h2 style="color:#ffae42">Venue Manager</h2>
+            </div>
         </div>
         <div class="bar">
           <a onclick="user_log_in.v_user_bar = '0';"> check-in-search </a>
@@ -197,9 +205,12 @@
     <!--——————————————————————————————————————health official —————————————————————————————————————————————----—————-->
     <!--—————————————————————head —————————————————————————————————-->
     <div class="health_official" v-else-if="user_type == 2">
-        <div class="main_header">
-            <h1>Welcome</h1>
-            <h2>Official</h2>
+        <div class="main_header5">
+            <br>
+            <div id="title">
+            <h1 style="font-weight:bold">Welcome</h1>
+            <h2 style="color:#ffae42">Health Official</h2>
+            </div>
         </div>
         <div class="bar">
           <a onclick="user_log_in.o_user_bar = '0';"> user check in history </a>
