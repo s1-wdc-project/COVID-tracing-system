@@ -12,6 +12,7 @@ router.get('/', function(req, res, next) {
 // };
 
 
+// user_log_in
 router.post('/login', function(req, res, next) {
     // if(req.body.user in users){
     //     if(users[req.body.user] === req.body.pass){
@@ -55,6 +56,7 @@ router.post('/login', function(req, res, next) {
                 req.session.loggedin = true;
                 req.session.user_id = user_id;
                 res.send(user_id);
+                console.log("user : log in sucess.");
             }else{
                 res.send("Incorrect");
             }
@@ -69,6 +71,75 @@ router.post('/login', function(req, res, next) {
     });
 
 
+});
+
+//venue_log_in
+router.post('/login', function(req, res, next) {
+    venue_id = req.body.user_id;
+    password = req.body.password;
+    req.pool.getConnection( function(err, connection){
+        //console.log('hello1');
+      if (err) {
+          res.sendStatus(500);
+          return;
+      }
+       //console.log('hello2');
+       var query = "SELECT venue_id, password From venue WHERE venue_id = ? AND password =?";
+       params = [user_id, password];
+
+        if(user_id && password){
+           connection.query(query, params, function(err, rows, fields){
+            if(rows.length > 0){
+                req.session.loggedin = true;
+                req.session.user_id = user_id;
+                console.log("venue : log in sucess.");
+                res.send(user_id);
+            }else{
+                res.send("Incorrect");
+            }
+
+            res.end();
+           });
+        }else{
+            res.send('Please enter Username and Password!');
+            res.end();
+        }
+
+    });
+});
+
+router.post('/login', function(req, res, next) {
+    venue_id = req.body.user_id;
+    password = req.body.password;
+    req.pool.getConnection( function(err, connection){
+        //console.log('hello1');
+      if (err) {
+          res.sendStatus(500);
+          return;
+      }
+       //console.log('hello2');
+       var query = "SELECT official_id, password From health_official WHERE official_id = ? AND password =?";
+       params = [user_id, password];
+
+        if(user_id && password){
+           connection.query(query, params, function(err, rows, fields){
+            if(rows.length > 0){
+                req.session.loggedin = true;
+                req.session.user_id = user_id;
+                console.log("official : log in sucess.");
+                res.send(user_id);
+            }else{
+                res.send("Incorrect");
+            }
+
+            res.end();
+           });
+        }else{
+            res.send('Please enter Username and Password!');
+            res.end();
+        }
+
+    });
 });
 
 router.post('/logout', function(req, res, next) {

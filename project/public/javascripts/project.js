@@ -1,4 +1,7 @@
 // log-in button
+
+var recent_user_id = 0 ;
+
 function log_in(){
     var main = document.getElementById("main");
     var log_in = document.getElementById("log_in");
@@ -31,7 +34,10 @@ function sign_up(){
 
 // ------------------------------------ log in ----------------------------------------
 function LogIn(){
-
+    function go_to_user_page(){
+      location.replace("user_page.html");
+      console.log(recent_user_id);
+    }
     // let user = {
     //     user: document.getElementById('user_enter_id').value,
     //     pass: document.getElementById('user_enter_password').value,
@@ -47,7 +53,9 @@ function LogIn(){
     // Define function to run on response
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            alert("Welcome! " + this.responseText);
+            go_to_user_page();
+            recent_user_id = id;
+
         }else if(this.readyState == 4 && this.status >= 400){
              alert("Login failed");
         }
@@ -71,6 +79,7 @@ function LogOut(){
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             alert("Log Out successfully! " + this.responseText);
+            recent_user_id = 0;
         }else if(this.readyState == 4 && this.status >= 400){
              alert("LogOut failed");
         }

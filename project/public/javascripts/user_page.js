@@ -61,3 +61,16 @@ var user_log_in = new Vue({
 
   },
   });
+
+// var indi_user = new Vue({
+//   el:'#individual_user'
+//   data: {
+//     i_id: '',
+//     name: '',
+//     phone: '',
+//     email: ''
+//   },
+//   methods:{
+
+//   }
+// });
