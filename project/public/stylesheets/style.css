@@ -370,11 +370,11 @@ html {
 /* ---------------sign up----------------*/
 .signup_page {
   position: relative;
-  height: 500px;
+  /*height: 530px;*/
   text-align: center;
   border: 2px solid grey;
   border-radius: 4px;
-  max-width : 70%;
+  width : 70vw;
   padding: 70px;
   justify-content: center;
   left: 15%;
@@ -508,6 +508,9 @@ input.signup_input {
 {
   text-decoration: underline;
 }
+.individual_account{
+  height:800px;
+}
 /*-----------------------check in box-----------------------------*/
 .check_in_box{
   position: relative;
@@ -590,16 +593,6 @@ element.style{
 
 /*------------------------------------------mobile-----------version----------------------------------*/
 @media screen and (max-width: 420px){ /*iphone 6/7/8 plus*/
-/* main header (COVID-19)*/
-.main_header {
-  height: 230px;
-}
-.main_header2 {
-  height: 230px;
-}
-/*#title {*/
-/*  margin-top: 3vmax;*/
-/*}*/
 
 h1 {
   font-size: 8vw;
@@ -625,9 +618,34 @@ footer {
 .footer_info a {
   font-size: 1vh;
 }
+.signup_page {
+  left: 5%;
+}
 }
 
 @media screen and (max-width: 600px){
+  /* main header (COVID-19)*/
+  .main_header {
+  height: 230px;
+}
+.main_header2 {
+  height: 230px;
+}
+.main_header3 {
+  height: 230px;
+}
+.main_header4 {
+  height: 230px;
+}
+.main_header5 {
+  height: 230px;
+}
+.signup_page {
+  left: 10%;
+}
+}
+
+@media screen and (max-width: 960px){
   /*~~~~~~~~~~~~~~about us~~~~~~~~~~~~~~*/
 html {
   box-sizing: inherit;
@@ -653,9 +671,11 @@ html {
 .login-box {
     width: 90%;
 }
-
+/*~~~~~~~~~~~~~~sign up~~~~~~~~~~~~~~~~*/
+.signup_page {
+  width: 55vw;
 }
-
+}
 
 @media screen and (max-width: 1024px){ /*ipad*/
 
@@ -683,9 +703,18 @@ button {
   width: 9.4vw;
   height: 4vw;
 }
-/*~~~~~~~~~~~~~~about us~~~~~~~~~~~~~~*/
-/*.row {*/
-/*  height:55vh;*/
-/*}*/
-
+/*~~~~~~~~~~~~~~about us/log in~~~~~~~~~~~~~~*/
+.row1 {
+  width:100%;
+}
+/*~~~~~~~~~~~~~~user page~~~~~~~~~~~~~~~~*/
+.individual_account{
+  height:70vh;
+}
+.venue_check_in{
+  height:70vh;
+}
+.official_account{
+  height:70vh;
+}
 }
