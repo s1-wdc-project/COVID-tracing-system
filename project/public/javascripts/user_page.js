@@ -1,6 +1,6 @@
 // user warning function
 var recent_user;
-var user_type;
+var the_user_type;
 
 
 function warning(){
@@ -22,10 +22,10 @@ function show_user(){
         var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-          console.log(this.responseText);
-          document.getElementById("user_header_show").innerHTML = this.responseText;
           recent_user= this.responseText;
-
+          console.log(recent_user);
+          the_user_type = (Math.floor(recent_user)/10000) - 1;
+          console.log(the_user_type);
         }
     };
     xhttp.open("GET","/users/take_user_id", false);
@@ -33,8 +33,9 @@ function show_user(){
 }
 
 
-function show_type(){
-    user_type = Math.floor(recent_user)/10000;
+function show(){
+    console.log(recent_user);
+    console.log(the_user_type);
 }
 
 
@@ -119,28 +120,12 @@ function official_info(){
 }
 
 
-function check(){
-  alert(recent_user.value +"  "+  user_type.value);
-}
-//map
-mapboxgl.accessToken = 'pk.eyJ1Ijoiam9jZWx5bjY2NiIsImEiOiJja29mZ2RwOWkwNTFvMnVwNzI3eXgxdngwIn0.IoVn3pEiBAmMgflGWs8eTw';
-var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v8',
-    center: [138.611, -34.923],
-    zoom: 9,
-    minZoom: 5,
-    maxZoom: 15
-});
 
 //—————————————————————————————————vue for user page
 
 var user_log_in = new Vue({
   el: '#user_page',
   data: {
-
-    tab: 'map',
-
     /*
       find user login type:
       -1: do not log in
@@ -148,7 +133,7 @@ var user_log_in = new Vue({
       1 : venue manager
       2 : official
     */
-    user_type: '0',
+    user_type : '1',
 
 
 // ——————————————————————individual user————————————————————-
@@ -179,33 +164,24 @@ var user_log_in = new Vue({
     change_information: false,//
 
   },
+  methods: {
+    get_user_type_vue : function(){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          user_log_in.user_type = (Math.floor(xhttp.responseText)/10000) - 1;
+          console.log(user_type);
+          console.log("get_type_success");
+        }else{
+          console.log("fail get user type")
+        }
+    };
+    xhttp.open("GET","/users/take_user_id", false);
+    xhttp.send();
+  },
+  mounted: function(){
+    this.get_user_type_vue();
+  }
+  }
+
   });
-
-//-----------------------------map---------------------------------------------
-// var show = false;
-// function show_map(){
-//         if(o_user_bar==2){
-//           show = true;
-//         }
-//         else{
-//           show = false;
-//         }
-// }
-// function hide_map()
-// {
-// 		var hideMap = document.getElementById("set_hotspot");
-//     hideMap.style.display = "none";
-// }
-
-// function show_map()
-// {
-//     var showMap = document.getElementById("set_hotspot");
-//     showMap.style.display = "";
-// }
-
-// var map = new Vue({
-//     el:"#set_hotspot",
-//     data:{
-//         tab:'map'
-//     }
-// });

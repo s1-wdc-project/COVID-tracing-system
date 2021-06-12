@@ -9,8 +9,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@600&display=swap" rel="stylesheet">
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-        <script src="javascripts/user_page.js" defer ></script>
-        <script src="javascripts/project.js" defer ></script>
+        <script src="javascripts/user_page.js" defer></script>
 
         <!-- map link -->
         <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
@@ -21,14 +20,14 @@
 
 
 </head>
-<body onload="show_user() ; show_type()">
+<body onload="show_user()">
 <div id="user_page">
     <!--——————————————————————————————————————header——————————————————————————————————————————————————————-->
     <header>
         <image src="stylesheets/Images/logo.png" id="logo" alt="logo"></image>
 
         <div class = "header_button" >
-            <a  id="show" class="back_btn" onclick="check()">check</a>
+            <a  id="show" class="back_btn" onclick="show()">check</a>
             <a  id="log_out" class="back_btn" onclick="double_check_log_out()">Log out</a>
             <a onclick= "user_log_in.user_type = 0 ; warning()">individual</a>
             <a onclick= "user_log_in.user_type = 1; warning()">manager</a>
@@ -38,6 +37,7 @@
 
     </header>
     <!--——————————————————————————————————————individual ——————————————————————————————————————————————————-->
+        <!--<p>{{ user_log_in.user_type }}</p>-->
     <!--—————————————————————head —————————————————————————————————-->
     <div class="individual_user" v-if="user_type == 0">
         <div class="main_header3">
@@ -408,6 +408,7 @@
     <!--——————————————————————————————————————page error——————————————————————————————————————————————————— -->
     <div v-else>
         <p>page error</p>
+
     </div>
 
 <!--<div id="set_hotspot" >-->
