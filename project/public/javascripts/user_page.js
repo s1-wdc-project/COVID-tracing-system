@@ -24,16 +24,7 @@ function show_user(){
 
           document.getElementById("user_header_show").innerHTML = this.responseText;
 
-          // document.getElementById("u_id").innerHTML = this.responseText;
 
-          // document.getElementById("f_name").innerHTML = ;
-          // document.getElementById("l_name").innerHTML = ;
-          // document.getElementById("ph_num").innerHTML = ;
-          // document.getElementById("mail").innerHTML = ;
-
-
-        // recent_user = this.responseText;
-        //   console.log(recent_user);
         }
     };
     xhttp.open("GET","/users/take_user_id", false);
@@ -47,6 +38,7 @@ function user_info(){
     if (this.readyState == 4 && this.status == 200) {
 
         info = JSON.parse(this.responseText);
+        // console.log(info);
 
         var id = document.getElementById("u_id");
         var first = document.getElementById("f_name");
@@ -60,6 +52,57 @@ function user_info(){
         last.innerText = info[0].last_name;
         phonenum.innerText = info[0].phone;
         emailadd.innerText = info[0].email;
+      }
+    };
+
+    xhttp.open("GET", "/users/user_info", true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send();
+}
+
+function venue_info(){
+      var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+
+        info = JSON.parse(this.responseText);
+        console.log("venueinfo",info);
+
+        var id = document.getElementById("v_id");
+        var name = document.getElementById("v_name");
+        var phone = document.getElementById("v_num");
+        var location = document.getElementById("location");
+        // var emailadd = document.getElementById("mail");
+
+
+        id.innerText = info[0].venue_id;
+        name.innerText = info[0].venue_name;
+        phone.innerText = info[0].contact_num;
+        location.innerText = info[0].venue_location;
+        // emailadd.innerText = info[0].email;
+      }
+    };
+
+    xhttp.open("GET", "/users/user_info", true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send();
+}
+
+function official_info(){
+  var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+
+        info = JSON.parse(this.responseText);
+        // console.log("venueinfo",info);
+
+        var id = document.getElementById("o_id");
+
+        id.innerText = info[0].official_id;
+
+
       }
     };
 

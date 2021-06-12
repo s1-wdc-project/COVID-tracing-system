@@ -33,26 +33,43 @@ function sign_up(){
 function go_to_user_page(){
   location.replace("user_page.html");
 }
+
+// function go_to_venue_page(){
+//   location.replace("user_page.html");
+// }
+
 function show_user(){
         var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            var  recent_user = this.responseText;
+        document.getElementById("user_header_show").innerHTML = this.responseText;
+        var  recent_user = this.responseText;
           console.log(recent_user);
         }
     };
     xhttp.open("GET","/users/take_user_id", false);
     xhttp.send();
 }
+
 function LogIn(){
 
-    // let user = {
-    //     user: document.getElementById('user_enter_id').value,
-    //     pass: document.getElementById('user_enter_password').value,
-    // };
     var id = document.getElementById('user_enter_id').value;
     var pass = document.getElementById('user_enter_password').value;
-    var user = {'user_id' : id, 'password' : pass};
+    var user;
+
+    // console.log("venue");
+    // console.log(Math.floor(id/10000));
+
+    if(Math.floor(id/10000) == 1){
+        user = {'user_id' : id, 'password' : pass};
+    }else if(Math.floor(id/10000) == 2){
+        user = {'venue_id' : id, 'password' : pass};
+    }else if(Math.floor(id/10000) == 3){
+        user = {'official_id' : id, 'password' : pass};
+    }
+
+    // console.log('login');
+    // console.log(user);
 
     // Create AJAX Request
     var xmlhttp = new XMLHttpRequest();
@@ -60,8 +77,18 @@ function LogIn(){
     // Define function to run on response
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            go_to_user_page();
-            show_user();
+
+                // if(Math.floor(id/10000) == 1){
+                    go_to_user_page();
+                    show_user();
+                // }else if(Math.floor(id/10000) == 2){
+                    // go_to_user_page();
+                    // go_to_venue_page();
+                    // show_user();
+                // }else if(Math.floor(id/10000) == 3){
+                //     go_to_venue_page();
+                //     show_user();
+                // }
 
         }else if(this.readyState == 4 && this.status >= 400){
              alert("Login failed");
@@ -75,6 +102,8 @@ function LogIn(){
     xmlhttp.send(JSON.stringify(user));
 
 }
+
+
 
 // ----------------------------------- log out -----------------------------------------
 function LogOut(){

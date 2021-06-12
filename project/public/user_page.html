@@ -10,6 +10,8 @@
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
         <script src="javascripts/user_page.js" defer ></script>
+        <script src="javascripts/project.js" defer ></script>
+
 </head>
 <body onload="show_user()">
 <div id="user_page">
@@ -78,7 +80,7 @@
                 <p style="font-size:150%;">your personal information:
                 <a class="change_user_info" @click="change_information = true">change information</a>
                 </p>
-                <p style="font-size:20px"><b style="color:navy">&#128100 Name: </b><span id="f_name">First</span> <span id= "l_name">Last</span></p>
+                <p style="font-size:20px"><b style="color:navy">&#128100 Name: </b><span id="f_name"></span> <span id= "l_name"></span></p>
 
                 <p style="font-size:20px"><b style="color:navy">&#9743 Phone Number: </b><span id="ph_num"></span></p>
 
@@ -123,12 +125,12 @@
             <br>
             <div id="title">
             <h1 style="font-weight:bold">Welcome</h1>
-            <h2 style="color:#ffae42">Venue Manager</h2>
+            <h2 style="color:#ffae42" id="user_header_show">Venue Manager</h2>
             </div>
         </div>
         <div class="bar">
           <a onclick="user_log_in.v_user_bar = '0';"> check-in-search </a>
-          <a onclick="user_log_in.v_user_bar = '1';">Account</a>
+          <a onclick="user_log_in.v_user_bar = '1'; venue_info()">Account</a>
         </div>
    <!--——————————————check_in_history  ———————————————————————-->
         <div class="venue_check_in" v-if="v_user_bar == 0">
@@ -165,19 +167,19 @@
         </div>
    <!--——————————————account———————————————————————-->
        <div class="venue_account" v-else-if="v_user_bar == 1">
-            <h1> venue information: </h1>
+            <h3> venue information: </h3>
             <!--vnue information-->
             <div class="information_block">
-                <p>Venue ID: </p>
+                <p style="font-size:20px"><b style="color:navy">Venue ID: </b><span id="v_id"></span> </p>
             </div>
             <div class="information_block" v-if="!change_information">
                 <p style="font-size:150%;">your personal information:
                 <a class="change_user_info" @click="change_information = true">change information</a>
                 </p>
-                <p>&#8962 Name: </p>
+                <p style="font-size:20px"><b style="color:navy">&#128100 Name: </b><span id="v_name"></span></p>
 
-                <p>&#9743 Phone Number:</p>
-                <p>&#9873 location: </p>
+                <p style="font-size:20px"><b style="color:navy">&#9743 Phone Number: </b><span id="v_num"></span></p>
+                <p style="font-size:20px"><b style="color:navy">&#128231 Location: </b><span id="location"></span></p>
                 <p>health situation: &#128994</p>
             </div>
             <div class="information_block" v-else >
@@ -214,14 +216,14 @@
             <br>
             <div id="title">
             <h1 style="font-weight:bold">Welcome</h1>
-            <h2 style="color:#ffae42">Health Official</h2>
+            <h2 style="color:#ffae42" id="user_header_show">Health Official</h2>
             </div>
         </div>
         <div class="bar">
           <a onclick="user_log_in.o_user_bar = '0';"> user check in history </a>
           <a onclick="user_log_in.o_user_bar = '1';">venue check in history </a>
           <a onclick="user_log_in.o_user_bar = '2';">set hotspot </a>
-          <a onclick="user_log_in.o_user_bar = '3';">Account </a>
+          <a onclick="user_log_in.o_user_bar = '3'; official_info()">Account </a>
           <a onclick="user_log_in.o_user_bar = '5';">health official sign up</a>
         </div>
    <!--——————————————user check in———————————————————————-->
@@ -301,7 +303,7 @@
             <h1>official information: </h1>
             <!--vnue information-->
             <div class="information_block">
-                <p>official ID: </p>
+                <p style="font-size:20px"><b style="color:navy">Official ID: </b><span id="o_id"></span> </p>
             </div>
             <div class="information_block" v-if="!change_information">
                 <p style="font-size:150%;">your personal information:
