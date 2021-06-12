@@ -108,6 +108,45 @@ router.get('/githubsignin/callback', passport.initialize(), passport.authenticat
 
 });
 
+router.get('/markers', function(req, res, next) { //Connect to the database
+    req.pool.getConnection(
+        function(err,connection) {
+            if (err) {
+                res.sendStatus(500);
+                return;
+            }
+
+        var query = "SELECT * FROM marker;";
+        connection.query(query,function(err, rows, fields) {
+            connection.release(); // release connection
+            if (err) {
+                res.sendStatus(500);
+                return;
+            }
+            res.json(rows);
+        });
+    });
+});
+router.post('/add', function(req, res, next) { //Connect to the database
+    req.pool.getConnection(
+        function(err,connection) {
+            if (err) {
+                res.sendStatus(500);
+                return;
+            }
+
+
+            var query = "INSERT INTO marker (longtitude, latitude) VALUES (?, ?);";
+            connection.query(query,[req.body.long,req.body.lat], function(err, rows, fields) {
+            connection.release(); // release connection
+                if (err) {
+                    res.sendStatus(500);
+                    return;
+                }
+            res.end();
+        });
+    });
+});
 
 
 

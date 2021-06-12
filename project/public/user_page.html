@@ -10,6 +10,14 @@
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
         <script src="javascripts/user_page.js" defer ></script>
+        <script src="javascripts/project.js" defer ></script>
+
+        <!-- map link -->
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+
+
+        <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css">
 
 
 </head>
@@ -295,9 +303,31 @@
 
         </div>
    <!--——————————————set hotspot———————————————————————-->
-       <div class="official_account" v-else-if="o_user_bar == 2">
+        <div class="official_account" v-else-if="o_user_bar == 2">
             <h1>official set hotspot </h1>
+            <main>
+              <nav>
+                <div class="pure-menu pure-menu-horizontal">
+                  <ul class="pure-menu-list">
+                    <li class="pure-menu-item" v-bind:class="{ 'pure-menu-selected' : tab =='map' }">
+                      <a href="#" class="pure-menu-link" v-on:click="tab = 'map'">Map</a>
+                    </li>
+                    <li class="pure-menu-item" v-bind:class="{ 'pure-menu-selected' : tab =='markers' }">
+                      <a href="#" class="pure-menu-link" v-on:click="tab = 'markers'">Marker Details</a>
+                    </li>
+                    <li class="pure-menu-item" v-bind:class="{ 'pure-menu-selected' : tab =='add' }">
+                      <a href="#" class="pure-menu-link" v-on:click="tab = 'add'">Add Marker</a>
+                    </li>
+                  </ul>
+                </div>
 
+              </nav>
+              <div id="map" v-show="tab == 'map'"></div>
+
+              <div id="markers" v-if="tab == 'markers'">b</div>
+
+              <div id="add" v-if="tab == 'add'">c</div>
+            </main>
         </div>
    <!--——————————————account———————————————————————-->
        <div class="official_account" v-else-if="o_user_bar == 3">
@@ -380,6 +410,40 @@
         <p>page error</p>
     </div>
 
+<!--<div id="set_hotspot" >-->
+    <!--<button onclick = "post()">Show Map</button>-->
+    <!--<button onclick = "post()">Hide Map</button>-->
+                    <!--------- map search---------------->
+        <!--<div id="geocoder" class="geocoder"></div>-->
+        <!--------- map search link---------------->
+        <!--<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>-->
+        <!--<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css" type="text/css">-->
+         <!--Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+        <!--<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>-->
+        <!--<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>-->
+
+         <!------------------------------------------------map ----------------------------------------------------->
+        <!--<nav>-->
+        <!--    <div class="pure-menu pure-menu-horizontal">-->
+        <!--    <ul class="pure-menu-list">-->
+        <!--        <li class="pure-menu-item" v-bind:class= "{ 'pure-menu-selected' : tab == 'map'}"><a href="#" class="pure-menu-link" v-on:click="tab = 'map'">map</a></li>-->
+        <!--        <li class="pure-menu-item" v-bind:class= "{ 'pure-menu-selected' : tab == 'marker'}"><a href="#" class="pure-menu-link" v-on:click="tab = 'marker'">marker</a></li>-->
+        <!--        <li class="pure-menu-item" v-bind:class= "{ 'pure-menu-selected' : tab == 'add'}"><a href="#" class="pure-menu-link" v-on:click="tab = 'add'">add</a></li>-->
+        <!--    </ul>-->
+        <!--    </div>-->
+        <!--</nav>-->
+
+        <!--<div id='map' v-show = "tab == map">-->
+        <!--    a-->
+          <!--<script src="javascripts/map.js"></script>-->
+        <!--</div>-->
+        <!--<div id='marker' v-if = "tab == marker">-->
+        <!--    b-->
+        <!--</div>-->
+        <!--<div id='add' v-if = "tab == add">-->
+        <!--    c-->
+        <!--</div>-->
+<!--</div>-->
 
     <!--——————————————————————————————————————————————--footer——————————————————————————————————————--->
     <footer>

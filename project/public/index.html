@@ -12,6 +12,14 @@
         <!-- map link -->
         <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
         <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+        <!--------- map search link---------------->
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
+        <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css" type="text/css">
+        <!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+
+        <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css">
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
         <script src="javascripts/project.js" defer></script>
@@ -59,17 +67,27 @@
 
         <!--------- map search---------------->
         <div id="geocoder" class="geocoder"></div>
-        <!--------- map search link---------------->
-        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
-        <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css" type="text/css">
-        <!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
-        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+        <!--<div id = markers>-->
+        <!--  <table class="pure-table pure-table-bordered">-->
+        <!--    <thead>-->
+        <!--        <tr>-->
+        <!--            <th>ID</th>-->
+        <!--            <th>Longtitude</th>-->
+        <!--            <th>Latitude</th>-->
+        <!--        </tr>-->
+        <!--    </thead>-->
 
-
+        <!--    <tbody>-->
+        <!--        <tr v-for = "marker in markers">-->
+        <!--            <td>{{ marker.is }}</td>-->
+        <!--            <td>{{ marker.longtitude }}</td>-->
+        <!--            <td>{{ marker.latitude }}</td>-->
+        <!--        </tr>-->
+        <!--    </tbody>-->
+        <!--  </table>-->
+        <!--</div>-->
         <!-- ----------------------------------------------map ----------------------------------------------------->
         <div id='map'>
-          <script src="javascripts/map.js"></script>
         </div>
         <!--<div></div>-->
     </div>

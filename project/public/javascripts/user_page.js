@@ -122,13 +122,25 @@ function official_info(){
 function check(){
   alert(recent_user.value +"  "+  user_type.value);
 }
-
+//map
+mapboxgl.accessToken = 'pk.eyJ1Ijoiam9jZWx5bjY2NiIsImEiOiJja29mZ2RwOWkwNTFvMnVwNzI3eXgxdngwIn0.IoVn3pEiBAmMgflGWs8eTw';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v8',
+    center: [138.611, -34.923],
+    zoom: 9,
+    minZoom: 5,
+    maxZoom: 15
+});
 
 //—————————————————————————————————vue for user page
 
 var user_log_in = new Vue({
   el: '#user_page',
   data: {
+
+    tab: 'map',
+
     /*
       find user login type:
       -1: do not log in
@@ -168,3 +180,32 @@ var user_log_in = new Vue({
 
   },
   });
+
+//-----------------------------map---------------------------------------------
+// var show = false;
+// function show_map(){
+//         if(o_user_bar==2){
+//           show = true;
+//         }
+//         else{
+//           show = false;
+//         }
+// }
+// function hide_map()
+// {
+// 		var hideMap = document.getElementById("set_hotspot");
+//     hideMap.style.display = "none";
+// }
+
+// function show_map()
+// {
+//     var showMap = document.getElementById("set_hotspot");
+//     showMap.style.display = "";
+// }
+
+// var map = new Vue({
+//     el:"#set_hotspot",
+//     data:{
+//         tab:'map'
+//     }
+// });
