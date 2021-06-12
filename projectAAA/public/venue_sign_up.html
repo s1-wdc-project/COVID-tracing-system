@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+        <title>COVID-19 contact tracing system</title>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@600&display=swap" rel="stylesheet">
+        <script src="javascripts/project.js" defer></script>
+</head>
+<body>
+
+   <header>
+      <image src="stylesheets/Images/logo.png" id="logo" alt="logo"></image>
+      <div class = "header_button" >
+            <a class="back_btn" href="index.html">BACK</a>
+      </div>
+    </header>
+
+    <div id="main">
+        <div class="main_header">
+          <br>
+          <div id="title">
+            <h1 style="color:white">VENUE Sign Up</h1>
+          </div>
+        </div>
+
+        <div class="bar">
+          <a class="home" href="index.html">Home</a>
+          <a href="AboutUs.html">About Us</a>
+          <a href="ContactUs.html">Contact Us</a>
+        </div>
+    </div>
+
+
+
+      <br/>
+      <br/>
+      <br/>
+         <div class="row1">
+                  <div class="login_image">
+                    <img src="stylesheets/Images/signup2.jpg" style="width:100%">
+                  </div>
+
+            <div class="login-box">
+
+                      <h3 style="text-align:center">Sign up for your venue!</h2>
+                      <div class="form-group">
+                        <label for="venue_name"><b>Venue name</b></label>
+                        <input type="text" id="venue_name" name="venue_name" placeholder="Venue Name">
+                      </div>
+                      <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name= "password" placeholder="password">
+                      </div>
+                      <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="text" id="phone" name= "phone" placeholder="Phone Number">
+                      </div>
+                      <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" name= "location" placeholder="Location">
+                      </div>
+                      <div class="form-group">
+                          <button class="sign_up_button" onclick="venue_sign_up()">Sign-up</button>
+                          <button class="cancel" onclick="showMain()"> Cancel </button>
+                      </div>
+                  <br>
+              </div>
+          </div>
+
+    <footer>
+        <div class="footer_info">
+          <br>
+            <a href="index.html">Home</a>
+            <a href="AboutUs.html">About us</a>
+            <a href="ContactUs.html">Contact us</a>
+        </div>
+            <p>Copyright © 2021 CS Group</p>
+    </footer>
+  </div>
+</body>
+
+</html>
