@@ -99,27 +99,6 @@ function LogOut(){
 }
 
 
-/*
-var user_id;
-
-function log_in_check(){
-      let user_enter = {
-      id : document.getElementById("user_enter_id").value,
-      password : document.getElementById("user_enter_password").value
-      }
-
-      var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-               user_id = JSON.parse(xhttp.responseText);
-          }
-      };
-      xhttp.open("POST","/log_in_check", true);
-      xhttp.setRequestHeader("Content-type", "application/json");
-      xhttp.send(JSON.stringify(user_enter));
-       console.log(user_enter);
-}
-*/
 
 //---------------------------------------user sign up----------------------------------
 function user_sign_up(){

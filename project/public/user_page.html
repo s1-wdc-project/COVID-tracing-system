@@ -39,7 +39,7 @@
         <div class="bar" style="z-index: 2;">
           <a onclick="user_log_in.i_user_bar = '0';"> check-in </a>
           <!--addition comment: user eddit information = false each time open accout-->
-          <a onclick="user_log_in.i_user_bar = '1';user_log_in.change_information = false">Account</a>
+          <a onclick="user_log_in.i_user_bar = '1';user_log_in.change_information = false; user_info()">Account</a>
         </div>
    <!--—————————————————————content —————————————————————————————————-->
    <!--——————————————check_in ———————————————————————-->
@@ -68,22 +68,25 @@
    <!--——————————————account———————————————————————-->
    <!--page show information-->
        <div class="individual_account" v-else-if="i_user_bar ==1">
-            <h1> your information: </h1>
+            <h3> your information: </h3>
             <!--personal information-->
             <div class="information_block">
-                <p>User ID: </p>
+                <p style="font-size:20px"><b style="color:navy">User ID: </b><span id="u_id"></span> </p>
+
             </div>
             <div class="information_block" v-if="!change_information">
                 <p style="font-size:150%;">your personal information:
                 <a class="change_user_info" @click="change_information = true">change information</a>
                 </p>
-                <p>&#128100 Name: </p>
+                <p style="font-size:20px"><b style="color:navy">&#128100 Name: </b><span id="f_name">First</span> <span id= "l_name">Last</span></p>
 
-                <p>&#9743 Phone Number:</p>
-                <p>&#128231 Email: </p>
+                <p style="font-size:20px"><b style="color:navy">&#9743 Phone Number: </b><span id="ph_num"></span></p>
+
+                <p style="font-size:20px"><b style="color:navy">&#128231 Email: </b><span id="mail"></span></p>
+
             </div>
             <div class="information_block" v-else >
-                <!--column for text explain the intext-->
+                <!--column for text explain the intext-->s
                 <table class="info_table_layout">
                     <tr>
                         <th><p>First Name:</p></th>

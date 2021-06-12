@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 //     test2: 'p2'
 // };
 
-
+//--------------------------------------user login--------------------------------------
 router.post('/login', function(req, res, next) {
 
     user_id = req.body.user_id;
@@ -137,6 +137,40 @@ router.get('/take_user_id',function(req, res, next) {
     res.send(log_in_user_id);
 });
 
+// router.get('/user_info',function(req, res, next) {
+
+//     res.send(log_in_user_id);
+// });
+
+router.get('/user_info', function(req, res, next) {
+
+    // if('user' in req.session){
+    //     console.log(req.session.user);
+    // }
+
+    req.pool.getConnection( function(err, connection){
+        if (err) {
+            res.sendStatus(500);
+            return;
+        }
+
+
+        var query = "SELECT user_id, last_name, first_name, phone, email FROM user WHERE user_id= ?";
+        params = [log_in_user_id];
+        // console.log(log_in_user_id);
+        // console.log(params);
+
+        connection.query(query, params, function(err, rows, fields){
+            connection.release();
+            if(err){
+                res.sendStatus(500);
+                return;
+            }
+            res.json(rows);
+            console.log(rows);
+        });
+    });
+});
 
 router.post('/logout', function(req, res, next) {
     delete req.session.user;
