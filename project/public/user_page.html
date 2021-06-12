@@ -11,7 +11,7 @@
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
         <script src="javascripts/user_page.js" defer ></script>
 </head>
-<body>
+<body onload="show_user()">
 <div id="user_page">
     <!--——————————————————————————————————————header——————————————————————————————————————————————————————-->
     <header>
@@ -24,6 +24,7 @@
             <a onclick="user_log_in.user_type = 2; warning()">official</a>
         </div>
 
+
     </header>
     <!--——————————————————————————————————————individual ——————————————————————————————————————————————————-->
     <!--—————————————————————head —————————————————————————————————-->
@@ -32,7 +33,7 @@
             <br>
             <div id="title">
             <h1 style="font-weight:bold">Welcome</h1>
-            <h1 style="color:#ffae42">User</h1>
+            <h1 style="color:#ffae42" id="user_header_show"></h1>
             </div>
         </div>
         <div class="bar" style="z-index: 2;">

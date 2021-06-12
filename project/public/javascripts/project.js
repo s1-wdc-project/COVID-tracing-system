@@ -30,6 +30,20 @@ function sign_up(){
 
 
 // ------------------------------------ log in ----------------------------------------
+function go_to_user_page(){
+  location.replace("user_page.html");
+}
+function show_user(){
+        var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var  recent_user = this.responseText;
+          console.log(recent_user);
+        }
+    };
+    xhttp.open("GET","/users/take_user_id", false);
+    xhttp.send();
+}
 function LogIn(){
 
     // let user = {
@@ -38,7 +52,6 @@ function LogIn(){
     // };
     var id = document.getElementById('user_enter_id').value;
     var pass = document.getElementById('user_enter_password').value;
-
     var user = {'user_id' : id, 'password' : pass};
 
     // Create AJAX Request
@@ -47,7 +60,9 @@ function LogIn(){
     // Define function to run on response
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            alert("Welcome! " + this.responseText);
+            go_to_user_page();
+            show_user();
+
         }else if(this.readyState == 4 && this.status >= 400){
              alert("Login failed");
         }

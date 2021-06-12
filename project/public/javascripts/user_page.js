@@ -14,6 +14,20 @@ function double_check_log_out(){
 
   }
 }
+var recent_user;
+function show_user(){
+        var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+
+          document.getElementById("user_header_show").innerHTML = this.responseText;
+         recent_user = this.responseText;
+          console.log(recent_user);
+        }
+    };
+    xhttp.open("GET","/users/take_user_id", false);
+    xhttp.send();
+}
 
 
 
