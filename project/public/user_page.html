@@ -10,16 +10,17 @@
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
         <script src="javascripts/user_page.js" defer ></script>
-        <script src="javascripts/project.js" defer ></script>
+
 
 </head>
-<body onload="show_user()">
+<body onload="show_user() ; show_type()">
 <div id="user_page">
     <!--——————————————————————————————————————header——————————————————————————————————————————————————————-->
     <header>
         <image src="stylesheets/Images/logo.png" id="logo" alt="logo"></image>
 
         <div class = "header_button" >
+            <a  id="show" class="back_btn" onclick="check()">check</a>
             <a  id="log_out" class="back_btn" onclick="double_check_log_out()">Log out</a>
             <a onclick= "user_log_in.user_type = 0 ; warning()">individual</a>
             <a onclick= "user_log_in.user_type = 1; warning()">manager</a>

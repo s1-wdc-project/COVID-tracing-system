@@ -1,4 +1,7 @@
 // user warning function
+var recent_user;
+var user_type;
+
 
 function warning(){
   alert("official,individual and manager button only exist in milestone1 for checking");
@@ -14,22 +17,26 @@ function double_check_log_out(){
 
   }
 }
-var recent_user;
+
 function show_user(){
         var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-
-
-
+          console.log(this.responseText);
           document.getElementById("user_header_show").innerHTML = this.responseText;
-
+          recent_user= this.responseText;
 
         }
     };
     xhttp.open("GET","/users/take_user_id", false);
     xhttp.send();
 }
+
+
+function show_type(){
+    user_type = Math.floor(recent_user)/10000;
+}
+
 
 function user_info(){
       var xhttp = new XMLHttpRequest();
@@ -111,6 +118,10 @@ function official_info(){
     xhttp.send();
 }
 
+
+function check(){
+  alert(recent_user.value +"  "+  user_type.value);
+}
 
 
 //—————————————————————————————————vue for user page

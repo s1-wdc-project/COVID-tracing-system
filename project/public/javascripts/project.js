@@ -34,8 +34,18 @@ function go_to_user_page(){
   location.replace("user_page.html");
 }
 
-// function go_to_venue_page(){
-//   location.replace("user_page.html");
+// // function go_to_venue_page(){
+// //   location.replace("user_page.html");
+// // }
+
+// function user_define(){
+//     if(Math.floor(id/10000) == 1){
+//         user = {'user_id' : id, 'password' : pass};
+//     }else if(Math.floor(id/10000) == 2){
+//         user = {'venue_id' : id, 'password' : pass};
+//     }else if(Math.floor(id/10000) == 3){
+//         user = {'official_id' : id, 'password' : pass};
+//     }
 // }
 
 function show_user(){
@@ -52,46 +62,17 @@ function show_user(){
 }
 
 function LogIn(){
-
     var id = document.getElementById('user_enter_id').value;
     var pass = document.getElementById('user_enter_password').value;
-    var user;
-
-    // console.log("venue");
-    // console.log(Math.floor(id/10000));
-
-    if(Math.floor(id/10000) == 1){
-        user = {'user_id' : id, 'password' : pass};
-    }else if(Math.floor(id/10000) == 2){
-        user = {'venue_id' : id, 'password' : pass};
-    }else if(Math.floor(id/10000) == 3){
-        user = {'official_id' : id, 'password' : pass};
-    }
-
-    // console.log('login');
-    // console.log(user);
-
-    // Create AJAX Request
     var xmlhttp = new XMLHttpRequest();
-
+    var user = {'user_id' : id, 'password' : pass};
     // Define function to run on response
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-
-                // if(Math.floor(id/10000) == 1){
                     go_to_user_page();
                     show_user();
-                // }else if(Math.floor(id/10000) == 2){
-                    // go_to_user_page();
-                    // go_to_venue_page();
-                    // show_user();
-                // }else if(Math.floor(id/10000) == 3){
-                //     go_to_venue_page();
-                //     show_user();
-                // }
-
         }else if(this.readyState == 4 && this.status >= 400){
-             alert("Login failed");
+                    LogIn_v();
         }
     };
 
@@ -102,9 +83,56 @@ function LogIn(){
     xmlhttp.send(JSON.stringify(user));
 
 }
+//--------------------------- log in venue
 
+function LogIn_v(){
+    var id = document.getElementById('user_enter_id').value;
+    var pass = document.getElementById('user_enter_password').value;
+    var xmlhttp = new XMLHttpRequest();
+    
+   var user = {'user_id' : id, 'password' : pass};
+    // Define function to run on response
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+                    go_to_user_page();
+                    show_user();
+        }else if(this.readyState == 4 && this.status >= 400){
+             LogIn_o();
+        }
+    };
 
+    // Open connection to server & send the post data using a POST request
+    // We will cover POST requests in more detail in week 8
+    xmlhttp.open("POST", "/users/login_v", true);
+    xmlhttp.setRequestHeader("Content-type", "application/json");
+    xmlhttp.send(JSON.stringify(user));
 
+}
+
+// =============================log in official
+
+function LogIn_o(){
+    var id = document.getElementById('user_enter_id').value;
+    var pass = document.getElementById('user_enter_password').value;
+    var xmlhttp = new XMLHttpRequest();
+    var user = {'user_id' : id, 'password' : pass};
+    // Define function to run on response
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+                    go_to_user_page();
+                    show_user();
+        }else if(this.readyState == 4 && this.status >= 400){
+             alert("Login failed");
+        }
+    };
+
+    // Open connection to server & send the post data using a POST request
+    // We will cover POST requests in more detail in week 8
+    xmlhttp.open("POST", "/users/login_o", true);
+    xmlhttp.setRequestHeader("Content-type", "application/json");
+    xmlhttp.send(JSON.stringify(user));
+
+}
 // ----------------------------------- log out -----------------------------------------
 function LogOut(){
 

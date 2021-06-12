@@ -3,7 +3,6 @@ var router = express.Router();
 
 var log_in_user_id;
 
-
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
@@ -63,9 +62,9 @@ router.post('/login', function(req, res, next) {
 
 
 //--------------------------------------venue_log_in----------------------------------
-/*
-router.post('/login', function(req, res, next) {
-    venue_id = req.body.venue_id;
+
+router.post('/login_v', function(req, res, next) {
+    venue_id = req.body.user_id;
     password = req.body.password;
 
 
@@ -90,8 +89,8 @@ router.post('/login', function(req, res, next) {
                 req.session.loggedin = true;
                 req.session.venue_id = venue_id;
                 console.log("venue : log in sucess.");
-                                log_in_user_id = venue_id;
-                                console.log("venue id", log_in_user_id);
+                log_in_user_id = venue_id;
+                console.log("venue id", log_in_user_id);
                 res.send(venue_id);
             }
 
@@ -104,12 +103,12 @@ router.post('/login', function(req, res, next) {
 
     });
 });
-*/
+
 
 //------------------------------------------------official log in
-/*
-router.post('/login', function(req, res, next) {
-    official_id = req.body.official_id;
+
+router.post('/login_o', function(req, res, next) {
+    official_id = req.body.user_id;
     password = req.body.password;
     req.pool.getConnection( function(err, connection){
         //console.log('hello1');
@@ -131,9 +130,8 @@ router.post('/login', function(req, res, next) {
                 req.session.loggedin = true;
                 req.session.user_id = official_id;
                 console.log("official : log in sucess.");
-                                log_in_user_id = official_id;
+                log_in_user_id = official_id;
                 res.send(official_id);
-                console.log("hello1", log_in_user_id);
             }
 
             res.end();
@@ -145,14 +143,17 @@ router.post('/login', function(req, res, next) {
 
     });
 });
-*/
+
 
 router.get('/take_user_id',function(req, res, next) {
 
     res.send(log_in_user_id);
-    console.log("hello2", log_in_user_id);
+    console.log("take user id ", log_in_user_id);
+    res.end();
 
 });
+
+
 
 // ------------------------------------individual user_info------------------------------
 router.get('/user_info', function(req, res, next) {
