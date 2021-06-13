@@ -486,6 +486,14 @@ input.signup_input {
 
 /*——————————————————————————————————————user page————————————————————————————————————————————*/
  /*div style for user information block*/
+.info_table_layout{
+  border: 1px solid grey;
+  border-radius: 5px;
+  background-color: #e1dfdd;
+  margin: auto;
+  margin-top: 100px;
+  width: 50%;
+}
 .info_table_layout th{
   width:35%;
 }
@@ -511,6 +519,12 @@ input.signup_input {
 .individual_account{
   height:800px;
 }
+
+.official_account{
+  height:55vh;
+}
+
+
 /*-----------------------check in box-----------------------------*/
 .check_in_box{
   position: relative;

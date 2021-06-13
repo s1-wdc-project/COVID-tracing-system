@@ -201,26 +201,6 @@ function venue_sign_up(){
 
 //-----------------------------map--------------------------
 
-var app = new Vue({
-    el: '#mainpage',
-    data: {
-        markers:[]
-    },
-    methods:{
-        get_markers: function(){
-            let req = new XMLHttpRequest();
-            req.onreadystatechange = function(){
-                if(req.readyState == 4 && req.status == 200){
-                    app.markers = JSON.parse(req.responseText);
-                }
-            };
-            req.open('GET','/markers',true);
-            req.send();
-        }
-    }
-});
-
-app.get_markers();
 
 // TO MAKE THE MAP APPEAR YOU MUST
 // ADD YOUR ACCESS TOKEN FROM
@@ -237,9 +217,9 @@ var map = new mapboxgl.Map({
 
 
 var geolocate = new mapboxgl.GeolocateControl({
-    // positionOptions: {
-    //     enableHighAccuracy: true
-    // },
+    positionOptions: {
+        enableHighAccuracy: true
+    },
     trackUserLocation: true
 });
 
@@ -257,29 +237,13 @@ var y;
 geolocate.on('geolocate',function(myLocation) {
     x = myLocation.coords.longitude;
     y = myLocation.coords.latitude;
-    // var position = [x, y];
-    // console.log(position);
 
     var position = [];
     storePosition(x, y, position);
-    // storePosition(19, 1000, position);
-    // storePosition(-300, 4578, position);
 
-    // position[0] == 3 ;  // x value (even indexes)
-    // position[1] == 5 ;  // y value (odd indexes)
-    // p[0] = pisition[0];
-    // p[1] = pisition[1];
     console.log(position);//----------array to store user position
 });
 
-// console.log(p);
-
-
-// to loop through coordinate values
-// for (var i = 0; i < coords.length; i+=2) {
-//     var x = coords[i];
-//     var y = coords[i+1];
-// }
 
 
 

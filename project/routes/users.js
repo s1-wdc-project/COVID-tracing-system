@@ -105,7 +105,7 @@ router.post('/login_v', function(req, res, next) {
 });
 
 
-//------------------------------------------------official log in
+//------------------------------------------------official log in---------------------------------------------
 
 router.post('/login_o', function(req, res, next) {
     official_id = req.body.user_id;
@@ -252,6 +252,45 @@ router.get('/user_info', function(req, res, next) {
 });
 */
 
+//------------------------------------------change user info-------------------------------------------------
+router.post('/change_info', function(req, res, next) {
+    // insert statement to the db
+    //console.log(req.body);
+    first_name = req.body.first_name;
+    last_name = req.body.last_name;
+    phone = req.body.phone;
+    email = req.body.email;
+    password = req.body.password;
+
+
+    req.pool.getConnection( function(err, connection){
+
+       if (err) {
+           res.sendStatus(500);
+           return;
+       }
+
+
+       var query = "UPDATE user SET first_name = ?, last_name=?, phone=?, email=?, password=? WHERE user_id=?";
+       params = [first_name, last_name, phone, email, password, log_in_user_id];
+
+
+
+       connection.query(query, params, function(err, rows, fields){
+           connection.release();
+           if(err){
+               console.log("error1?");
+               console.log("changed_info", params);
+               res.sendStatus(500);
+               return;
+           }
+           console.log('error2?');
+           res.sendStatus(200);
+       });
+   });
+});
+
+//-------------------------------------------log out-----------------------------------------------------
 router.post('/logout', function(req, res, next) {
     delete req.session.user;
     res.send();
