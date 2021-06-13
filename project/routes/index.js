@@ -94,6 +94,30 @@ router.post('/venue_sign_up', function(req, res, next) { //Connect to the databa
     });
 });
 
+// ---------------------- official-sign-up
+router.post('/official_sign_up', function(req, res, next) { //Connect to the database
+    req.pool.getConnection(
+        function(err,connection) {
+            if (err) {
+                res.sendStatus(500);
+                return;
+            }
+
+            const o_p = req.body.pas;
+            console.log(req.body);
+            var query = "INSERT INTO health_official (password) VALUES(?) ;";
+            connection.query(query,[o_p],function(err, rows, fields) {
+            connection.release(); // release connection
+            if (err) {
+                res.sendStatus(500);
+                return;
+            }
+            res.send();
+        });
+    });
+});
+
+
 
 //---------------------------------github login
 router.get('/githubsignin', passport.initialize(), passport.authenticate('github', { scope: [ 'user:email' ], session: false }), function(req, res){ /* Leave empty */ });

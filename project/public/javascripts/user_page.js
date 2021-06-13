@@ -24,12 +24,16 @@ function show_user(){
         if (this.readyState == 4 && this.status == 200) {
           recent_user= this.responseText;
           console.log(recent_user);
+
           the_user_type = (Math.floor(recent_user)/10000) - 1;
           console.log(the_user_type);
+
+            //   document.getElementById("user_header_show").innerHTML = recent_user;
         }
     };
     xhttp.open("GET","/users/take_user_id", false);
     xhttp.send();
+
 }
 
 
@@ -120,9 +124,6 @@ function official_info(){
 }
 
 
-function check(){
-  alert(recent_user.value +"  "+  user_type.value);
-}
 
 //-------------------------------------------change info-------------------------------------------
 function change_user_info(){
@@ -165,6 +166,44 @@ function change_venue_info(){
 
 
 }
+
+
+//---------——————————————————————————————————official sign up
+
+
+function new_official_show(){
+      var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        info = JSON.parse(this.responseText);
+        alert("Sign up success: \n official ID:"+info[0].official_id+'\n password:'+info[0].password );
+         console.log("sign sucess");
+    };
+
+    xhttp.open("GET", "/users/new_offi_info", true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send();
+}
+}
+
+function sign_up_offi(){
+
+    var o_sign = {
+        pas : document.getElementById("official_password").value
+    };
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            new_official_show();
+        }
+    };
+    xhttp.open("POST","/official_sign_up", true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send(JSON.stringify(o_sign));
+
+}
+//---------——————————————————————————————————official search user check in 
+
 
 
 //-=============================================map=====================================
@@ -334,6 +373,16 @@ function get_markers(){
     req.send();
 }
 //-----------------------------------------page break down--------------------------------------------
+
+function user_page_auto_change(){
+    if( the_user_type == '0' ){
+        Individual_user();
+    }else if(the_user_type == '1'){
+        Manager();
+    }else if(the_user_type == '2'){
+        Health_official();
+    }
+}
 // log-in button
 function Individual_user(){
     var indi = document.getElementById("individual_user");
@@ -518,6 +567,7 @@ function Official_signup(){
     official_account.style.display = "none";
     official_info_change.style.display = "none";
     official_signup.style.display = "block";
+
 }
 
 // //—————————————————————————————————vue for user page

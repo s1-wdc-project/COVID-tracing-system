@@ -26,19 +26,29 @@
 
 
 </head>
-<body onload="show_user()">
-<div id="user_page">
-     <!--——————————————————————————————————————header——————————————————————————————————————————————————————-->
-    <main class="individual_user" id="individual_user">
-        <header>
+<body onload="show_user();user_page_auto_change()">
+    <!--------------------------------------top bar----------------------------------------------->
+    <header>
             <image src="stylesheets/Images/logo.png" id="logo" alt="logo"></image>
             <div class = "header_button" >
                 <a  id="log_out" class="back_btn" onclick="double_check_log_out()">Log out</a>
-                <a onclick= "Individual_user();">individual</a>
-                <a onclick= "Manager();">manager</a>
-                <a onclick="Health_official();">official</a>
+                <!--<a onclick= "Individual_user();">individual</a>-->
+                <!--<a onclick= "Manager();">manager</a>-->
+                <!--<a onclick="Health_official();">official</a>-->
             </div>
         </header>
+<div id="user_page">
+     <!--——————————————————————————————————————header——————————————————————————————————————————————————————-->
+    <main class="individual_user" id="individual_user">
+        <!--<header>-->
+        <!--    <image src="stylesheets/Images/logo.png" id="logo" alt="logo"></image>-->
+        <!--    <div class = "header_button" >-->
+        <!--        <a  id="log_out" class="back_btn" onclick="double_check_log_out()">Log out</a>-->
+                <!--<a onclick= "Individual_user();">individual</a>-->
+                <!--<a onclick= "Manager();">manager</a>-->
+                <!--<a onclick="Health_official();">official</a>-->
+        <!--    </div>-->
+        <!--</header>-->
     <!--——————————————————————————————————————individual ——————————————————————————————————————————————————-->
     <!--—————————————————————head —————————————————————————————————-->
         <div id="mainpage">
@@ -46,7 +56,8 @@
                 <br>
                 <div id="title">
                 <h1 style="font-weight:bold">Welcome</h1>
-                <h1 style="color:#ffae42" id="user_header_show"></h1>
+                <h1 style="color:#ffae42">Individual user</h1>
+                <h1 style="color:#ffae42" ="user_header_show"></h1>
                 </div>
             </div>
 
@@ -139,21 +150,22 @@
     <!--——————————————————————————————————————manager —————————————————————————————————————————————----—————-->
     <!--—————————————————————head —————————————————————————————————-->
     <section class="manager" id = "manager">
-        <header>
-            <image src="stylesheets/Images/logo.png" id="logo" alt="logo"></image>
-            <div class = "header_button" >
-                <a  id="log_out" class="back_btn" onclick="double_check_log_out()">Log out</a>
-                <a onclick= "Individual_user();">individual</a>
-                <a onclick= "Manager();">manager</a>
-                <a onclick="Health_official();">official</a>
-            </div>
-        </header>
+        <!--<header>-->
+        <!--    <image src="stylesheets/Images/logo.png" id="logo" alt="logo"></image>-->
+        <!--    <div class = "header_button" >-->
+        <!--        <a  id="log_out" class="back_btn" onclick="double_check_log_out()">Log out</a>-->
+                <!--<a onclick= "Individual_user();">individual</a>-->
+                <!--<a onclick= "Manager();">manager</a>-->
+                <!--<a onclick="Health_official();">official</a>-->
+        <!--    </div>-->
+        <!--</header>-->
         <div id="mainpage">
             <div class="main_header4">
                 <br>
                 <div id="title">
                 <h1 style="font-weight:bold">Welcome</h1>
-                <h2 style="color:#ffae42" id="user_header_show">Venue Manager</h2>
+                <h2 style="color:#ffae42">Venue Manager</h2>
+                <h2 style="color:#ffae42" class="user_header_show"></h2>
                 </div>
             </div>
             <div class="bar">
@@ -168,7 +180,7 @@
                 <br>
                 <br>
                 <label for="search_user">user_id:</label>
-                <input type="text" id="search_user" name="enter the user id">
+                <input type="text" id="search_user_venue" name="enter the user id">
                 <input type="submit" value="Search">
                 <br>
                 <br>
@@ -248,22 +260,23 @@
     <!--——————————————————————————————————————health official —————————————————————————————————————————————----—————-->
     <!--—————————————————————head —————————————————————————————————-->
     <section class="health_official" id="health_official">
-         <header>
-            <image src="stylesheets/Images/logo.png" id="logo" alt="logo"></image>
-            <div class = "header_button" >
-                <a  id="log_out" class="back_btn" onclick="double_check_log_out()">Log out</a>
-                <a onclick= "Individual_user();">individual</a>
-                <a onclick= "Manager();">manager</a>
-                <a onclick="Health_official();">official</a>
-            </div>
-        </header>
+        <!-- <header>-->
+        <!--    <image src="stylesheets/Images/logo.png" id="logo" alt="logo"></image>-->
+        <!--    <div class = "header_button" >-->
+        <!--        <a  id="log_out" class="back_btn" onclick="double_check_log_out()">Log out</a>-->
+                <!--<a onclick= "Individual_user();">individual</a>-->
+                <!--<a onclick= "Manager();">manager</a>-->
+                <!--<a onclick="Health_official();">official</a>-->
+        <!--    </div>-->
+        <!--</header>-->
 
         <div id="mainpage">
             <div class="main_header5">
                 <br>
                 <div id="title">
                 <h1 style="font-weight:bold">Welcome</h1>
-                <h2 style="color:#ffae42" id="user_header_show">Health Official</h2>
+                <h2 style="color:#ffae42" >Health Official</h2>
+                <h2 style="color:#ffae42" class="user_header_show"><h2>
                 </div>
             </div>
             <div class="bar">
@@ -281,8 +294,8 @@
                 <br>
                 <br>
                 <label for="search_user">user_id:</label>
-                <input type="text" id="search_user" name="enter the user id">
-                <input type="submit" value="Search">
+                <input type="text" id="h_search_user" name="enter the user id">
+                <input type="submit" value="Search" ><!--onclick="h_search_user()">-->
                 <br>
                 <br>
             </div>
@@ -425,20 +438,12 @@
                     <div class="row signup_row">
 
                         <h3 style="text-align:center">Create an Official account</h3>
-                          <label for="Name">Name</label>
-                          <input type="text" id="official_Name" class="signup_input">
-                        <br>
-                          <label for="password">Password</label>
-                          <input type="password" id="password" class="signup_input">
-                        <br>
-                          <label for="email">Your Email</label>
-                          <input type="text" id="email" class="signup_input">
-                        <br>
-                          <label for="phone">Phone Num</label>
-                          <input type="text" id="phone" class="signup_input" >
-                        <br>
 
-                        <button class="sign_up_button">Sign-up</button>
+                          <label for="password">Password</label>
+                          <input type="password" id="official_password" class="signup_input">
+
+
+                        <button class="sign_up_button" onclick="sign_up_offi()">Sign-up</button>
                         <button class="cancel" onclick="showMain()"> Cancel </button>
 
 

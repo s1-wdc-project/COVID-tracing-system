@@ -172,9 +172,6 @@ router.get('/user_info', function(req, res, next) {
         query = "SELECT user_id, last_name, first_name, phone, email FROM user WHERE user_id= ?";
 
         params = [log_in_user_id];
-        console.log("userid",log_in_user_id);
-        // console.log(params);
-
         connection.query(query, params, function(err, rows, fields){
             connection.release();
             if(err){
@@ -254,6 +251,30 @@ router.get('/official_info', function(req, res, next) {
 });
 
 
+router.get('/new_offi_info', function(req, res, next) {
+
+    // if('user' in req.session){
+    //     console.log(req.session.user);
+    // }
+
+    req.pool.getConnection( function(err, connection){
+        if (err) {
+            res.sendStatus(500);
+            return;
+        }
+
+        query = "SELECT * FROM health_official ORDER BY ID DESC LIMIT 1;";
+
+        connection.query(query, params, function(err, rows, fields){
+            connection.release();
+            if(err){
+                res.sendStatus(500);
+                return;
+            }
+            res.json(rows);
+        });
+    });
+});
 
 //////////////////////////////////////////changing information part/////////////////////////////////////////
 //------------------------------------------change user info-------------------------------------------------
