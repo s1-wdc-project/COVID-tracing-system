@@ -1,0 +1,734 @@
+html{
+  height: 100%;
+
+  font-family: 'Enriqueta', serif;
+
+}
+/* main header (COVID-19)*/
+.main_header {
+  /*padding: 70px;*/
+  /*background: slateblue;*/
+  text-align: center;
+  color: white;
+  height: 450px;
+  background-attachment: fixed;
+  background-image: url("../stylesheets/Images/header20.jpg");
+  background-size: 100%;
+
+}
+
+/*aboutus, contactus header*/
+.main_header2 {
+  /*padding: 70px;*/
+  /*background: slateblue;*/
+  text-align: center;
+  color: white;
+  height: 450px;
+  background-attachment: fixed;
+  background-image: url("../stylesheets/Images/header1.jpg");
+  background-size: 100%;
+
+}
+.main_header3 {
+  /*padding: 70px;*/
+  /*background: slateblue;*/
+  text-align: center;
+  color: white;
+  height: 450px;
+  background-attachment: fixed;
+  background-image: url("../stylesheets/Images/user.png");
+  background-size: 100%;
+
+}
+.main_header4 {
+  /*padding: 70px;*/
+  /*background: slateblue;*/
+  text-align: center;
+  color: white;
+  height: 450px;
+  background-attachment: fixed;
+  background-image: url("../stylesheets/Images/venue.png");
+  background-size: 100%;
+
+}
+.main_header5 {
+  /*padding: 70px;*/
+  /*background: slateblue;*/
+  text-align: center;
+  color: white;
+  height: 450px;
+  background-attachment: fixed;
+  background-image: url("../stylesheets/Images/official.png");
+  background-size: 100%;
+
+}
+
+div.mapboxgl-ctrl.mapboxgl-ctrl-geocoder {
+margin: auto;
+}
+
+#title {
+  margin-top: 80px;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 100px;
+  margin-bottom: 0;
+
+}
+h2 {
+  font-size: 60px;
+  margin-top: 0;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+
+/* general style */
+
+a:hover{
+  opacity: 0.7;
+}
+
+button:hover{
+  opacity: 0.7;
+}
+
+
+body {
+
+  padding: 0;
+  margin: 0;
+  /*background-color:#001133;*/
+
+}
+
+#map {
+  margin: 10px 150px 50px;
+  max-width: 100%;
+  height:55vh;
+}
+
+.search {
+  text-align: center;
+  clear: both;
+}
+section{
+  display: none;
+}
+/*——————————————————————————————————bar——————————————————————————*/
+/* bar */
+.bar {
+  overflow: hidden;
+  background-color: #303030;
+  position: sticky;
+
+  top: 0;
+}
+
+/* Style the navigation bar links */
+.bar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+.bar a:hover {
+  background-color: white;
+  color: black;
+}
+
+.bar a.home {
+  background-color: grey;
+  color: white;
+}
+/*————————————————————————————————————————footer——————————————————————————————————————————————————*/
+footer {
+  padding: 1.0%;
+  bottom: auto;
+  width: 100%;
+  background-color: 	#2b2b3b;
+  box-sizing: border-box;
+  font-family: arial;
+  font-size: 20px;
+}
+/* footer a */
+
+.footer_info a {
+  font-size: 20px;
+  padding: 1em;
+  color: white;
+  text-decoration: none;
+}
+
+.footer_info a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.footer_info{
+  float: right;
+}
+/*-------------------------------- search box ----------------------------------------*/
+input[type="text"][name="search"]{
+  padding: 0.5em 2em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  width: 50vw;
+  border: 1px solid lightgrey;
+  border-radius: 1em;
+
+}
+
+/*---------------------------------------button style----------------------------------------*/
+
+.btn-github {
+  width: 100%;
+  height: 500;
+}
+
+
+
+button {
+  background-color : #ffae42;
+  color: #303030;
+  padding: 0.8em 1.5em;
+  border: none;
+  font-weight: 900;
+  font-size: 16px;
+  border-radius: 0.5em;
+  margin: 5px;
+  font-weight: bold;
+}
+
+#github-button{
+    background: #262626;
+    padding: 11px 50px;
+    color: #fff;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 17px;
+    border-radius: 0.5px;
+    width: 100%;
+    height: 50px;
+    margin-top:10px;
+}
+
+.click {
+  background-color: #6A5ACD;
+  color: white;
+  padding: 0.5em 1.2em;
+}
+
+.header_button a{
+  background-color: white;
+  float : right;
+  color: #303030;
+  padding: 0.8em 1.5em;
+  border: none;
+  font-weight: 900;
+  font-size: 16px;
+  border-radius: 0.5em;
+  margin: 5px;
+  font-weight: bold;
+}
+
+.header_button a.signup_btn {
+  background-color: sandybrown;
+  font-weight: bold;
+}
+
+.header_button a.back_btn {
+  background-color : PeachPuff;
+  font-weight: bold;
+}
+
+#logo {
+  float: left;
+  width: 8vw;
+  height: 3.5vw;
+  padding: 0;
+  position: center;
+
+}
+
+/*---------------------about us page-------------------------*/
+.subtitle {
+  color:grey;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.row {
+  height:70%;
+}
+.column {
+  font-family: arial;
+  float: left;
+  width: 33.3%;
+  height:100%;
+  margin-bottom: 1px;
+  padding: 0 8px;
+}
+
+.box {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+  height: 80%;
+}
+
+.box2 {
+  padding: 0 16px;
+  height:100%;
+}
+
+.box2::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/*.button {*/
+/*  border: none;*/
+/*  outline: 0;*/
+/*  display: inline-block;*/
+/*  padding: 8px;*/
+/*  color: white;*/
+/*  background-color: #000;*/
+/*  text-align: center;*/
+/*  cursor: pointer;*/
+/*  width: 100%;*/
+/*}*/
+
+
+/*.button:hover {*/
+/*  background-color: #555;*/
+/*}*/
+
+
+/* ----------------------contact_us----------------------- */
+.container{
+  font-family: arial;
+  height:55vh;
+}
+.contact_us1 {
+  font-size: 130%;
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 1em;
+}
+
+.column1 {
+  float: left;
+  width: 50%;
+  margin-top: 10px;
+  padding: 20px;
+  justify-content: center;
+  /*left: 30%;*/
+  position: relative;
+}
+
+.row1 {
+  width: 1000px;
+  content: "";
+  display: table;
+  clear: both;
+  /*left: 30%;*/
+  /*justify-content: center;*/
+  margin: auto;
+  margin-bottom: 200px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+
+}
+
+.login_image{
+  float: left;
+  width: 50%;
+  margin-top: 100px;
+  margin-left: 30px;
+  padding: 20px;
+  justify-content: center;
+  /*left: 30%;*/
+  position: relative;
+}
+
+
+/* ---------------sign up----------------*/
+.signup_page {
+  position: relative;
+  /*height: 530px;*/
+  text-align: center;
+  border: 2px solid grey;
+  border-radius: 4px;
+  width : 70vw;
+  padding: 70px;
+  justify-content: center;
+  left: 15%;
+  margin-bottom: 100px;
+
+}
+
+button.cancel {
+  position: absolute;
+  background-color : grey;
+  color: white;
+  padding: 0.8em 1.3em;
+  border: none;
+  border-radius: 0.5em;
+  margin: 5px;
+}
+button.sign_up_button {
+
+  background-color : sandybrown;
+  color: white;
+  padding: 0.8em 1.3em;
+  border: none;
+  border-radius: 0.5em;
+  margin: 5px;
+}
+
+input.signup_input {
+  width: 50%;
+  padding: 6px;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  text-decoration: none;
+}
+
+
+/*---------------------login page-------------------------*/
+
+.login-box {
+    width: 450px;
+    margin: 0 auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: table;
+    padding: 15px 30px 30px;
+    box-sizing: border-box;
+}
+.form-group {
+  float: left;
+  width: 100%;
+  margin: 0 0 15px;
+  position: relative;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 5px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 15px;
+    padding-left: 75px;
+}
+
+.login-box .login-btn {
+  background: #ffae42;
+  padding: 11px 50px;
+  color: #fff;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 20px;
+  border-radius: 30px;
+  width: 100%;
+  height: 50px;
+}
+
+
+.login-box button:hover{
+  opacity: 0.5;
+}
+
+.login-box .seperator {
+  float: left;
+  width: 100%;
+  border-top: 1px solid #ccc;
+  text-align: center;
+  margin: 50px 0 0;
+}
+.login-box .seperator b {
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+  text-align: center;
+  line-height: 40px;
+  background: #fff;
+  display: inline-block;
+  border: 1px solid #e0e0e0;
+  border-radius: 50%;
+  position: relative;
+  top: -22px;
+  z-index: 1;
+}
+
+
+
+/*——————————————————————————————————————user page————————————————————————————————————————————*/
+ /*div style for user information block*/
+.info_table_layout{
+  border: 1px solid grey;
+  border-radius: 5px;
+  background-color: #e1dfdd;
+  margin: auto;
+  margin-top: 100px;
+  width: 50%;
+}
+.info_table_layout th{
+  width:35%;
+}
+.information_block{
+  border: 1px solid grey;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  border-radius: 5px;
+  background-color: #e1dfdd;
+  margin: 5%;
+}
+.change_user_info{
+  float: right;
+  font-size:small;
+}
+
+.change_user_info:hover
+{
+  text-decoration: underline;
+}
+.individual_account{
+  height:800px;
+}
+
+.official_account{
+  height:55vh;
+}
+
+
+/*-----------------------check in box-----------------------------*/
+.check_in_box{
+  position: relative;
+  border: 3px solid grey;
+  height: 20%;
+  text-align: center;
+  border-radius: 4px;
+  max-width : 70%;
+  padding: 30px;
+  justify-content: center;
+  left: 15%;
+  background-color: OldLace;
+  box-sizing: border-box
+}
+.checkin_button {
+  width: 50%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  display: inline-block;
+  font-size: 17px;
+  text-decoration: none;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+/*------------------------check in history ------------------------*/
+.history {
+  position: relative;
+  height: 40%;
+  text-align: center;
+  border-radius: 4px;
+  max-width : 70%;
+  padding: 30px;
+  justify-content: center;
+  left: 15%;
+}
+
+div.history_box {
+  padding: 10px 20px;
+  background-color: mistyrose;
+  position: relative;
+  border-radius: 5px;
+  margin-bottom: 13px;
+}
+
+div.history_box::before {
+  content: '';
+  border: 4px solid #ffae42;
+  border-radius: 50%;
+  position: absolute;
+  top: 20%;
+  left: -50px;
+  width: 16px;
+  height: 16px;
+}
+
+element.style{
+  z-index: 99;
+}
+
+.search_result_table table{
+  width:80%;
+  margin:10%;
+  margin-top:5%;
+  border-spacing: 0;
+
+}
+ .search_result_table th {
+  border: 1px solid black;
+
+}
+/*——————individual——————————*/
+
+
+/*account*/
+.individual_account h1{
+  text-align: left;
+}
+
+/*------------------------------------------mobile-----------version----------------------------------*/
+@media screen and (max-width: 420px){ /*iphone 6/7/8 plus*/
+
+h1 {
+  font-size: 8vw;
+
+}
+h2 {
+  font-size: 4.5vw;
+}
+/*--------------map-------*/
+#map {
+  margin: 4px 30px 50px;
+}
+/* ----------------bar---------- */
+.bar a {
+  padding: 10px 10px;
+  font-size: 12px;
+}
+/* ----------footer------------ */
+footer {
+  font-size: 1vh;
+}
+
+.footer_info a {
+  font-size: 1vh;
+}
+.signup_page {
+  left: 5%;
+}
+}
+
+@media screen and (max-width: 600px){
+  /* main header (COVID-19)*/
+  .main_header {
+  height: 230px;
+}
+.main_header2 {
+  height: 230px;
+}
+.main_header3 {
+  height: 230px;
+}
+.main_header4 {
+  height: 230px;
+}
+.main_header5 {
+  height: 230px;
+}
+.signup_page {
+  left: 10%;
+}
+}
+
+@media screen and (max-width: 960px){
+  /*~~~~~~~~~~~~~~about us~~~~~~~~~~~~~~*/
+html {
+  box-sizing: inherit;
+}
+.column {
+  width: 95%;
+}
+.column1 {
+  width:90%;
+  justify-content: center;
+}
+.row {
+  height:210%;
+}
+.row1 {
+  width:100%;
+}
+/*~~~~~~~~~~~~~~countect us~~~~~~~~~~~~~~*/
+.container{
+  height:210%;
+}
+/*~~~~~~~~~~~~~~log in~~~~~~~~~~~~~~*/
+.login-box {
+    width: 90%;
+}
+/*~~~~~~~~~~~~~~sign up~~~~~~~~~~~~~~~~*/
+.signup_page {
+  width: 55vw;
+}
+}
+
+@media screen and (max-width: 1024px){ /*ipad*/
+
+h1 {
+  font-size: 8vw;
+
+}
+h2 {
+  font-size: 4.5vw;
+}
+/*--------------map-------*/
+#map {
+  height:55vmax;
+}
+/*--------------button-------*/
+button {
+  font-size: 1.2vw;
+}
+
+.header_button a{
+  font-size: 1.2vw;
+}
+
+#logo {
+  width: 9.4vw;
+  height: 4vw;
+}
+/*~~~~~~~~~~~~~~about us/log in~~~~~~~~~~~~~~*/
+.row1 {
+  width:100%;
+}
+/*~~~~~~~~~~~~~~user page~~~~~~~~~~~~~~~~*/
+.individual_account{
+  height:70vh;
+}
+.venue_check_in{
+  height:70vh;
+}
+.official_account{
+  height:70vh;
+}
+}
