@@ -168,9 +168,53 @@ function change_venue_info(){
 
 
 //-=============================================map=====================================
+var app = new Vue({
+    el: '#hotspot',
+    data: {
+        markers: [],
+        form_long: 0,
+        form_lat: 0
+    },
+    methods: {
+        get_markers: function(){
+            let req = new XMLHttpRequest();
+            req.onreadystatechange = function(){
+                if(req.readyState == 4 && req.status == 200){
+                    for(let m of app.markers){
+                        if('marker' in m){
+                            m.marker.remove();
+                        }
+                    }
+
+                    let markers = JSON.parse(req.responseText);
+                    for(let m of markers){
+                        m.marker = new mapboxgl.Marker()
+                            .setLngLat([m.longtitude, m.latitude])
+                            .addTo(map);
+                    }
+
+                    app.markers = markers;
+                }
+            };
+            req.open('GET','/markers',true);
+            req.send();
+        },
+
+        add_marker: function(){
+            let req = new XMLHttpRequest();
+
+            req.open('POST','/addmarker',true);
+            req.setRequestHeader('Content-type', 'application/json');
+            req.send(JSON.stringify({long:this.form_long,lat:this.form_lat}));
+        }
+    }
+});
+
+app.get_markers();
+
 mapboxgl.accessToken = 'pk.eyJ1Ijoiam9jZWx5bjY2NiIsImEiOiJja29mZ2RwOWkwNTFvMnVwNzI3eXgxdngwIn0.IoVn3pEiBAmMgflGWs8eTw';
 var map = new mapboxgl.Map({
-    container: 'map',
+    container: 'set_map',
     style: 'mapbox://styles/mapbox/streets-v8',
     center: [138.611, -34.923],
     zoom: 9,

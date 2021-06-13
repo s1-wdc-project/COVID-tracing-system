@@ -524,6 +524,11 @@ input.signup_input {
   height:55vh;
 }
 
+#set_map {
+  justify-content: center;
+  width: 50%;
+  height: 40%;
+}
 
 /*-----------------------check in box-----------------------------*/
 .check_in_box{

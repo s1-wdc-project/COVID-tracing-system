@@ -9,7 +9,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@600&display=swap" rel="stylesheet">
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-        <script src="javascripts/project.js" defer></script>
         <script src="javascripts/user_page.js" defer></script>
 
         <!-- map link -->
@@ -346,7 +345,33 @@
        <section class="official_account" id="hotspot">
             <h3>official set hotspot </h3>
             <div id="geocoder" class="geocoder"></div>
-            <div id= 'map'></div>
+            <div id= 'set_map'></div>
+            <div id= 'markers'>
+                <table class="pure-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Longtitude</th>
+                            <th>Latitude</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="marker in markers">
+                            <td>{{ marker.id }}</td>
+                            <td>{{ marker.longtitude }}</td>
+                            <td>{{ marker.latitude }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id= 'add'>
+                <label for="add-long">Longtitude</label>
+                <input type="text" id="add-long" v-model.number="form_long" placeholder="e.g. -20.020" />
+                <label for="add-lat">Latitude</label>
+                <input type="text" id="add-lat" v-model.number="form_lat" placeholder="e.g. -20.020" />
+
+                <button type="button" class="pure-button pure-button-primary" v-on:click ="add_marker()">submit</button>
+            </div>
         </section>
    <!--——————————————account———————————————————————-->
        <section class="official_account" id="official_account">

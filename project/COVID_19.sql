@@ -16,11 +16,16 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Current Database: `COVID_19`
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `COVID_19` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+
+USE `COVID_19`;
+
+--
 -- Table structure for table `check_in`
 --
-DROP SCHEMA IF EXISTS COVID_19;
-CREATE SCHEMA COVID_19;
-USE COVID_19;
 
 DROP TABLE IF EXISTS `check_in`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -66,6 +71,33 @@ LOCK TABLES `health_official` WRITE;
 /*!40000 ALTER TABLE `health_official` DISABLE KEYS */;
 INSERT INTO `health_official` VALUES (30000,'official'),(30001,'official'),(30002,'official');
 /*!40000 ALTER TABLE `health_official` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `markers`
+--
+
+DROP TABLE IF EXISTS `markers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `markers` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `longtitude` float DEFAULT NULL,
+  `latitude` float DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `markers_chk_1` CHECK (((`longtitude` <= 180) and (`longtitude` >= -(180)))),
+  CONSTRAINT `markers_chk_2` CHECK (((`latitude` <= 90) and (`latitude` >= -(90))))
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `markers`
+--
+
+LOCK TABLES `markers` WRITE;
+/*!40000 ALTER TABLE `markers` DISABLE KEYS */;
+INSERT INTO `markers` VALUES (1,138.6,-34.9274),(4,138.6,-34.925),(5,138.6,-34.925),(6,138.6,-34.92);
+/*!40000 ALTER TABLE `markers` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -133,4 +165,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-13  8:03:54
+-- Dump completed on 2021-06-13 15:02:00
