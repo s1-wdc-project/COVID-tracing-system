@@ -92,7 +92,7 @@ function venue_info(){
       }
     };
 
-    xhttp.open("GET", "/users/user_info", true);
+    xhttp.open("GET", "/users/venue_info", true);
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send();
 }
@@ -114,7 +114,7 @@ function official_info(){
       }
     };
 
-    xhttp.open("GET", "/users/user_info", true);
+    xhttp.open("GET", "/users/official_info", true);
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send();
 }
@@ -125,7 +125,7 @@ function check(){
 }
 
 //-------------------------------------------change info-------------------------------------------
-function change_info(){
+function change_user_info(){
   var xhttp = new XMLHttpRequest();
 
   var FirstName = document.getElementById("first_name").value;
@@ -145,6 +145,27 @@ function change_info(){
 
 
 }
+
+function change_venue_info(){
+  var xhttp = new XMLHttpRequest();
+
+  var VenueName = document.getElementById("venue_name").value;
+  var Num = document.getElementById("venue_num").value;
+  var VenueLocation = document.getElementById("venue_address").value;
+  var Password = document.getElementById("venue_password").value;
+
+
+  var info = {'venue_name': VenueName,'contact_num': Num, 'venue_location': VenueLocation, 'password':Password};
+
+    console.log(info);
+
+    xhttp.open("POST", "/users/change_venue_info", true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send(JSON.stringify(info));
+
+
+}
+
 
 //-=============================================map=====================================
 mapboxgl.accessToken = 'pk.eyJ1Ijoiam9jZWx5bjY2NiIsImEiOiJja29mZ2RwOWkwNTFvMnVwNzI3eXgxdngwIn0.IoVn3pEiBAmMgflGWs8eTw';

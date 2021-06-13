@@ -34,9 +34,10 @@ function go_to_user_page(){
   location.replace("user_page.html");
 }
 
-// // function go_to_venue_page(){
-// //   location.replace("user_page.html");
-// // }
+function go_to_venue_page(){
+  location.replace("user_page.html");
+  Manager();
+}
 
 // function user_define(){
 //     if(Math.floor(id/10000) == 1){
@@ -94,7 +95,7 @@ function LogIn_v(){
     // Define function to run on response
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-                    go_to_user_page();
+                    go_to_venue_page();
                     show_user();
         }else if(this.readyState == 4 && this.status >= 400){
              LogIn_o();

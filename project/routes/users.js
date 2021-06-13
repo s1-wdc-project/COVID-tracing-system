@@ -154,8 +154,9 @@ router.get('/take_user_id',function(req, res, next) {
 });
 
 
-
+//////////////////////////////////////////showing information part/////////////////////////////////////////
 // ------------------------------------individual user_info------------------------------
+
 router.get('/user_info', function(req, res, next) {
 
     // if('user' in req.session){
@@ -184,10 +185,11 @@ router.get('/user_info', function(req, res, next) {
         });
     });
 });
-/*
+
+
 //---------------------------------------------venue info -------------------------------------------
 
-router.get('/user_info', function(req, res, next) {
+router.get('/venue_info', function(req, res, next) {
 
     // if('user' in req.session){
     //     console.log(req.session.user);
@@ -217,10 +219,10 @@ router.get('/user_info', function(req, res, next) {
         });
     });
 });
-*/
+
 //------------------------------------------official info----------------------------------
-/*
-router.get('/user_info', function(req, res, next) {
+
+router.get('/official_info', function(req, res, next) {
 
     // if('user' in req.session){
     //     console.log(req.session.user);
@@ -250,9 +252,12 @@ router.get('/user_info', function(req, res, next) {
         });
     });
 });
-*/
 
+
+
+//////////////////////////////////////////changing information part/////////////////////////////////////////
 //------------------------------------------change user info-------------------------------------------------
+
 router.post('/change_info', function(req, res, next) {
     // insert statement to the db
     //console.log(req.body);
@@ -289,6 +294,44 @@ router.post('/change_info', function(req, res, next) {
        });
    });
 });
+
+//------------------------------------------change venue info-------------------------------------------------
+router.post('/change_venue_info', function(req, res, next) {
+    // insert statement to the db
+    //console.log(req.body);
+    venue_name = req.body.venue_name;
+    contact_num = req.body.contact_num;
+    venue_location = req.body.venue_location;
+    password = req.body.password;
+
+
+    req.pool.getConnection( function(err, connection){
+
+       if (err) {
+           res.sendStatus(500);
+           return;
+       }
+
+
+       var query = "UPDATE venue SET venue_name = ?, contact_num=?, venue_location=?, password=? WHERE venue_id=?";
+       params = [venue_name, contact_num, venue_location, password, log_in_user_id];
+
+
+
+       connection.query(query, params, function(err, rows, fields){
+           connection.release();
+           if(err){
+              console.log("error1?");
+               console.log("changed_info", params);
+               res.sendStatus(500);
+               return;
+           }
+          console.log('error2?');
+           res.sendStatus(200);
+       });
+   });
+});
+
 
 //-------------------------------------------log out-----------------------------------------------------
 router.post('/logout', function(req, res, next) {

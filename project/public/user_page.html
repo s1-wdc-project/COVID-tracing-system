@@ -93,13 +93,14 @@
                 </div>
                 <div class="information_block">
                     <p style="font-size:150%;">your personal information:
-                    <a class="change_user_info" onclick="Info_change()">change information</a>
+                    <button class="change_user_info" onclick="Info_change()">click to change information</button>
                     </p>
                     <p style="font-size:20px"><b style="color:navy">&#128100 Name: </b><span id="f_name"></span> <span id= "l_name"></span></p>
 
                     <p style="font-size:20px"><b style="color:navy">&#9743 Phone Number: </b><span id="ph_num"></span></p>
 
                     <p style="font-size:20px"><b style="color:navy">&#128231 Email: </b><span id="mail"></span></p>
+
 
                 </div>
             </div>
@@ -129,7 +130,7 @@
                     </tr>
                     <tr>
                         <th></th>
-                        <th>    <button style="background-color:skyblue" onclick="change_info()">submit change</button></th>
+                        <th>    <button style="background-color:skyblue" onclick="change_user_info()">submit change</button></th>
                     </tr>
                 </table>
             </section>
@@ -204,13 +205,15 @@
                 </div>
                 <div class="information_block" v-if="!change_information">
                     <p style="font-size:150%;">your personal information:
-                    <a class="change_user_info" onclick="Venue_info_change()">change information</a>
+                    <button class="change_user_info" onclick="Venue_info_change()">Click to change information</button>
                     </p>
                     <p style="font-size:20px"><b style="color:navy">&#128100 Name: </b><span id="v_name"></span></p>
 
                     <p style="font-size:20px"><b style="color:navy">&#9743 Phone Number: </b><span id="v_num"></span></p>
                     <p style="font-size:20px"><b style="color:navy">&#128231 Location: </b><span id="location"></span></p>
                     <p>health situation: &#128994</p>
+
+
                 </div>
             </div>
         </section>
@@ -220,23 +223,23 @@
             <table class="info_table_layout">
                 <tr>
                     <th><p>Venue name:</p></th>
-                    <th> <input class="change_info_input" type="text" name="venue_name" placeholder="venue name" ></th>
+                    <th> <input class="change_info_input" type="text" name="venue_name" id="venue_name" placeholder="venue name" ></th>
                 </tr>
                 <tr>
                     <th><p>Phone Number:</p></th>
-                    <th> <input class="change_info_input" type="tel" name="phone_NO" placeholder="number" ></th>
+                    <th> <input class="change_info_input" type="tel" name="phone_NO" id="venue_num" placeholder="number" ></th>
                 </tr>
                 <tr>
                     <th><p>Location:</p></th>
-                    <th> <input class="change_info_input" type="text" name="address" placeholder="location" ></th>
+                    <th> <input class="change_info_input" type="text" name="address" id="venue_address" placeholder="location" ></th>
                 </tr>
                 <tr>
                     <th><p>Password:</p></th>
-                    <th> <input class="change_info_input" type="password" name="password" placeholder="**************" ></th>
+                    <th> <input class="change_info_input" type="password" name="password" id="venue_password" placeholder="**************" ></th>
                 </tr>
                 <tr>
                     <th></th>
-                    <th>                <button @click="change_information = false" style="background-color:skyblue;">submit change</button></th>
+                    <th> <button onclick="change_venue_info()" style="background-color:skyblue;">submit change</button></th>
                 </tr>
             </table>
           </section>
