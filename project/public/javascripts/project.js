@@ -186,7 +186,7 @@ function venue_sign_up(){
         venue_name:document.getElementById("venue_name").value,
         password: document.getElementById("password").value,
         phone: document.getElementById("phone").value,
-        location: document.getElementById("location").value
+        Location: document.getElementById("location").value
     };
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {

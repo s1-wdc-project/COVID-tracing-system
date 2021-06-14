@@ -26,6 +26,7 @@ function show_user(){
           console.log(recent_user);
 
           the_user_type = (Math.floor(recent_user)/10000) - 1;
+          the_user_type = Math.round(the_user_type);
           console.log(the_user_type);
 
             //   document.getElementById("user_header_show").innerHTML = recent_user;
@@ -244,7 +245,7 @@ function UserCheckinHistory(){
                 checkinlist.classList.add("history_box");
 
             var time = document.createElement('h3');
-            var location = document.createElement('p');
+            var location = document.createElement('h3');
 
             time.innerText = list[i].log_in_time;
             location.innerText = list[i].venue_location;
