@@ -78,10 +78,11 @@
             <br>
             <br>
     <!-------------------- check in history ---------------------------->
+               <div class="row1_check_in">
                 <div class="history" >
-                    <h3>My history</h3>
+                    <h3>Check My history</h3>
                     <div class="venuelist_btn">
-                        <button style="text-align: center" onclick="UserCheckinHistory()">CLICK HISTORY!</button>
+                        <button style="text-align: center; background-color:greenyellow" onclick="UserCheckinHistory()">CLICK HISTORY!</button>
                     </div>
                     <div id="check_history">
                           <!--<div class="history_box">-->
@@ -91,6 +92,7 @@
                           <!--</div>-->
                     </div>
                 </div>
+            </div>
         </div>
 
         <section id="user_checkin" class="search_result_table">
@@ -226,8 +228,8 @@
                 <br>
                 <br>
                 <label for="search_user">user_id:</label>
-                <input type="text" id="search_user_venue" name="enter the user id">
-                <input type="submit" value="Search">
+                <input type="text" id="venue_search_user" name="enter the user id">
+                <input type="submit" value="Search" onclick="venue_search_user()">
                 <br>
                 <br>
             </div>
@@ -236,18 +238,14 @@
                 <tr style="background-color:#CDCDCD">
                     <th>User_id</th>
                     <th>User_name</th>
-                    <th>Venue</th>
                     <th>Date</th>
                 </tr>
-                    <th>a11111</th>
-                    <th>someone</th>
-                    <th>Atlantis</th>
-                    <th>2021-5-14 19:22:14</th>
-                <tr>
-                </tr>
-                <tr>
+                <tbody id="user_check_v">
+                    <!--<th>a11111</th>-->
+                    <!--<th>someone</th>-->
+                    <!--<th>2021-5-14 19:22:14</th>-->
+                 </tbody>
 
-                </tr>
             </table>
             </div>
 
@@ -354,7 +352,7 @@
                     <th>Date</th>
                 </tr>
                 <tbody id="user_check_o">
-                    
+
                 </tbody>
                 <tr>
 

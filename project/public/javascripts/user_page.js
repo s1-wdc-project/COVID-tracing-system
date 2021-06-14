@@ -756,6 +756,45 @@ function h_search_user(){
 
 }
 
+//----------------------------------venue-> user checkin search-------------------------------------
+function venue_search_user(){
+    // console.log("1111111");
+    var o_sign = {
+        pas : document.getElementById("venue_search_user").value
+    };
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+
+      var venue_user_check_result = document.getElementById("user_check_v");
+
+      var list = JSON.parse(this.responseText);
+      //console.log(list);
+
+
+      for (i = 0; i < list.length; i++) {
+        var row = document.createElement('tr');
+        var Id = document.createElement('th');
+        var Name = document.createElement('th');
+        var time = document.createElement('th');
+        Id.innerText = list[i].user_id;
+        Name.innerText = list[i].last_name;
+        time.innerText = list[i].log_in_time;
+        row.appendChild(Id);
+        row.appendChild(Name);
+        row.appendChild(time);
+        venue_user_check_result.appendChild(row);
+
+      }
+      }
+
+    };
+    xhttp.open("POST","/v_search_user", true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send(JSON.stringify(o_sign));
+
+}
+
 
 
 // //—————————————————————————————————vue for user page
