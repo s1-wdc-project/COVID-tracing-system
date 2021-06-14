@@ -53,7 +53,7 @@ router.post('/user_sign_up', function(req, res, next) { //Connect to the databas
                 phone:  req.body.phone
             };
             console.log(req.body);
-            var query = "INSERT INTO user (first_name,last_name,email,password,phone) VALUES(?,?,?,?,?)";
+            var query = "INSERT INTO user (first_name,last_name,email,password,phone) VALUES(?,?,?,?,?) ;";
             connection.query(query,[add_user.first_name,add_user.last_name,add_user.email,add_user.password,add_user.phone],function(err, rows, fields) {
             connection.release(); // release connection
             if (err) {
@@ -81,10 +81,8 @@ router.post('/venue_sign_up', function(req, res, next) { //Connect to the databa
                 phone:  req.body.phone
             };
             console.log(req.body);
-            var query = "INSERT INTO venue (venue_name,venue_location,contact_num,password) VALUES(?,?,?,?)";
+            var query = "INSERT INTO venue (venue_name,venue_location,contact_num,password) VALUES(?,?,?,?) ;";
             params = [add_venue.name,add_venue.Locations,add_venue.phone,add_venue.password];
-
-
             connection.query(query, params,function(err, rows, fields) {
             connection.release(); // release connection
             if (err) {
@@ -135,24 +133,29 @@ router.get('/githubsignin/callback', passport.initialize(), passport.authenticat
 });
 
 
-router.get('/h_search_user', function(req, res, next) { //Connect to the database
+router.post('/h_search_user', function(req, res, next) { //Connect to the database
     req.pool.getConnection(function(err,connection) {
         if (err) {
             res.sendStatus(500);
             return;
         }
-        var query = "SELECT user.user_id, user.last_name, user.first_name, venue.venue_name, check_in.log_in_time FROM check_in INNER JOIN user ON check_in.user_id = user.user_id INNER JOIN venue ON check_in.venue_id = venue.venue_id WHERE check_in.user_id = ?";
-        connection.query(query,function(err, rows, fields) {
+        const require = req.body.pas;
+        var query = "SELECT user.user_id, user.last_name,venue.venue_name, check_in.log_in_time FROM check_in INNER JOIN user ON check_in.user_id = user.user_id INNER JOIN venue ON check_in.venue_id = venue.venue_id WHERE check_in.user_id = ? ;";
+       // var query = "SELECT user.user_id, user.last_name,venue.venue_name, check_in.log_in_time FROM check_in INNER JOIN user ON check_in.user_id = user.user_id INNER JOIN venue ON check_in.venue_id = venue.venue_id WHERE check_in.user_id = ?;";
+        //var params =  [user_id, last_name , venue_name , log_in_time];
+        var params = [require];
+        console.log(require);
+        connection.query(query,params,function(err, rows, fields) {
             connection.release(); // release connection
             if (err) {
                 res.sendStatus(500);
                 return;
             }
-            res.json(rows);
+            res.send(rows);
+            console.log(rows);
         });
     });
 });
-
 
 
 router.get('/markers', function(req, res, next) { //Connect to the database

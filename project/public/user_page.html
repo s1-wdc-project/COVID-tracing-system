@@ -341,7 +341,7 @@
                 <br>
                 <label for="search_user">user_id:</label>
                 <input type="text" id="h_search_user" name="enter the user id">
-                <input type="button" value="Search" v-on:click="h_search_user()" ><!--onclick="h_search_user()">-->
+                <input type="button" value="Search" onclick="h_search_user()" ><!--onclick="h_search_user()">-->
                 <br>
                 <br>
             </div>
@@ -353,13 +353,9 @@
                     <th>Venue</th>
                     <th>Date</th>
                 </tr>
-
-                <tr v-for="info in user_check_in">
-                    <th>{{ info.user_id }}</th>
-                    <th>{{ info.last_name }}</th>
-                    <th>{{ info.venue_name }}</th>
-                    <th>{{ info.log_in_time }}</th>
-                </tr>
+                <tbody id="user_check_o">
+                    
+                </tbody>
                 <tr>
 
                 </tr>

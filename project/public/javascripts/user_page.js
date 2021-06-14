@@ -26,7 +26,6 @@ function show_user(){
           console.log(recent_user);
 
           the_user_type = (Math.floor(recent_user)/10000) - 1;
-          the_user_type = Math.round(the_user_type);
           console.log(the_user_type);
 
             //   document.getElementById("user_header_show").innerHTML = recent_user;
@@ -245,7 +244,7 @@ function UserCheckinHistory(){
                 checkinlist.classList.add("history_box");
 
             var time = document.createElement('h3');
-            var location = document.createElement('h3');
+            var location = document.createElement('p');
 
             time.innerText = list[i].log_in_time;
             location.innerText = list[i].venue_location;
@@ -685,6 +684,8 @@ function Official_signup(){
 
 }
 
+
+
 var app = new Vue({
     el: '#user_history',
     data: {
@@ -710,6 +711,50 @@ var app = new Vue({
 
     }
 });
+
+// ————————————————————————————offical check user
+
+
+function h_search_user(){
+    console.log("1111111");
+    var o_sign = {
+        pas : document.getElementById("h_search_user").value
+    };
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+
+      var user_check_result = document.getElementById("user_check_o");
+
+      var list = JSON.parse(this.responseText);
+      //console.log(list);
+
+
+      for (i = 0; i < list.length; i++) {
+        var row = document.createElement('tr');
+        var Id = document.createElement('th');
+        var Name = document.createElement('th');
+        var Venue= document.createElement('th');
+        var time = document.createElement('th');
+       Id.innerText = list[i].user_id;
+        Name.innerText = list[i].last_name;
+        Venue.innerText = list[i].venue_name;
+        time.innerText = list[i].log_in_time;
+        row.appendChild(Id);
+        row.appendChild(Name);
+        row.appendChild(Venue);
+        row.appendChild(time);
+        user_check_result.appendChild(row);
+
+      }
+      }
+
+    };
+    xhttp.open("POST","/h_search_user", true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send(JSON.stringify(o_sign));
+
+}
 
 
 
