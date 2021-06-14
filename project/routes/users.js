@@ -403,6 +403,28 @@ router.post('/add_user_checkin', function(req, res, next) {
    });
 });
 
+//-------------------------------------------user check in history---------------------------------------
+
+router.get('/user_checkin_history', function(req, res, next) {
+   //select statement from the db
+   req.pool.getConnection( function(err, connection){
+       if (err) {
+           res.sendStatus(500);
+           return;
+       }
+       var query = "SELECT venue.venue_location, check_in.log_in_time FROM check_in INNER JOIN venue ON venue.venue_id = check_in.venue_id WHERE user_id=?";
+       params = [log_in_user_id];
+
+       connection.query(query, params, function(err, rows, fields){
+           connection.release();
+           if(err){
+               res.sendStatus(500);
+               return;
+           }
+           res.json(rows);
+       });
+   });
+});
 
 
 //-------------------------------------------log out-----------------------------------------------------

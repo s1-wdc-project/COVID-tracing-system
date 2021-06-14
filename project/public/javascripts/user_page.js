@@ -226,6 +226,44 @@ function add_user_checkin(){
 
 }
 
+//---------------------------------------------user check in history---------------------------------
+function UserCheckinHistory(){
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+
+
+
+      var list = JSON.parse(this.responseText);
+      //console.log(list);
+
+
+          for (i = 0; i < list.length; i++) {
+            var checkinlist = document.createElement("div");
+                checkinlist.classList.add("history_box");
+
+            var time = document.createElement('h3');
+            var location = document.createElement('p');
+
+            time.innerText = list[i].log_in_time;
+            location.innerText = list[i].venue_location;
+
+
+            checkinlist.appendChild(time);
+            checkinlist.appendChild(location);
+
+            document.getElementById("check_history").appendChild(checkinlist);
+          }
+
+      }
+    };
+
+    xhttp.open("GET", "/users/user_checkin_history", true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send();
+}
+
 //---------——————————————————————————————————official sign up
 
 
