@@ -174,7 +174,7 @@ function VenueList(){
     xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
 
-      var venueTable = document.querySelector('tbody');
+      var venueTable = document.getElementById('VenueList');
 
       var list = JSON.parse(this.responseText);
       //console.log(list);
@@ -182,8 +182,8 @@ function VenueList(){
 
       for (i = 0; i < list.length; i++) {
         var row = document.createElement('tr');
-        var VenueId = document.createElement('td');
-        var VenueName = document.createElement('td');
+        var VenueId = document.createElement('th');
+        var VenueName = document.createElement('th');
         VenueId.innerText = list[i].venue_id;
         VenueName.innerText = list[i].venue_name;
         row.appendChild(VenueId);
@@ -795,74 +795,50 @@ function venue_search_user(){
 
 }
 
+//----------------- official venue check
 
 
-// //—————————————————————————————————vue for user page
+function h_search_venue(){
+    console.log("venue_search");
+    var o_sign = {
+        pas : document.getElementById("search_venue").value
+    };
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
 
-// var user_log_in = new Vue({
-//   el: '#user_page',
-//   data: {
+      var venue_check_result = document.getElementById("venue_check_o");
 
-//     tab: 'map',
-//     /*
-//       find user login type:
-//       -1: do not log in
-//       0 : individual user
-//       1 : venue manager
-//       2 : official
-//     */
-//     user_type : '1',
+      var list = JSON.parse(this.responseText);
+      //console.log(list);
 
 
-// // ——————————————————————individual user————————————————————-
-//     /*
-//       individual user bar choose
-//       0: check in
-//       1: account
-//     */
-//     i_user_bar: '0',
-//         /*
-//       venue user bar choose
-//       0: check in history
-//       1: account
-//     */
-//     v_user_bar: '0',
-//             /*
-//     official user bar choose
-//       0: user check in history
-//       1: venue check in history
-//       2: set hotspot
-//       3: account
-//       4: sign-up official
-//     */
-//     o_user_bar: '0',
+      for (i = 0; i < list.length; i++) {
+        var row = document.createElement('tr');
+        var id = document.createElement('th');
+        var name = document.createElement('th');
+        var venue= document.createElement('th');
+        var time = document.createElement('th');
+        venue.innerText = list[i].venue_name;
+        id.innerText = list[i].user_id;
+        name.innerText = list[i].last_name;
+        time.innerText = list[i].log_in_time;
+        row.appendChild(venue);
+        row.appendChild(id);
+        row.appendChild(name);
+        row.appendChild(time);
+        venue_check_result.appendChild(row);
 
+      }
+      }
 
-//     // user if click change information in account
-//     change_information: false,//
+    };
+    xhttp.open("POST","/h_search_venue", true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send(JSON.stringify(o_sign));
 
-//   },
-//   methods: {
-//     get_user_type_vue : function(){
-//         var xhttp = new XMLHttpRequest();
-//         xhttp.onreadystatechange = function() {
-//         if (this.readyState == 4 && this.status == 200) {
-//           user_log_in.user_type = (Math.floor(xhttp.responseText)/10000) - 1;
-//           console.log(user_type);
-//           console.log("get_type_success");
-//         }else{
-//           console.log("fail get user type")
-//         }
-//     };
-//     xhttp.open("GET","/users/take_user_id", false);
-//     xhttp.send();
-//   },
-//   mounted: function(){
-//     this.get_user_type_vue();
-//   }
-//   }
+}
 
-//   });
 
 //-----------------------------map---------------------------------------------
 // var show = false;
