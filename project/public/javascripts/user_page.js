@@ -202,12 +202,12 @@ function sign_up_offi(){
     xhttp.send(JSON.stringify(o_sign));
 
 }
-//---------——————————————————————————————————official search user check in 
+//---------——————————————————————————————————official search user check in
 
 
 
 //-=============================================map=====================================
-var app = new Vue({
+var map_app = new Vue({
     el: '#hotspot',
     data: {
         markers: [],
@@ -219,7 +219,7 @@ var app = new Vue({
             let req = new XMLHttpRequest();
             req.onreadystatechange = function(){
                 if(req.readyState == 4 && req.status == 200){
-                    for(let m of app.markers){
+                    for(let m of map_app.markers){
                         if('marker' in m){
                             m.marker.remove();
                         }
@@ -232,7 +232,7 @@ var app = new Vue({
                             .addTo(map);
                     }
 
-                    app.markers = markers;
+                    map_app.markers = markers;
                 }
             };
             req.open('GET','/markers',true);
@@ -249,7 +249,7 @@ var app = new Vue({
     }
 });
 
-app.get_markers();
+map_app.get_markers();
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoiam9jZWx5bjY2NiIsImEiOiJja29mZ2RwOWkwNTFvMnVwNzI3eXgxdngwIn0.IoVn3pEiBAmMgflGWs8eTw';
 var map = new mapboxgl.Map({
@@ -569,6 +569,34 @@ function Official_signup(){
     official_signup.style.display = "block";
 
 }
+
+var app = new Vue({
+    el: '#user_history',
+    data: {
+        user_check_in: [],
+    },
+    methods: {
+        h_search_user: function(){
+            let req = new XMLHttpRequest();
+            req.onreadystatechange = function(){
+                if(req.readyState == 4 && req.status == 200){
+                    for(let m of app.user_check_in){
+                        if('user_check_in' in m){
+                            m.user_check_in.remove();
+                        }
+                    }
+                let info = JSON.parse(req.responseText);
+                app.user_check_in = info;
+                }
+            };
+            req.open('GET','/h_search_user',true);
+            req.send();
+        },
+
+    }
+});
+
+
 
 // //—————————————————————————————————vue for user page
 

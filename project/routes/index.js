@@ -133,6 +133,25 @@ router.get('/githubsignin/callback', passport.initialize(), passport.authenticat
 });
 
 
+router.get('/h_search_user', function(req, res, next) { //Connect to the database
+    req.pool.getConnection(function(err,connection) {
+        if (err) {
+            res.sendStatus(500);
+            return;
+        }
+        var query = "SELECT user.user_id, user.last_name, user.first_name, venue.venue_name, check_in.log_in_time FROM check_in INNER JOIN user ON check_in.user_id = user.user_id INNER JOIN venue ON check_in.venue_id = venue.venue_id WHERE check_in.user_id = ?";
+        connection.query(query,function(err, rows, fields) {
+            connection.release(); // release connection
+            if (err) {
+                res.sendStatus(500);
+                return;
+            }
+            res.json(rows);
+        });
+    });
+});
+
+
 
 router.get('/markers', function(req, res, next) { //Connect to the database
     req.pool.getConnection(function(err,connection) {

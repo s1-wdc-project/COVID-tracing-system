@@ -295,7 +295,7 @@
                 <br>
                 <label for="search_user">user_id:</label>
                 <input type="text" id="h_search_user" name="enter the user id">
-                <input type="submit" value="Search" ><!--onclick="h_search_user()">-->
+                <input type="button" value="Search" v-on:click="h_search_user()" ><!--onclick="h_search_user()">-->
                 <br>
                 <br>
             </div>
@@ -307,11 +307,12 @@
                     <th>Venue</th>
                     <th>Date</th>
                 </tr>
-                    <th>a11111</th>
-                    <th>someone</th>
-                    <th>Atlantis</th>
-                    <th>2021-5-14 19:22:14</th>
-                <tr>
+
+                <tr v-for="info in user_check_in">
+                    <th>{{ info.user_id }}</th>
+                    <th>{{ info.last_name }}</th>
+                    <th>{{ info.venue_name }}</th>
+                    <th>{{ info.log_in_time }}</th>
                 </tr>
                 <tr>
 
