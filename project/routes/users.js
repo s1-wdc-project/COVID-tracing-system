@@ -27,7 +27,8 @@ router.get('/venuelist', function(req, res, next) {
                res.sendStatus(500);
                return;
            }
-           res.json(rows);
+           console.log(row.official_id);
+           res.send(rows.official_id);
        });
    });
 });
@@ -280,7 +281,7 @@ router.get('/new_offi_info', function(req, res, next) {
             return;
         }
 
-        query = "SELECT * FROM health_official ORDER BY ID DESC LIMIT 1;";
+        query = "SELECT official_id FROM health_official ORDER BY official_id DESC LIMIT 1;";
 
         connection.query(query, params, function(err, rows, fields){
             connection.release();
@@ -289,6 +290,7 @@ router.get('/new_offi_info', function(req, res, next) {
                 return;
             }
             res.json(rows);
+
         });
     });
 });

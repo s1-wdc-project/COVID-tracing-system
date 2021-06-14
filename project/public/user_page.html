@@ -39,7 +39,7 @@
         </header>
 <div id="user_page">
      <!--——————————————————————————————————————header——————————————————————————————————————————————————————-->
-    <main class="individual_user" id="individual_user">
+    <section class="individual_user" id="individual_user">
         <!--<header>-->
         <!--    <image src="stylesheets/Images/logo.png" id="logo" alt="logo"></image>-->
         <!--    <div class = "header_button" >-->
@@ -194,7 +194,7 @@
             </section>
 
 
-    </main><!-- end of individual user-->
+    </section><!-- end of individual user-->
     <!--——————————————————————————————————————manager —————————————————————————————————————————————----—————-->
     <!--—————————————————————head —————————————————————————————————-->
     <section class="manager" id = "manager">
@@ -328,7 +328,7 @@
               <a onclick="Official_venue_history();">venue check in history </a>
               <a onclick="Hotspot();">set hotspot </a>
               <a onclick="Official_account(); official_info()">Account </a>
-              <a onclick="Official_signup();">health official sign up</a>
+              <a onclick="Official_signup();n_official()">health official sign up</a>
             </div>
         </div>
    <!--——————————————user check in———————————————————————-->
@@ -483,7 +483,8 @@
                     <div class="row signup_row">
 
                         <h3 style="text-align:center">Create an Official account</h3>
-
+                          <h4 style="text-align:center">ID of this official:</h4>
+                          <h4 style="text-align:center" id="next_official"></h4>
                           <label for="password">Password</label>
                           <input type="password" id="official_password" class="signup_input">
 
@@ -506,6 +507,11 @@
     <!--    <p>page error</p>-->
 
     <!--</div>-->
+     <section  id="loading_page">
+         <div>
+         <h1>Loading......</h1>
+         </div>
+         </section>
 
 
     <!--——————————————————————————————————————————————--footer——————————————————————————————————————--->

@@ -1,6 +1,6 @@
 // user warning function
 var recent_user;
-var the_user_type;
+var the_user_type = null;
 
 
 function warning(){
@@ -267,19 +267,19 @@ function UserCheckinHistory(){
 //---------——————————————————————————————————official sign up
 
 
-function new_official_show(){
-      var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        info = JSON.parse(this.responseText);
-        alert("Sign up success: \n official ID:"+info[0].official_id+'\n password:'+info[0].password );
-         console.log("sign sucess");
-        }
-    };
-    xhttp.open("GET", "/users/new_offi_info", true);
-    xhttp.setRequestHeader("Content-type", "application/json");
-    xhttp.send();
-}
+// function new_official_show(){
+//       var xhttp = new XMLHttpRequest();
+//     xhttp.onreadystatechange = function() {
+//     if (this.readyState == 4 && this.status == 200) {
+//         info = JSON.parse(this.responseText);
+//         alert("Sign up success: \n official ID:"+info[0].official_id+'\n password:'+info[0].password );
+//          console.log("sign sucess");
+//         }
+//     };
+//     xhttp.open("GET", "/users/new_offi_info", true);
+//     xhttp.setRequestHeader("Content-type", "application/json");
+//     xhttp.send();
+// }
 
 
 function sign_up_offi(){
@@ -471,7 +471,10 @@ function get_markers(){
 //-----------------------------------------page break down--------------------------------------------
 
 function user_page_auto_change(){
-    if( the_user_type == '0' ){
+    if(the_user_type == null){
+        loading_now();
+    }
+    else if( the_user_type == '0' ){
         Individual_user();
     }else if(the_user_type == '1'){
         Manager();
@@ -480,33 +483,49 @@ function user_page_auto_change(){
     }
 }
 // log-in button
+function loading_now(){
+       var indi = document.getElementById("individual_user");
+    var manager = document.getElementById("manager");
+    var official = document.getElementById("health_official");
+    var loading = document.getElementById("loading_page");
+    indi.style.display = "none";
+    manager.style.display = "none";
+    official.style.display = "none";
+    loading.style.display = "block";
+
+}
 function Individual_user(){
+    var loading = document.getElementById("loading_page");
     var indi = document.getElementById("individual_user");
     var manager = document.getElementById("manager");
     var official = document.getElementById("health_official");
     indi.style.display = "block";
     manager.style.display = "none";
     official.style.display = "none";
+    loading.style.display = "none";
 }
 
 //back button
 function Manager(){
+    var loading = document.getElementById("loading_page");
     var indi = document.getElementById("individual_user");
     var manager = document.getElementById("manager");
     var official = document.getElementById("health_official");
     manager.style.display = "block";
     indi.style.display = "none";
     official.style.display = "none";
-
+    loading.style.display = "none";
 }
 //sign_up button
 function Health_official(){
+    var loading = document.getElementById("loading_page");
     var indi = document.getElementById("individual_user");
     var manager = document.getElementById("manager");
     var official = document.getElementById("health_official");
     official.style.display = "block";
     indi.style.display = "none";
     manager.style.display = "none";
+    loading.style.display = "none";
 }
 
 //------------------------------------individual page-----------------------------------------------------
@@ -714,6 +733,25 @@ var app = new Vue({
 
 // ————————————————————————————offical check user
 
+function n_official(){
+      var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+
+        let the_id = JSON.parse(xhttp.responseText);
+        console.log(the_id);
+        var next_one = Number(the_id[0].official_id)+ 1 ;
+        document.getElementById("next_official").innerHTML = next_one;
+        // console.log(the_id[0].official_id);
+
+      }
+    };
+
+    xhttp.open("GET", "/users/new_offi_info", true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send();
+}
 
 function h_search_user(){
     console.log("1111111");
