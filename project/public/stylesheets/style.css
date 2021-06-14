@@ -66,12 +66,15 @@ html{
 div.mapboxgl-ctrl.mapboxgl-ctrl-geocoder {
 margin: auto;
 }
-
+logo
 #title {
   margin-top: 80px;
   text-align: center;
 }
-
+.title {
+  margin-top: 80px;
+  text-align: center;
+}
 h1 {
   margin-top: 0;
   font-size: 100px;
@@ -251,6 +254,14 @@ button {
 }
 
 #logo {
+  float: left;
+  width: 8vw;
+  height: 3.5vw;
+  padding: 0;
+  position: center;
+
+}
+.logo {
   float: left;
   width: 8vw;
   height: 3.5vw;
@@ -746,6 +757,10 @@ button {
 }
 
 #logo {
+  width: 9.4vw;
+  height: 4vw;
+}
+.logo {
   width: 9.4vw;
   height: 4vw;
 }
