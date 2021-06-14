@@ -351,6 +351,19 @@ html {
   margin: auto;
   margin-bottom: 200px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.row1_check_in {
+  width: 1000px;
+  content: "";
+  display: table;
+  clear: both;
+  /*left: 30%;*/
+  /*justify-content: center;*/
+  margin: auto;
+  margin-bottom: 200px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: Snow;
 
 
 }
@@ -603,7 +616,16 @@ element.style{
 
 }
 /*——————individual——————————*/
+tr {
+  border-collapse: collapse;
+  border: 1px solid black;
+}
 
+.venuelist_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /*account*/
 .individual_account h1{

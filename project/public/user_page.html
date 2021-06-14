@@ -73,7 +73,7 @@
             <br>
             <div class ="check_in_box">
                 <h3>Check in now to save your spot</h3>
-                <button class="checkin_button">Check In</button>
+                <button class="checkin_button" onclick="User_checkin()">Check In</button>
             </div>
             <br>
             <br>
@@ -85,12 +85,53 @@
                     <p>The University of Adelaide, Adelaide South Australia
                 5005 Australia</p>
                   </div>
-                  <div class="history_box">
-                    <h3 style="color:slateblue">11 May 2021 12:34 PM</h3>
-                    <p>KFC, 100 Hindley St Adelaide South Australia 5003</p>
-                  </div>
                 </div>
         </div>
+
+        <section id="user_checkin" class="search_result_table">
+            <br>
+            <br>
+
+            <div class="row1_check_in">
+            <h3 style="text-align: center">Here are the venue lists<br><span style="text-align: center; color: red">Find the venue you want to check in and type the venue ID!</span></h3>
+
+
+            <div class="venuelist_btn">
+                <button style="text-align: center" onclick="VenueList()">VENUE LISTS!</button>
+                <button style="text-align: center; background-color:limegreen" onclick="Checkin_btn()">CHECK IN!</button>
+            </div>
+            <Br>
+            <br>
+            <section id="checkin_box">
+                <div class="check_in_box">
+                    <div class="venuelist_btn">
+                        <h4 style="text-align: center; color: red">
+                            Type Venue ID and click the CHECK IN!</h4>
+                    </div>
+                    <div class="venuelist_btn">
+                        <label for="search_user">Type Venue ID:</label>
+                        <input type="text" id="venue_checkin_id" name="enter the venue ID">
+                        <input type="submit" value="CHECK IN" onclick="add_user_checkin()">
+                    </div>
+                </div>
+            </section>
+
+            <table>
+                <thead>
+                    <tr style="background-color:#CDCDCD">
+                        <th>Venue_id</th>
+                        <th>Venue_name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--<tr>-->
+                    <!--    <th>20000</th>-->
+                    <!--    <th>venue1</th>-->
+                    <!--</tr>-->
+                </tbody>
+            </table>
+            </div>
+        </section>
    <!--——————————————account———————————————————————-->
    <!--page show information-->
        <section class="individual_account" id="individual_account">

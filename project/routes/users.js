@@ -13,7 +13,24 @@ router.get('/', function(req, res, next) {
 //     test2: 'p2'
 // };
 
-
+router.get('/venuelist', function(req, res, next) {
+   //select statement from the db
+   req.pool.getConnection( function(err, connection){
+       if (err) {
+           res.sendStatus(500);
+           return;
+       }
+       var query = "SELECT venue_id, venue_name FROM venue";
+       connection.query(query, function(err, rows, fields){
+           connection.release();
+           if(err){
+               res.sendStatus(500);
+               return;
+           }
+           res.json(rows);
+       });
+   });
+});
 //--------------------------------------user login--------------------------------------
 
 router.post('/login', function(req, res, next) {
@@ -352,6 +369,40 @@ router.post('/change_venue_info', function(req, res, next) {
        });
    });
 });
+
+//------------------------------------------user check in----------------------------------------------
+router.post('/add_user_checkin', function(req, res, next) {
+    // insert statement to the db
+    //console.log(req.body);
+    venue_id = req.body.venue_id;
+
+
+    console.log('venue_checkin_id: ', venue_id);
+
+    req.pool.getConnection( function(err, connection){
+        //console.log('hello1');
+       if (err) {
+           res.sendStatus(500);
+           return;
+       }
+       //console.log('hello2');
+       var query = "INSERT INTO check_in(user_id, venue_id) VALUES (?, ?)";
+       params = [log_in_user_id, venue_id];
+
+       connection.query(query, params, function(err, rows, fields){
+           connection.release();
+           if(err){
+               //console.log(err);
+               res.sendStatus(500);
+               return;
+           }
+
+           res.sendStatus(200);
+           console.log('successfully checked in');
+       });
+   });
+});
+
 
 
 //-------------------------------------------log out-----------------------------------------------------

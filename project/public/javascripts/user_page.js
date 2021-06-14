@@ -42,7 +42,7 @@ function show(){
     console.log(the_user_type);
 }
 
-
+//----------------------------------------show info -----------------------------------------------------
 function user_info(){
       var xhttp = new XMLHttpRequest();
 
@@ -167,6 +167,64 @@ function change_venue_info(){
 
 }
 
+//-------------------------------------------user checkin-----------------------------------------------
+function VenueList(){
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+
+      var venueTable = document.querySelector('tbody');
+
+      var list = JSON.parse(this.responseText);
+      //console.log(list);
+
+
+      for (i = 0; i < list.length; i++) {
+        var row = document.createElement('tr');
+        var VenueId = document.createElement('td');
+        var VenueName = document.createElement('td');
+        VenueId.innerText = list[i].venue_id;
+        VenueName.innerText = list[i].venue_name;
+        row.appendChild(VenueId);
+        row.appendChild(VenueName);
+        venueTable.appendChild(row);
+
+      }
+      }
+    };
+
+    xhttp.open("GET", "/users/venuelist", true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send();
+}
+
+function Checkin_btn(){
+    var check_in = document.getElementById("individual_check_in");
+    var indi_account = document.getElementById("individual_account");
+    var change = document.getElementById("info_change");
+    var goto_checkin = document.getElementById("user_checkin");
+    var checkin_box = document.getElementById("checkin_box");
+    goto_checkin.style.display = "block";
+    checkin_box.style.display = "block";
+    change.style.display = "none";
+    indi_account.style.display = "none";
+    check_in.style.display = "none";
+}
+
+function add_user_checkin(){
+  var xhttp = new XMLHttpRequest();
+
+  var venue_checkin_id = document.getElementById("venue_checkin_id").value;
+
+
+  var data = {'venue_id': venue_checkin_id};
+
+    xhttp.open("POST", "/users/add_user_checkin", true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send(JSON.stringify(data));
+
+}
 
 //---------——————————————————————————————————official sign up
 
@@ -178,13 +236,13 @@ function new_official_show(){
         info = JSON.parse(this.responseText);
         alert("Sign up success: \n official ID:"+info[0].official_id+'\n password:'+info[0].password );
          console.log("sign sucess");
+        }
     };
-
     xhttp.open("GET", "/users/new_offi_info", true);
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send();
 }
-}
+
 
 function sign_up_offi(){
 
@@ -418,28 +476,46 @@ function Individual_check_in(){
     var check_in = document.getElementById("individual_check_in");
     var indi_account = document.getElementById("individual_account");
     var change = document.getElementById("info_change");
+    var goto_checkin = document.getElementById("user_checkin");
     check_in.style.display = "block";
     indi_account.style.display = "none";
     change.style.display = "none";
+    goto_checkin.style.display = "none";
 }
 
 function Individual_account(){
     var check_in = document.getElementById("individual_check_in");
     var indi_account = document.getElementById("individual_account");
     var change = document.getElementById("info_change");
+    var goto_checkin = document.getElementById("user_checkin");
     indi_account.style.display = "block";
     check_in.style.display = "none";
     change.style.display = "none";
+    goto_checkin.style.display = "none";
 }
 
 function Info_change(){
     var check_in = document.getElementById("individual_check_in");
     var indi_account = document.getElementById("individual_account");
     var change = document.getElementById("info_change");
+    var goto_checkin = document.getElementById("user_checkin");
     change.style.display = "block";
     indi_account.style.display = "none";
     check_in.style.display = "none";
+    goto_checkin.style.display = "none";
+}
 
+function User_checkin(){
+    var check_in = document.getElementById("individual_check_in");
+    var indi_account = document.getElementById("individual_account");
+    var change = document.getElementById("info_change");
+    var goto_checkin = document.getElementById("user_checkin");
+    var checkin_box = document.getElementById("checkin_box");
+    goto_checkin.style.display = "block";
+    change.style.display = "none";
+    indi_account.style.display = "none";
+    check_in.style.display = "none";
+    checkin_box.style.display = "none";
 
 }
 
