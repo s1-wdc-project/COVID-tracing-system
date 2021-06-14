@@ -246,6 +246,31 @@ router.post('/h_search_venue', function(req, res, next) { //Connect to the datab
 });
 
 
+// http://ethereal.email/messages
+var nodemailer = require('nodemailer');
+
+// http://ethereal.email/messages
+let transporter = nodemailer.createTransport({
+    host: 'smtp.ethereal.email',
+    port: 587, proxy: 'http://194.195.253.34',
+    auth: {
+        user: 'winona68@ethereal.email',
+        pass: 'D5HA4uuYjQTyne1HG6'
+    }
+});
+
+
+/* Sends an email to the provided address. */
+router.post('/email', function(req, res, next) {
+  let info = transporter.sendMail({
+      from: "winona68@ethereal.email", // sender address
+      to: req.body.recipient, // list of receivers
+      subject: req.body.subject, // Subject line
+      text: req.body.text, // plain text body
+      html: "<b>"+req.body.text+"</b>" // html body
+  });
+  res.send();
+});
 
 
 

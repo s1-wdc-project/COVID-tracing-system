@@ -412,13 +412,23 @@
                     </tbody>
                 </table>
             </div>
+            <hr>
             <div id= 'add'>
+                <p>set hot spot:</p>
                 <label for="add-long">Longtitude</label>
                 <input type="text" id="add-long" v-model.number="form_long" placeholder="e.g. -20.020" />
                 <label for="add-lat">Latitude</label>
                 <input type="text" id="add-lat" v-model.number="form_lat" placeholder="e.g. -20.020" />
 
                 <button type="button" class="pure-button pure-button-primary" v-on:click ="add_marker()">submit</button>
+            </div>
+            <hr>
+            <div id= 'email'>
+                <p>send email:</p>
+                <input id="emailto" type="text" placeholder="TO" />
+                <input id="emailsubj" type="text" placeholder="Subject" />
+                <textarea id="emailtext"></textarea>
+                <button onclick="send();">Send!</button>
             </div>
         </section>
    <!--——————————————account———————————————————————-->

@@ -840,31 +840,17 @@ function h_search_venue(){
 }
 
 
-//-----------------------------map---------------------------------------------
-// var show = false;
-// function show_map(){
-//         if(o_user_bar==2){
-//           show = true;
-//         }
-//         else{
-//           show = false;
-//         }
-// }
-// function hide_map()
-// {
-// 		var hideMap = document.getElementById("set_hotspot");
-//     hideMap.style.display = "none";
-// }
+//-----------email--------
 
-// function show_map()
-// {
-//     var showMap = document.getElementById("set_hotspot");
-//     showMap.style.display = "";
-// }
+function send() {
 
-// var map = new Vue({
-//     el:"#set_hotspot",
-//     data:{
-//         tab:'map'
-//     }
-// });
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.open("POST", "/email", true);
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.send(JSON.stringify({
+      recipient: document.getElementById('emailto').value,
+      subject: document.getElementById('emailsubj').value,
+      text: document.getElementById('emailtext').value
+    }));
+}

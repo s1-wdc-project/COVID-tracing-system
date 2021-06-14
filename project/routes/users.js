@@ -447,7 +447,15 @@ router.use(function(req, res, next){
 
 //after log in
 
+// ---------------------------------email----------------------------------------
 
+
+
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
 
 
 module.exports = router;
